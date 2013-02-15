@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>04.Calculator</title>
+    <link rel="stylesheet" type="text/css" href="04.StyleSheet.css">
+</head>
+<body>
+    <form>
+        <div id="calculator">
+            <img id="icon" src="images/icon.jpg" alt="icon" />
+            <span id="title">Calculator</span>
+            <input id="close" type="button" value="X" />
+            <input id="minimize" type="button" value="_" />
+            <input type="image" src="images/restore.jpg" name="restore" alt="Restore" />
+            <div id="wrapper">
+                <ul id="menu">
+                    <li>View
+                    </li>
+                    <li>Edit
+                    </li>
+                    <li>Help
+                    </li>
+                </ul>
+                <input type="text" value="8854455" id="screen"  class="borderss"/>
+                <div id="digits"  class="borderss">
+                    <span class="zeroes">0000&nbsp;&nbsp;&nbsp;0000&nbsp;&nbsp;&nbsp;0000&nbsp;&nbsp;&nbsp;0000&nbsp;&nbsp;&nbsp;0000&nbsp;&nbsp;&nbsp;0000&nbsp;&nbsp;&nbsp;0000&nbsp;&nbsp;&nbsp;0000</span>
+                    <br />
+                    <span class="sum">63</span>
+                    <span class="spanCenter">47</span>
+                    <span class="sum">32</span>
+                    <br />
+                    <span class="zeroes">0000&nbsp;&nbsp;&nbsp;0000&nbsp;&nbsp;&nbsp;0000&nbsp;&nbsp;&nbsp;0000&nbsp;&nbsp;&nbsp;0000&nbsp;&nbsp;&nbsp;0000&nbsp;&nbsp;&nbsp;0000&nbsp;&nbsp;&nbsp;0000</span>
+                    <br />
+                    <span class="sum">31</span>
+                    <span class="spanCenter">15</span>
+                    <span class="sum">&nbsp;0</span>
+                    <br />
+                </div>
+                <div id="values" >
+                    <div class="values borders">
+                        <span>
+                            <input type="radio" name="value" />Hex
+                        </span>
+                        <span>
+                            <input type="radio" name="value" checked="checked" />Dec
+                        </span>
+                        <span>
+                            <input type="radio" name="value" />Oct
+                        </span>
+                        <span>
+                            <input type="radio" name="value" />Bin
+                        </span>
+                    </div>
+                    <div class="values borders">
+                        <span>
+                            <input type="radio" name="length" checked="checked" />Qword
+                        </span>
+                        <span>
+                            <input type="radio" name="length" />Dword
+                        </span>
+                        <span>
+                            <input type="radio" name="length" />Word
+                        </span>
+                        <span>
+                            <input type="radio" name="length" />Byte
+                        </span>
+                    </div>
+                </div>
+                <div id="buttons">
+                    <div class="line">
+                        <button class="borders disabled">&nbsp;</button>
+                        <button class="borders normal">Mod</button>
+                        <button class="borders disabled letters">A</button>
+                        <button class="borders disabled">MC</button>
+                        <button class="borders disabled">MR</button>
+                        <button class="borders disabled">MS</button>
+                        <button class="borders disabled">M+</button>
+                        <button class="borders disabled">M-</button>
+                    </div>
+                    <div class="line">
+                        <button class="borders normal">(</button>
+                        <button class="borders normal">)</button>
+                        <button class="borders disabled letters">B</button>
+                        <button class="borders normal">&larr;</button>
+                        <button class="borders normal">CE</button>
+                        <button class="borders normal">C</button>
+                        <button class="borders normal">&#177;</button>
+                        <button class="borders disabled">&#8730;</button>
+                    </div>
+                    <div class="line">
+                        <button class="borders normal">RoL</button>
+                        <button class="borders normal">RoR</button>
+                        <button class="borders disabled letters">C</button>
+                        <button class="borders numbers">7</button>
+                        <button class="borders numbers">8</button>
+                        <button class="borders numbers">9</button>
+                        <button class="borders normal">/</button>
+                        <button class="borders disabled">%</button>
+                    </div>
+                    <div class="line">
+                        <button class="borders normal">Or</button>
+                        <button class="borders normal">Xor</button>
+                        <button class="borders disabled letters">D</button>
+                        <button class="borders numbers">4</button>
+                        <button class="borders numbers">5</button>
+                        <button class="borders numbers">6</button>
+                        <button class="borders normal">*</button>
+                        <button class="borders disabled">1/&chi;</button>
+                    </div>
+                    <button id="equalty" class="borders normal bold">=</button>
+                    <div class="line">
+                        <button class="borders normal">Lsh</button>
+                        <button class="borders normal">Rsh</button>
+                        <button class="borders disabled letters">E</button>
+                        <button class="borders numbers">1</button>
+                        <button class="borders numbers">2</button>
+                        <button class="borders numbers">3</button>
+                        <button class="borders normal">-</button>
+                    </div>
+                    <div class="line">
+                        <button class="borders normal">Not</button>
+                        <button class="borders normal">And</button>
+                        <button class="borders disabled letters">F</button>
+                        <button id="zero" class="borders numbers">0</button>
+                        <button class="borders disabled">.</button>
+                        <button class="borders normal">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="realcalc">
+        <img src="images/CalcReal.jpg" alt="real calculator" />
+    </div>
+</body>
+</html>

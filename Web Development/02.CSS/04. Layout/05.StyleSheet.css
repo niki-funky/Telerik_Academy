@@ -1,0 +1,80 @@
+﻿body {
+    width: 600px;
+    margin: 0 auto;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+nav {
+    font-weight: bold;
+    font-size: 150%;
+    text-align: center;
+    border-bottom: 2px solid #343434;
+    padding: 5px 0;
+}
+
+    nav a {
+        color: #06AEF0;
+        margin: auto 0;
+    }
+
+form {
+    height: 400px;
+    overflow: hidden;
+}
+
+    form .wrapper {
+        margin: 15px 0;
+        padding: 10px 8px 10px 8px;
+        width: 70%;
+        height: 90%;
+        border: 2px solid #343434;
+        display: inline-block;
+    }
+
+    form fieldset {
+        height: 31%;
+        margin: 0 0 5px 0;
+        padding: 0 5px 2px 2px;
+        border: 1px solid black;
+    }
+
+        form fieldset legend {
+            text-align: center;
+            margin: 0;
+        }
+
+        form fieldset img {
+            float: left;
+            height: 60%;
+            width: auto;
+        }
+
+        form fieldset p {
+            margin: 20px 0 0 0;
+            line-height: 27px;
+        }
+
+            form fieldset p span {
+                padding-left: 45px;
+            }
+
+    form #column1 {
+        width: 49%;
+        height: 100%;
+        display: inline-block;
+    }
+
+    form #column2 {
+        width: 50%;
+        height: 100%;
+        display: inline-block;
+    }
+
+    form aside {
+        display: inline-block;
+        width: 25%;
+        position: relative;
+        top: -10%;
+        line-height: 30px;
+    }

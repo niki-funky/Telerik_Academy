@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Nikolay Marinov" />
+    <title>03.WebPageUsingSemanticHTML-2</title>
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="#">LinkedIn</a>
+        </h1>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Home
+                    </a>
+                </li>
+                <li>
+                    <a href="#">What is LinkedIn?
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Join Today
+                    </a>
+                </li>
+                <li>
+                    <form method="post">
+                        <fieldset>
+                            <legend>Sign In</legend>
+
+                            <ul>
+                                <li>
+                                    <label for="email">Email:</label>
+                                    <input type="text" id="email" name="email" placeholder="email" />
+                                </li>
+                                <li>
+                                    <label for="pass">Password:</label>
+                                    <input type="password" id="pass" name="pass" placeholder="password" />
+                                </li>
+                                <li>
+                                    <input type="submit" id="buttonSignIn" value="Sign In" />
+                                </li>
+                            </ul>
+                        </fieldset>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+        <hr id="line" />
+    </header>
+    <section>
+        <header>
+            <h2>Over 175million professionals use LinkedIn
+                to exchange information, ideas and opportunities.</h2>
+            <ul>
+                <li>Stay informed about your contacts and industry</li>
+                <li>Find the people & knowledge you need to achieve your goals</li>
+                <li>Control your professional identity online</li>
+            </ul>
+            <h3>Join LinkedIn Today</h3>
+        </header>
+        <form method="post">
+            <fieldset>
+                <legend>Sign Up</legend>
+                <ul>
+                    <li>
+                        <label for="firstName">First Name:</label>
+                        <br />
+                        <input type="text" id="firstName" />
+                    </li>
+                    <li>
+                        <label for="lastName">Last Name:</label>
+                        <br />
+                        <input type="text" id="lastName" name="lastName" />
+                    </li>
+                    <li>
+                        <label for="email2">Email:</label>
+                        <br />
+                        <input type="email" id="email2" name="email2" />
+                    </li>
+                    <li>
+                        <label for="newUserPass">Password:</label>
+                        <br />
+                        <input type="password" id="newUserPass" name="newUserPass" />
+                        <br />
+                        <label for="newUserPass">6 or more characters</label>
+                    </li>
+                </ul>
+                <input type="submit" value="Join Now" />
+                <a href="#">*</a>
+                <p>
+                    Already on Linkedin? <a href="#">Sign In</a>
+                </p>
+            </fieldset>
+        </form>
+    </section>
+    <aside>
+        <header>
+            <h2>Search for someone by name:</h2>
+        </header>
+        <form>
+            <ul>
+                <li>
+                    <label for="friendFirstName">First Name</label>
+                    <input type="text" id="friendFirstName" placeholder="First Name" />
+                </li>
+                <li>
+                    <label for="friendLastName">Last Name</label>
+                    <input type="text" id="friendLastName" placeholder="Last Name" />
+                </li>
+            </ul>
+            <input type="submit" value="Go" />
+        </form>
+    </aside>
+</body>
+</html>

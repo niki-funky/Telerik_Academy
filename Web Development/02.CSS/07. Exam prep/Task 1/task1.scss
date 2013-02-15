@@ -1,0 +1,129 @@
+﻿//mixins
+$color1: #002D44;
+$color2: #77D1FF;
+$color1submenu: #feffff;
+$color1words: #143c50;
+$color2words: #27566e;
+
+@mixin linear-gradient ($colorTop, $colorBottom) {
+background: $color1; /* Old browsers */
+background: -moz-linear-gradient(top,  $colorTop 0%, $colorBottom 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$colorTop), color-stop(100%,$colorBottom)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  $colorTop 0%,$colorBottom 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  $colorTop 0%,$colorBottom 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  $colorTop 0%,$colorBottom 100%); /* IE10+ */
+background: linear-gradient(to bottom,  $colorTop 0%,$colorBottom 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorTop', endColorstr='$colorBottom',GradientType=0 ); /* IE6-8 */
+}
+
+@mixin remove-margin {
+		   margin: 0;
+		   padding: 0;
+}
+
+//end mixins
+
+body {
+	@include remove-margin;
+	font-size: 1em;
+	font-family: Arial;
+
+	#wrapper {
+		width: 860px;
+		height: 100px;
+		padding: 50px 50px;
+		@include linear-gradient ($color1, $color2);
+
+		nav {
+			height: 89px;
+
+			ul {
+				list-style-type: none;
+				@include remove-margin;
+
+
+				li {
+					display: inline-block;
+					padding: 5px 10px 5px 10px;
+					margin-right: 5px;
+
+					&:hover {
+						background-color: rgba(13, 79, 113, 0.70);
+						border-radius: 15px;
+					}
+
+					a {
+						text-decoration: none;
+						color: black;
+						font-size: 2em;
+						@include remove-margin;
+					}
+
+					ul {
+						display: none;
+						position: absolute;
+						left: 50px;
+
+						li {
+
+							position: relative;
+
+							&:hover ul {
+
+								display: block;
+								width: 360px;
+								border-radius: 16px;
+								list-style-type: none;
+								padding: 15px 5px 15px 15px;
+								@include linear-gradient ($color1submenu, $color2);
+								position: absolute;
+								left: 0px;
+								top: 42px;
+
+								a {
+
+									border-bottom: 1px solid black;
+									padding: 0 5px;
+								}
+							}
+
+							&:hover {
+							background-color: rgba(13, 79, 113, 0.70);
+							}
+
+							a {
+
+							}
+
+							ul {
+								display: none;
+								position: absolute;
+
+								li {
+
+									a {
+
+
+									}
+								}
+							}
+						}
+					}
+
+					&.selected {
+						background-color: rgba(0,0,0,0.28);
+						border-radius: 15px;
+
+						& > ul {
+							display:block;
+						}
+					}
+				}
+
+
+
+			}
+
+		}
+	}
+}

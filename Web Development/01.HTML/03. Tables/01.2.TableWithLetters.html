@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Nikolay Marinov" />
+    <title>01.2.TableWithLetters</title>
+    <style type="text/css">
+        th {
+            text-align: center;
+        }
+
+        td {
+            width: 20%;
+            text-align: center;
+        }
+
+        .LeftAligned {
+            text-align: left;
+        }
+
+        .RightAligned {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th colspan="3">Title goes here</th>
+                <td>A</td>
+                <td class="RightAligned">B</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="LeftAligned" rowspan="3">C</td>
+                <td>D</td>
+                <td>E</td>
+                <td>F</td>
+                <td class="RightAligned">G</td>
+            </tr>
+            <tr>
+                <td>H</td>
+                <td colspan="2">I</td>
+                <td class="RightAligned" rowspan="2">J</td>
+            </tr>
+            <tr>
+                <td>K</td>
+                <td>L</td>
+                <td>M</td>
+            </tr>
+            <tr>
+                <td class="RightAligned">N</td>
+                <td colspan="4">O</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

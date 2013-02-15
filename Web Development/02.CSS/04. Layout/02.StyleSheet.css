@@ -1,0 +1,75 @@
+﻿body {
+    font-family: Arial;
+    font-size: 15px;
+}
+
+h1 {
+    font-family: 'Arial Narrow';
+    font-size: 1.3em;
+    font-weight: normal;
+    margin: 0;
+}
+
+section {
+    background-color: #EEEEEE;
+    padding: 12px;
+    width: 420px;
+    border: 1px solid #D6D6D6;
+    border-radius: 5px;
+}
+
+article {
+    background-color: white;
+    border: 1px solid #9A9A9A;
+    margin: 35px 0 35px 0;
+    padding: 15px;
+    overflow: hidden;
+}
+
+    article img {
+        float: left;
+        margin-right: 15px;
+        border: 1px solid #9A9A9A;
+    }
+
+    article p {
+        padding: 0 0 0 0;
+        margin: 0 0 20px 0;
+    }
+
+        article p > a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+    article div {
+    }
+
+    article input {
+        float: right;
+        border: none;
+    }
+
+    article .button1 {
+        width: 76px;
+        height: 25px;
+        background-image: url(images/button1.png);
+        color: white;
+    }
+
+    article .button2 {
+        width: 63px;
+        height: 25px;
+        background-image: url(images/button2.png);
+        margin-left: 2px;
+        color: white;
+    }
+
+    article .button1:hover {
+        text-decoration: underline;
+    }
+
+    article .button2:hover {
+        text-decoration: underline;
+    }

@@ -1,0 +1,271 @@
+﻿#calculator {
+    width: 421px;
+    height: 388px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    background-color: #979797;
+    position: relative;
+    font-family: 'Segoe UI';
+    font-size: 12px;
+}
+
+    #calculator > img {
+        padding-left: 11px;
+        padding-top: 7px;
+        width: 12px;
+        height: 16px;
+    }
+
+    #calculator #title {
+        font-family: 'Segoe UI';
+        font-size: 16px;
+        position: absolute;
+        padding-top: 3px;
+        right: 180px;
+    }
+
+    #calculator input[id=close] {
+        color: white;
+        font-weight: bolder;
+        font-size: 10px;
+        font-family: 'Arial Black', Gadget, sans-serif;
+        background-color: #c75050;
+        border-style: none;
+        margin-right: 6px;
+        margin-left: 0px;
+        padding-top: 0px;
+        width: 47px;
+        height: 21px;
+        position: absolute;
+        right: 0;
+    }
+
+        #calculator input[id=close]:hover {
+            background-color: #e04343;
+            padding-right: 6px;
+            padding-top: 0px;
+            width: 47px;
+            height: 21px;
+            position: absolute;
+            right: 0;
+        }
+
+    #calculator input[type=image] {
+        padding-top: 0px;
+        width: 28px;
+        height: 21px;
+        position: absolute;
+        right: 53px;
+    }
+
+    #calculator input[id=minimize] {
+        font-family: tahoma;
+        font-weight: bolder;
+        font-size: 15px;
+        background-color: #979797;
+        border-style: none;
+        margin-right: 6px;
+        margin-left: 0px;
+        padding-top: 0px;
+        width: 27px;
+        height: 21px;
+        position: absolute;
+        right: 75px;
+    }
+
+        #calculator input[id=minimize]:hover {
+            background-color: #3665b3;
+            color: white;
+            padding-right: 6px;
+            padding-top: 0px;
+            width: 27px;
+            height: 21px;
+            position: absolute;
+            right: 75px;
+        }
+
+#wrapper {
+    width: 407px;
+    height: 350px;
+    margin-top: 4px;
+    margin-left: 6px;
+    border: solid 1px #808080;
+    background-repeat: no-repeat !important;
+    background: #d7e1eb; /* for non-css3 browsers */
+    background-image: -webkit-linear-gradient(top, #eef2fb 0%, #d7e1eb 40%); /* for webkit browsers */
+    background: -moz-linear-gradient(top, #eef2fb, #d7e1eb 40%); /* for firefox 3.6+ */
+    background-image: linear-gradient(to bottom, #eef2fb 0%, #d7e1eb 40%); /* for IE 10 */
+}
+
+ul#menu {
+    width: 407px;
+    height: 18px;
+    background-color: #f5f6f8;
+    border-bottom: solid 1px #e5e6e7;
+    padding: 0;
+    margin: 0;
+}
+
+    ul#menu li {
+        list-style: none;
+        display: inline;
+        padding-left: 7px;
+        padding-right: 5px;
+        padding-bottom: 2px;
+    }
+
+input#screen {
+    background-repeat: no-repeat !important;
+    background: #e6f0fc; /* for non-css3 browsers */
+    background: -moz-linear-gradient(top, #e6f0fc 0%, #edf4fc 18%, #ffffff 100%); /* for firefox 3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e6effb), color-stop(18%,#edf4fc), color-stop(100%,#ffffff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #e6f0fc 0%,#edf4fc 18%,#ffffff 100%); /* for webkit browsers */
+    background: -o-linear-gradient(top, #e6f0fc 0%,#edf4fc 18%,#ffffff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #e6f0fc 0%,#edf4fc 18%,#ffffff 100%); /* for IE */
+    background: linear-gradient(to bottom, #e6f0fc 0%,#edf4fc 18%,#ffffff 100%); /* for IE 10 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6effb', endColorstr='#ffffff',GradientType=0 ); /* IE old */
+    border: 1px solid #8c9dad;
+    border-radius: 2px;
+    font-family: Consolas;
+    width: 92%;
+    height: 38px;
+    margin: 11px 10px 5px 10px;
+    padding: 10px 10px 0 0;
+    font-size: 24px;
+    text-align: right;
+    outline: none;
+}
+
+#digits {
+    border: 1px solid #8c9dad;
+    border-radius: 2px;
+    font-family: Consolas;
+    font-size: 13px;
+    font-weight: bold;
+    width: 92%;
+    max-height: 50px;
+    line-height: 12px;
+    color: #3a5985;
+    margin-left: 10px;
+    padding: 5px 5px 5px 5px;
+}
+
+    #digits .spanCenter {
+        color: #626459;
+        padding-left: 174px;
+        padding-right: 142px;
+    }
+
+    #digits .sum {
+        color: #626459;
+    }
+
+.borders {
+    border: 1px solid #729090;
+    border-radius: 3px;
+}
+
+#values {
+    padding: 0 0 0 10px;
+    float: left;
+    font-size: 11px;
+    color: #153056;
+}
+
+.values {
+    margin-top: 5px;
+    padding-top: 5px;
+    width: 64px;
+    height: 84px;
+}
+
+    .values span {
+        display: block;
+    }
+
+#buttons {
+    display: inline-block;
+    float: left;
+}
+
+.line {
+    margin: 5px 0 0 5px;
+}
+
+button {
+    padding: 0;
+    margin-right: 2px;
+    font-family: Segoe UI;
+    height: 27px;
+    width: 35px;
+    color: #1E395B;
+    outline: none;
+}
+
+    button:hover {
+        background-repeat: no-repeat !important;
+        background: #ffe8ce; /* Old browsers */
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZThjZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ4JSIgc3RvcC1jb2xvcj0iI2ZmZThjZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjUyJSIgc3RvcC1jb2xvcj0iI2ZmY2Y3MCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmOWVmYjMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+        background: -moz-linear-gradient(top, #ffe8ce 0%, #ffe8ce 48%, #ffcf70 52%, #f9efb3 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffe8ce), color-stop(48%,#ffe8ce), color-stop(52%,#ffcf70), color-stop(100%,#f9efb3)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #ffe8ce 0%,#ffe8ce 48%,#ffcf70 52%,#f9efb3 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #ffe8ce 0%,#ffe8ce 48%,#ffcf70 52%,#f9efb3 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #ffe8ce 0%,#ffe8ce 48%,#ffcf70 52%,#f9efb3 100%); /* IE10+ */
+        background: linear-gradient(to bottom, #ffe8ce 0%,#ffe8ce 48%,#ffcf70 52%,#f9efb3 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffe8ce', endColorstr='#f9efb3',GradientType=0 ); /* IE6-8 */
+        border: 1px solid #F7DD34;
+    }
+
+.normal {
+    padding: 0;
+    line-height: 27px;
+    font-size: 11px;
+    background-image: linear-gradient(bottom, #D7E1EB 49%, #ECF3F9 60%);
+    background-image: -o-linear-gradient(bottom, #D7E1EB 49%, #ECF3F9 60%);
+    background-image: -moz-linear-gradient(bottom, #D7E1EB 49%, #ECF3F9 60%);
+    background-image: -webkit-linear-gradient(bottom, #D7E1EB 49%, #ECF3F9 60%);
+    background-image: -ms-linear-gradient(bottom, #D7E1EB 49%, #ECF3F9 60%);
+    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.49, #D7E1EB), color-stop(0.6, #ECF3F9) );
+    border: 1px solid #8a97aa;
+}
+
+.numbers {
+    /*font-size: 16px;*/
+    background-image: linear-gradient(bottom, #E7EEF6 49%, #F4F9FD 60%);
+    background-image: -o-linear-gradient(bottom, #E7EEF6 49%, #F4F9FD 60%);
+    background-image: -moz-linear-gradient(bottom, #E7EEF6 49%, #F4F9FD 60%);
+    background-image: -webkit-linear-gradient(bottom, #E7EEF6 49%, #F4F9FD 60%);
+    background-image: -ms-linear-gradient(bottom, #E7EEF6 49%, #F4F9FD 60%);
+    background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0.49, #E7EEF6), color-stop(0.6, #F4F9FD) );
+    border: 1px solid #8a97aa;
+}
+
+.disabled {
+    border: 1px solid #b5c1cf;
+    background-color: #D7E1EB;
+}
+
+/*.letters{
+    font-size: 16px;
+}*/
+
+#zero {
+    width: 75px;
+}
+
+#equalty {
+    margin-top: 5px;
+    float: right;
+    height: 59px;
+}
+
+.bold {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#realcalc {
+    /*display: inline;*/
+    width: 421px;
+    height: 388px;
+}

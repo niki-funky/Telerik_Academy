@@ -1,0 +1,29 @@
+﻿body {
+    font-size: 1em;
+}
+
+    body ul li a {
+        text-decoration: none;
+        color: black;
+    }
+
+li {
+    list-style: none;
+}
+
+    li ul {
+        display: none;
+    }
+
+        li ul li a {
+            color: #9C9C9C;
+        }
+
+ul li:hover > ul {
+    display: block;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+    color: black;
+}

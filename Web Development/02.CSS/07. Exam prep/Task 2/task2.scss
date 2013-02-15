@@ -1,0 +1,128 @@
+﻿//mixins
+$color1: #ffffff;
+$color2: #595959;
+$color3: #020202;
+$color4: #cacaca;
+$color5: #030303;
+$color6: #fcfcfc;
+$color7: #cccccc;
+
+@mixin linear-gradient ($colorTop, $colorBottom) {
+background: $color1; /* Old browsers */
+background: -moz-linear-gradient(top,  $colorTop 0%, $colorBottom 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$colorTop), color-stop(100%,$colorBottom)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  $colorTop 0%,$colorBottom 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  $colorTop 0%,$colorBottom 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  $colorTop 0%,$colorBottom 100%); /* IE10+ */
+background: linear-gradient(to bottom,  $colorTop 0%,$colorBottom 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$colorTop', endColorstr='$colorBottom',GradientType=0 ); /* IE6-8 */
+}
+
+@mixin remove-margin {
+		   margin: 0;
+		   padding: 0;
+}
+
+//end mixins
+
+body {
+	@include remove-margin;
+	font-size: 10px;
+	font-family: Arial;
+
+	#wrapper {
+
+		margin-left: 50px;
+
+		a.btn-login-form {
+
+			text-decoration: none;
+			color: black;
+			font-size: 2.3em;
+		}
+
+		a.btn-login-form:hover {
+
+			color: #666;
+		}
+
+		a.btn-login-form.current {
+
+			font-weight: bold;
+		}
+
+		form {
+
+		width: 450px;
+		height: 215px;
+		margin: 0 ;
+
+		fieldset {
+
+		padding: 10px 75px 10px 0;
+		margin: 0 auto;
+		@include linear-gradient ($color1, $color2);
+		border: 5px solid black;
+		border-radius: 5px;
+		text-align: right;
+		display: block;
+
+			legend {
+
+				padding: 0 10px;
+				font-size: 3.2em;
+				font-weight: bold;
+				font-style: italic;
+				background: white;
+			}
+
+			label {
+
+				font-weight: bold;
+				font-size: 1.8em;
+			}
+
+			input {
+
+				padding: 10px 15px;
+				margin: 0 0 7px 0;
+				border: none;
+				border-radius: 15px;
+				color: white;
+				@include linear-gradient ($color3, $color4);
+			}
+
+			input:last-of-type {
+
+				margin-bottom: 10px;
+			}
+
+			input:focus {
+
+				border: none;
+			}
+
+			button {
+
+				padding: 5px 10px;
+				margin: 0;
+				font-size: 1.9em;
+				border: 2px solid black;
+				border-radius: 15px;
+  				@include linear-gradient ($color5, $color6);
+			}
+
+			button:hover {
+
+  				@include linear-gradient ($color5, $color7);
+			}
+		}
+
+		}
+
+		form.invisible {
+
+			display: none;
+		}
+	}
+}

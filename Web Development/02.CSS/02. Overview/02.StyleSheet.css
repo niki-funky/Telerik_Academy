@@ -1,0 +1,35 @@
+﻿table {
+    border-collapse: collapse;
+    font-family: Arial;
+}
+
+th, td {
+    font-weight: normal;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 7px;
+    border-top: none;
+    border-bottom: none;
+}
+
+th {
+    background-color: #55B806;
+    color: white;
+    font-weight: normal;
+    border: solid black 1px;
+}
+
+tr:nth-child(2n) {
+    background-color: #ECECD8;
+}
+
+.thin {
+    padding-right: 10px;
+}
+
+img {
+    height: 1em;
+    margin-right: 5px;
+}

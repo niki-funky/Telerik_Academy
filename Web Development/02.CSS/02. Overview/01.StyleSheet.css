@@ -1,0 +1,48 @@
+﻿body {
+    background-color: #595959;
+    font-family: Arial;
+}
+
+h2 {
+    color: #BCBCBC;
+    font-weight: normal;
+}
+
+dt {
+    font-style: italic;
+    color: white;
+    width: 130px;
+    float: left;
+}
+
+dd {
+    color: #FCFEA8;
+    padding-left: 130px;
+    padding-bottom: 1em;
+}
+
+.greenCircle {
+    background-color: #71B47A;
+    height: 15px;
+    width: 15px;
+    border-radius: 7.5px;
+    float: left;
+    padding-left: 0px;
+    padding-bottom: 0;
+}
+
+.bottomPadding {
+    padding-bottom: 0;
+}
+
+.redText {
+    color: red;
+}
+
+.greyText {
+    color: #BCBCBC;
+}
+
+.orangeText {
+    color: orange;
+}

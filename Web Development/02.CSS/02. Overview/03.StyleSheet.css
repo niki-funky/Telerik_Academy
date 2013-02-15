@@ -1,0 +1,56 @@
+﻿body {
+    background-color: #A9A9A9;
+    font-size: 1em;
+}
+
+section ~ footer {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+h1 {
+    color: #FAFAD2;
+    text-align: center;
+    font-size: 3em;
+}
+
+article h1 {
+    text-align: left;
+    font-size: 2em;
+}
+
+article > p {
+    font-size: 1.2em;
+    /*height: 20px;
+    line-height: 20px;
+    overflow: hidden;*/
+}
+
+p a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/*article:nth-child(2) {
+    display: none;
+}*/
+
+ul {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    list-style-type: none;
+}
+
+    ul a {
+        color: white;
+        text-decoration: none;
+    }
+
+    ul li:last-of-type a {
+        border-bottom: 3px solid white;
+    }
+
+.current {
+    background-color: #D3D3D3;
+}
