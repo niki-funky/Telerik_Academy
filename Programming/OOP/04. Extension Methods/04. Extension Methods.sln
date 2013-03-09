@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Substring", "01. Substring\01. Substring.csproj", "{5171B633-89BE-4D3C-999F-67C1E65D5565}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. IEnumerable", "02. IEnumerable\02. IEnumerable.csproj", "{2FDEFF79-3FD1-47F2-B6E5-BF954B244FD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. StudentsNames", "03. StudentsNames\03. StudentsNames.csproj", "{2649D3CF-BC21-4447-8858-B3D5D67841B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. DivisibleBy7And3", "06. DivisibleBy7And3\06. DivisibleBy7And3.csproj", "{2F165667-2765-4CD4-94F8-BB4501A96502}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07. StringExtension", "07. StringExtension\07. StringExtension.csproj", "{C1F95EEC-CD26-4700-BFF3-BF1A9BD2C310}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{84429B70-8C78-43C3-BBA3-5E214CB58F72}"
+	ProjectSection(SolutionItems) = preProject
+		readme.txt = readme.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5171B633-89BE-4D3C-999F-67C1E65D5565}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5171B633-89BE-4D3C-999F-67C1E65D5565}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5171B633-89BE-4D3C-999F-67C1E65D5565}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5171B633-89BE-4D3C-999F-67C1E65D5565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FDEFF79-3FD1-47F2-B6E5-BF954B244FD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FDEFF79-3FD1-47F2-B6E5-BF954B244FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FDEFF79-3FD1-47F2-B6E5-BF954B244FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FDEFF79-3FD1-47F2-B6E5-BF954B244FD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2649D3CF-BC21-4447-8858-B3D5D67841B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2649D3CF-BC21-4447-8858-B3D5D67841B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2649D3CF-BC21-4447-8858-B3D5D67841B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2649D3CF-BC21-4447-8858-B3D5D67841B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F165667-2765-4CD4-94F8-BB4501A96502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F165667-2765-4CD4-94F8-BB4501A96502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F165667-2765-4CD4-94F8-BB4501A96502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F165667-2765-4CD4-94F8-BB4501A96502}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1F95EEC-CD26-4700-BFF3-BF1A9BD2C310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1F95EEC-CD26-4700-BFF3-BF1A9BD2C310}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1F95EEC-CD26-4700-BFF3-BF1A9BD2C310}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1F95EEC-CD26-4700-BFF3-BF1A9BD2C310}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
