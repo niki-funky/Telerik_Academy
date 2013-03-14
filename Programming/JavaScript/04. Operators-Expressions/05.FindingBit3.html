@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>05.Finding if Bit 3 is 1 or 0</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!--Write a boolean expression for finding if the bit 3 (counting from 0)
+        of a given integer is 1 or 0.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Enter a number to find if its 3rd Bit is 1 or 0 </p>
+            <label for="first">Number: </label>
+            <input type="text" id="first" />
+            <a href="#" onclick="onButtonClick()">Find bit 3</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var number = document.forms.first.value;
+            var bitPosition = 3;
+            var mask = 1 << bitPosition;
+            var paddedLeft = ((number & mask) >> 3) == 1;
+
+            document.getElementById('result').innerHTML =
+                ("Bit 3 of the number is: " + (paddedLeft > 0 ? 1 : 0));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>01.Exchange Two Integers</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 01. Write an if statement that examines two integer variables and
+    exchanges their values if the first one is greater than the second one.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Exchange values of two integers</p>
+            <label for="first">first: </label>
+            <input type="text" id="first" />
+            <label for="second">second: </label>
+            <input type="text" id="second" />
+            <a href="#" onclick="onButtonClick()">Exchange numbers</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result1"></p>
+        <p id="result2"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var firstInt = parseInt(document.forms.first.value, 10);
+            var secondInt = parseInt(document.forms.second.value, 10);
+
+            if (firstInt > secondInt) {
+                var bufferInt = firstInt;
+                firstInt = secondInt;
+                secondInt = bufferInt;
+            }
+            document.getElementById('result1').innerHTML = "First number is:  " + firstInt;
+            document.getElementById('result2').innerHTML = "Second number is:  " + secondInt;
+        }
+    </script>
+</body>
+</html>

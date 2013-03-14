@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>07.Greatest Of Five Variables</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!--07. Write a script that finds the greatest of given 5 variables.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Enter five numbers to find the greatest.</p>
+            <label for="first">first: </label>
+            <input type="text" id="first" />
+            <br />
+            <label for="second">second: </label>
+            <input type="text" id="second" />
+            <br />
+            <label for="third">third: </label>
+            <input type="text" id="third" />
+            <br />
+            <label for="fourth">fourth: </label>
+            <input type="text" id="fourth" />
+            <br />
+            <label for="fifth">fifth: </label>
+            <input type="text" id="fifth" />
+            <br />
+            <a href="#" onclick="onButtonClick()">Find greatest</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var first = parseFloat(document.forms.first.value);
+            var second = parseFloat(document.forms.second.value);
+            var third = parseFloat(document.forms.third.value);
+            var fourth = parseFloat(document.forms.fourth.value);
+            var fifth = parseFloat(document.forms.fifth.value);
+            var biggest = Number.MIN_VALUE;
+
+            if (first > biggest) {
+                biggest = first;
+            }
+            if (second > biggest) {
+                biggest = second;
+            }
+            if (third > biggest) {
+                biggest = third;
+            }
+            if (fourth > biggest) {
+                biggest = fourth;
+            }
+            if (fifth > biggest) {
+                biggest = fifth;
+            }
+            document.getElementById('result').innerHTML =
+                ("Greatest of 5 numbers is : " + biggest);
+        }
+    </script>
+</body>
+</html>

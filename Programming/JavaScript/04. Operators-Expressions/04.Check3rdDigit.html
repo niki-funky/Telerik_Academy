@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>04.Check 3rd Digit</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!--Write an expression that checks for given integer if its third digit
+        (right-to-left) is 7. E. g. 1732 -> true.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Enter a number to check if 3rd digit is 7 </p>
+            <label for="first">Number: </label>
+            <input type="text" id="first" />
+            <a href="#" onclick="onButtonClick()">Check 3rd digit</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var number = document.forms.first.value;
+            var division = parseInt(number / 100).toString();
+            var thirdNumber = division.slice(-1) == 7;
+
+            document.getElementById('result').innerHTML = thirdNumber;
+        }
+    </script>
+</body>
+</html>

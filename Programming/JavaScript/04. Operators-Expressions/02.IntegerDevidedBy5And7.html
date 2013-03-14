@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>02.Integer Devided By 5 And 7</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Write a boolean expression that checks for given integer if it 
+        can be divided (without remainder) by 7 and 5 in the same time.-->
+
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        jsConsole.writeLine("Enter number to check if it can be divided (w/o remainder) by 7 and 5 " + "<br />");
+        //variables
+        var number1 = prompt("Enter some Integer number", "");
+
+        if (number1 != null && number1 != 0) {
+            jsConsole.writeLine(number1 % 35 == 0
+                    ? "Number divides by 5 and 7 w/o remainder."
+                    : "Number doesn't divide by 5 and 7 w/o remainder!");
+        }
+        else {
+            jsConsole.writeLine("Number is null!");
+        }
+        jsConsole.writeLine("<br />" + "Reload the page to try again!");
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>06.Check If Point Is Within Circle 1</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!--Write an expression that checks if given print (x,y) is within a circle K(O,5).-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Enter coords. X,Y to check if given point(x,y) is within a circle K(O,5).</p>
+            <label for="first">X: </label>
+            <input type="text" id="first" />
+            <label for="second">Y: </label>
+            <input type="text" id="second" />
+            <a href="#" onclick="onButtonClick()">Check point</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var radius = 5;
+            var pointX = document.forms.first.value;
+            var pointY = document.forms.second.value;
+            var checkCoordinates = (pointX * pointX + pointY * pointY) < (radius * radius);
+
+            document.getElementById('result').innerHTML =
+                (checkCoordinates > 0 ?
+                "Point is within the circle(0,5)" :
+                "Point is Not within the circle(0,5)");
+        }
+    </script>
+</body>
+</html>

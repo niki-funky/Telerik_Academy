@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>01.CheckInteger For Evenness</title>
+    <link href="styles/js-console.css" rel="stylesheet" />
+</head>
+<body>
+    <!--01. Write an expression that checks if given integer is odd or even.-->
+
+    <div id="js-console"></div>
+    <script src="scripts/js-console.js"></script>
+    <script>
+        jsConsole.writeLine("Enter number to check if it is odd or even " + "<br />");
+        //variables
+        var number1 = prompt("Enter some Integer number", "");
+
+        if (number1 != null && number1 != 0) {
+            jsConsole.writeLine(number1 % 2 == 0
+                ? "Integer is even."
+                : "Integer is odd");
+        }
+        else {
+            jsConsole.writeLine("Number is null!");
+        }
+        jsConsole.writeLine("<br />" + "Reload the page to try again!");
+    </script>
+</body>
+</html>

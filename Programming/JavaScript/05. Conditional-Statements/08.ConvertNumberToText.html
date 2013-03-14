@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>08.Convert Number To Text</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!--Write a script that converts a number in the range [0...999]
+        to a text corresponding to its English pronunciation. Examples:
+	    0 -> "Zero"
+	    273 -> "Two hundred seventy three"
+	    400 -> "Four hundred"
+	    501 -> "Five hundred and one"
+	    711 -> "Seven hundred and eleven"-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Enter a number[0...999] to convert it to a text</p>
+            <label for="first">a: </label>
+            <input type="text" id="first" />
+            <a href="#" onclick="onButtonClick()">Convert number</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var number = parseInt(document.forms.first.value, 10);
+            var firstDigit;
+            var secondDigit;
+            var lastDigit;
+            var numberToText;
+
+            //number > 99
+            if (number > 99) {
+                firstDigit = Math.floor(number / 100);
+                secondDigit = Math.floor(number / 10) - (Math.floor(number / 100) * 10);
+                lastDigit = number - (Math.floor(number / 10) * 10);
+                if (secondDigit == 0) {
+                    if (lastDigit == 0) {
+                        numberToText = oneToNine(firstDigit) + " hundred ";
+                    }
+                    else {
+                        numberToText = oneToNine(firstDigit) + " hundred and " + oneToNine(lastDigit);
+                    }
+                }
+
+                else if (secondDigit == 1) {
+                    numberToText = oneToNine(firstDigit) + " hundred and " + tenToNineteen(number % 100);
+                }
+                else {
+                    numberToText = oneToNine(firstDigit) + " hundred and " + tenToNinety(secondDigit * 10) + " " + oneToNine(lastDigit);
+                }
+            }
+
+            // number < 100
+            if (number < 100) {
+                if (number < 10) {
+                    numberToText = oneToNine(number);
+                }
+                else if (number < 20 && number > 10) {
+                    numberToText = tenToNineteen(number);
+                }
+                else if (number % 10 == 0) {
+                    numberToText = tenToNinety(number);
+                }
+                else {
+                    firstDigit = Math.floor(number / 10);
+                    secondDigit = number - (Math.floor(number / 10) * 10);
+                    numberToText = tenToNinety(firstDigit * 10) + " " + oneToNine(secondDigit);
+                }
+            }
+
+            //numbers from 0...9
+            function oneToNine(digit) {
+                var text;
+                switch (digit) {
+                    case 0:
+                        text = "zero";
+                        break;
+                    case 1:
+                        text = "one";
+                        break;
+                    case 2:
+                        text = "two";
+                        break;
+                    case 3:
+                        text = "three";
+                        break;
+                    case 4:
+                        text = "four";
+                        break;
+                    case 5:
+                        text = "five";
+                        break;
+                    case 6:
+                        text = "six";
+                        break;
+                    case 7:
+                        text = "seven";
+                        break;
+                    case 8:
+                        text = "eight";
+                        break;
+                    case 9:
+                        text = "nine";
+                        break;
+                }
+                return text;
+            }
+
+            //numbers from 11...19
+            function tenToNineteen(elevens) {
+                var text1;
+                switch (elevens) {
+                    case 10:
+                        text1 = "ten";
+                        break;
+                    case 11:
+                        text1 = "eleven";
+                        break;
+                    case 12:
+                        text1 = "twelve";
+                        break;
+                    case 13:
+                        text1 = "thirteen";
+                        break;
+                    case 14:
+                        text1 = "fourteen";
+                        break;
+                    case 15:
+                        text1 = "fifteen";
+                        break;
+                    case 16:
+                        text = "sixteen";
+                        break;
+                    case 17:
+                        text1 = "seventeen";
+                        break;
+                    case 18:
+                        text1 = "eighteen";
+                        break;
+                    case 19:
+                        text1 = "nineteen";
+                        break;
+                }
+                return text1;
+            }
+
+            //numbers from 10...90
+            function tenToNinety(tens) {
+                var text2;
+                switch (tens) {
+                    case 10:
+                        text2 = "ten";
+                        break;
+                    case 20:
+                        text2 = "twenty";
+                        break;
+                    case 30:
+                        text2 = "thirty";
+                        break;
+                    case 40:
+                        text2 = "forty";
+                        break;
+                    case 50:
+                        text2 = "fifty";
+                        break;
+                    case 60:
+                        text2 = "sixty";
+                        break;
+                    case 70:
+                        text2 = "seventy";
+                        break;
+                    case 80:
+                        text2 = "eighty";
+                        break;
+                    case 90:
+                        text2 = "ninety";
+                        break;
+                }
+                return text2;
+            }
+
+            document.getElementById('result').innerHTML = numberToText;
+        }
+    </script>
+</body>
+</html>

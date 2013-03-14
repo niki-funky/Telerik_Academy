@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>06.Quadratic Equation</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!--Write a script that enters the coefficients a, b and c of a quadratic equation
+		a*x2 + b*x + c = 0
+		and calculates and prints its real roots. Note that quadratic equations
+        may have 0, 1 or 2 real roots.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Enter the coefficients a, b and c of a quadratic equation:</p>
+            <label for="first">a: </label>
+            <input type="text" id="first" />
+            <label for="second">b: </label>
+            <input type="text" id="second" />
+            <label for="third">c: </label>
+            <input type="text" id="third" />
+            <a href="#" onclick="onButtonClick()">Solve</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result1"></p>
+        <p id="result2"></p>
+        <p id="result3"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var x, x1, x2;
+            var a = parseFloat(document.forms.first.value);
+            var b = parseFloat(document.forms.second.value);
+            var c = parseFloat(document.forms.third.value);
+
+            //first find the Discriminant D
+            var D = Math.pow(b, 2) - (4 * a * c);
+
+            //check if a=0
+            if (a == 0) {
+                x = -c / b;
+                document.getElementById('result1').innerHTML = "x= " + x;
+            }
+            else {
+                //we have then 3 cases for D
+                //1. If the discriminant is negative, then there are no real roots
+                if (D < 0) {
+                    document.getElementById('result1').innerHTML = "No real roots.";
+                }
+                //2. If the discriminant is zero, then there is exactly one distinct real root,
+                //sometimes called a double root
+                if (D == 0) {
+                    x = -b / (2 * a);
+                    document.getElementById('result1').innerHTML = "x= ", x;
+                }
+                //3. If the discriminant is positive, 
+                //then there are two distinct roots, both of which are real numbers
+                if (D > 0) {
+                    x1 = (-b + Math.sqrt(D)) / 2 * a;
+                    x2 = (-b - Math.sqrt(D)) / 2 * a;
+                    document.getElementById('result2').innerHTML = "x1 = " + x1;
+                    document.getElementById('result3').innerHTML = "x2 = " + x2;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

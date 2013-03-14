@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>02.Sign Of Product</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 02. Write a script that shows the sign (+ or -) of the product
+     of three real numbers without calculating it. Use a sequence
+     of if statements.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Find sign of the product of three real numbers</p>
+            <label for="first">first: </label>
+            <input type="text" id="first" />
+            <label for="second">second: </label>
+            <input type="text" id="second" />
+            <label for="third">third: </label>
+            <input type="text" id="third" />
+            <a href="#" onclick="onButtonClick()">Find sign</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var negative = 0;
+            var firstNumber = parseFloat(document.forms.first.value, 10);
+            var secondNumber = parseFloat(document.forms.second.value, 10);
+            var thirdNumber = parseFloat(document.forms.third.value, 10);
+
+            if (firstNumber == 0 || secondNumber == 0 || thirdNumber == 0) {
+                document.getElementById('result').innerHTML = "The product is zero";
+                return;
+            }
+            if (firstNumber < 0) {
+                negative++;
+            }
+            if (secondNumber < 0) {
+                negative++;
+            }
+            if (thirdNumber < 0) {
+                negative++;
+            }
+            document.getElementById('result').innerHTML =
+                "Sign (+ or -) of the product of the three real numbers is:  "
+                + (negative == 2 ? "+" : (negative == 0 ? "+" : "-"));
+        }
+    </script>
+</body>
+</html>

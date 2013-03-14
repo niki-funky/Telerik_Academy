@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>08.Area Of Trapezoid</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!--Write an expression that calculates trapezoid's area 
+        by given sides a and b and height h.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Enter sides a,b and height h to calculate trapezoid's area.</p>
+            <label for="first">a: </label>
+            <input type="text" id="first" />
+            <label for="second">b: </label>
+            <input type="text" id="second" />
+            <label for="third">h: </label>
+            <input type="text" id="third" />
+            <a href="#" onclick="onButtonClick()">Calculate area</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var sideA = parseInt(document.forms.first.value, 10);
+            var sideB = parseInt(document.forms.second.value, 10);
+            var height = parseInt(document.forms.third.value, 10);
+            var areaOfTrapezoid = (sideA + sideB) * (height / 2);
+
+            document.getElementById('result').innerHTML =
+                ("Trapezoid area is: " + areaOfTrapezoid);
+        }
+    </script>
+</body>
+</html>

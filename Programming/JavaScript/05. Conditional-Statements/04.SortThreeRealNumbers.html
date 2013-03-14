@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>04.Sort Three Real Numbers</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 04. Sort 3 real values in descending order using nested if statements.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Sort three real numbers in descending order</p>
+            <label for="first">first: </label>
+            <input type="text" id="first" />
+            <label for="second">second: </label>
+            <input type="text" id="second" />
+            <label for="third">third: </label>
+            <input type="text" id="third" />
+            <a href="#" onclick="onButtonClick()">Sort numbers</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script src="scripts/StringFormat.js"></script>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var biggest;
+            var lessInt;
+            var leastInt;
+            var firstint = parseFloat(document.forms.first.value, 10);
+            var secondInt = parseFloat(document.forms.second.value, 10);
+            var thirdInt = parseFloat(document.forms.third.value, 10);
+
+            if (firstint < secondInt) {
+                if (secondInt < thirdInt) {
+                    biggestInt = thirdInt;
+                    lessInt = secondInt;
+                    leastInt = firstint;
+                }
+                else {
+                    if (firstint > thirdInt) {
+                        lessInt = firstint;
+                        leastInt = thirdInt;
+                    }
+                    else {
+                        lessInt = thirdInt;
+                        leastInt = firstint;
+                    }
+                    biggestInt = secondInt;
+                }
+            }
+            else {
+                if (firstint < thirdInt) {
+                    biggestInt = thirdInt;
+                    lessInt = firstint;
+                    leastInt = secondInt;
+                }
+                else {
+                    if (secondInt > thirdInt) {
+                        lessInt = secondInt;
+                        leastInt = thirdInt;
+                    }
+                    else {
+                        lessInt = thirdInt;
+                        leastInt = secondInt;
+                    }
+                    biggestInt = firstint;
+                }
+            }
+
+            //using js StringFormat to mimic C# String.Format
+            var str = "Numbers in descending order :"
+                + "<br/>" + "{0}" + "<br/>" + "{1}" + "<br/>" + "{2}";
+            str = str.format([biggestInt, lessInt, leastInt]);
+            document.getElementById('result').innerHTML = str;
+        }
+    </script>
+</body>
+</html>

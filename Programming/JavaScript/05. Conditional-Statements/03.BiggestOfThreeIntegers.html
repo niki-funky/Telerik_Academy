@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>03.Biggest Of Three Integers</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 03. Write a script that finds the biggest of three integers
+         using nested if statements.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Find biggest of three integers</p>
+            <label for="first">first: </label>
+            <input type="text" id="first" />
+            <label for="second">second: </label>
+            <input type="text" id="second" />
+            <label for="third">third: </label>
+            <input type="text" id="third" />
+            <a href="#" onclick="onButtonClick()">Find biggest</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var biggest = 0;
+            var firstNumber = parseInt(document.forms.first.value, 10);
+            var secondNumber = parseInt(document.forms.second.value, 10);
+            var thirdNumber = parseInt(document.forms.third.value, 10);
+
+            if (firstNumber < secondNumber) {
+                if (secondNumber < thirdNumber) {
+                    biggestInt = thirdNumber;
+                }
+                else {
+                    biggestInt = secondNumber;
+                }
+            }
+            else {
+                if (firstNumber < thirdNumber) {
+                    biggestInt = thirdNumber;
+                }
+                else {
+                    biggestInt = firstNumber;
+                }
+            }
+            document.getElementById('result').innerHTML =
+                "Biggest Number is : " + biggestInt;
+        }
+    </script>
+</body>
+</html>
