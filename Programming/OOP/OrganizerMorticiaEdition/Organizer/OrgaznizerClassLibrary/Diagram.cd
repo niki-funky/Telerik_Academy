@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OrganizerClassLibrary.Business">
+    <Position X="9.25" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEABAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Business.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.Category">
+    <Position X="16.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.Contact">
+    <Position X="12.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAACAAEACAAgAACAAAAQAQAAAAAAAADAAgAAAABAAA=</HashCode>
+      <FileName>Contact.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrganizerClassLibrary.Corporative">
+    <Position X="14" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAiAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Corporative.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.Email">
+    <Position X="16.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABQAAAAAAEAIAAAAAAAgAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Email.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrganizerClassLibrary.Event">
+    <Position X="20" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAEAAAAQAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Event.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.FamilyMember">
+    <Position X="11.5" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAABAAACEAAQAAAAQAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>FamilyMember.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.Friend">
+    <Position X="13.75" Y="15" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAEAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Friend.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.Note">
+    <Position X="21.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAEAAAAAAAAAAAAAAQAACAAAAABAAA=</HashCode>
+      <FileName>Note.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="OrganizerClassLibrary.OrganizerCore" Collapsed="true">
+    <Position X="24.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACQAAAAAAQAgAAAgAAAgBABAAAMAAAAAAEACAAA=</HashCode>
+      <FileName>OrganizerCore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.OrganizerException" Collapsed="true">
+    <Position X="26.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OrganizerException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.OrganizerObject">
+    <Position X="16.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQEAAAAAAAAAAAAAAQAAAAAAAAAIAAAAEAAAAA=</HashCode>
+      <FileName>OrganizerObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.Person">
+    <Position X="11.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAQAAQAAAAABAAAAQAAAgAAAAg=</HashCode>
+      <FileName>Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.Project">
+    <Position X="19" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Project.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.Reminder" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="22.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIIAAAAACACAAAAAAAAAAAAAAABQIAAAAAA=</HashCode>
+      <FileName>Reminder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="OrganizerClassLibrary.Task">
+    <Position X="23.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAwAAAAEAAIAQAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.Utilities" Collapsed="true">
+    <Position X="24.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAEAAAAAAAAAIIAAAAAAgAAAAEAEAAAA=</HashCode>
+      <FileName>Utilities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrgaznizerClassLibrary.ObjectCreator" Collapsed="true">
+    <Position X="22.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAACAAAACgFAAAAACAAAAABAAAAAAAAAKAA=</HashCode>
+      <FileName>ObjectCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.UserInterfaceClasses.UIMessages" Collapsed="true">
+    <Position X="24.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AkCyEAAIgEAygKBAMQACABAADEAQAIAAAAAakACQKAA=</HashCode>
+      <FileName>UserInterfaceClasses\UIMessages.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.UserInterfaceClasses.UserInput" Collapsed="true">
+    <Position X="26.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAoABAkAMgKEBAoAAQgAAgBAAEAAAAsIFABEAFggRM=</HashCode>
+      <FileName>UserInterfaceClasses\UserInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrganizerClassLibrary.UserInterfaceClasses.UserInterface" Collapsed="true">
+    <Position X="22.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAABAAAQAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>UserInterfaceClasses\UserInterface.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="OrgaznizerClassLibrary.Structs.ObjectCounter" Collapsed="true">
+    <Position X="22.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEAAAAAAACAAAAAAAAAAAAAAAgABAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Structs\ObjectCounter.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="OrganizerClassLibrary.Interfaces.IAlarmTime" Collapsed="true">
+    <Position X="22.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Interfaces\IAlarmTime.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OrganizerClassLibrary.Interfaces.IFileAttach" Collapsed="true">
+    <Position X="24.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Interfaces\IFileAttach.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OrganizerClassLibrary.Interfaces.IMail" Collapsed="true">
+    <Position X="26.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IMail.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="OrganizerClassLibrary.Enums.BloodGroupType" Collapsed="true">
+    <Position X="22.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAEAAAAAAAAAAAAAAAAAAAAAhAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums\BloodGroupType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OrganizerClassLibrary.Enums.Color" Collapsed="true">
+    <Position X="24.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAGAARBAAAAAgAEQBAAABAABAAAAAAAAAAIADAAAAA=</HashCode>
+      <FileName>Enums\Color.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OrganizerClassLibrary.Enums.FamilyTreeMember" Collapsed="true">
+    <Position X="26.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACEAAAAAAACAAABAAAAAAAAAAQAAIAAAABAAGAAAA=</HashCode>
+      <FileName>Enums\FamilyTreeMember.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OrganizerClassLibrary.Enums.Priority" Collapsed="true">
+    <Position X="22.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Enums\Priority.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="OrganizerClassLibrary.Enums.Status" Collapsed="true">
+    <Position X="24.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAIAAgA=</HashCode>
+      <FileName>Enums\Status.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
