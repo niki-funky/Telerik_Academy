@@ -10,10 +10,10 @@ namespace BitArray
     class BitArray64 : IEnumerable<int>
     {
         //property
-        public long Number { get; private set; }
+        public ulong Number { get; private set; }
 
         //constructor
-        public BitArray64(long number)
+        public BitArray64(ulong number)
         {
             this.Number = number;
         }
@@ -26,9 +26,9 @@ namespace BitArray
 
         public IEnumerator<int> GetEnumerator()
         {
-            string s = Convert.ToString(this.Number, 2);    //convert to string of bits
-            byte[] bitValues = s.PadLeft(63, '0')           // Add 0's from left
-                     .Select(c => byte.Parse(c.ToString())) // convert each char to byte
+            string s = Convert.ToString((long)this.Number, 2);    //convert to string of bits
+            byte[] bitValues = s.PadLeft(64, '0')               // Add 0's from left
+                     .Select(c => byte.Parse(c.ToString()))     // convert each char to byte
                      .Reverse()
                      .ToArray();
 
@@ -56,7 +56,8 @@ namespace BitArray
 
         public override int GetHashCode()
         {
-            return this.Number.GetHashCode() ^ 19;
+            int hash = 17 + Number.GetHashCode();
+            return hash;
         }
 
         public int this[int index]
@@ -65,7 +66,7 @@ namespace BitArray
             {
                 if (index >= 0 && index < 64)
                 {
-                    return (int)(this.Number & (1L << index)) >> index;
+                    return (int)(this.Number & (1UL << index)) >> index;
                 }
                 else
                 {
@@ -78,11 +79,11 @@ namespace BitArray
                 {
                     if (value == 1)
                     {
-                         this.Number = this.Number | (1L << index);
+                        this.Number = this.Number | (1UL << index);
                     }
                     else if (value == 0)
                     {
-                        this.Number = this.Number & (~(1L << index));
+                        this.Number = this.Number & (~(1UL << index));
                     }
                     else
                     {
@@ -98,12 +99,12 @@ namespace BitArray
 
         public static bool operator ==(BitArray64 first, BitArray64 second)
         {
-            return BitArray64.Equals(first, second);
+            return BitArray64.ReferenceEquals(first, second);
         }
 
         public static bool operator !=(BitArray64 first, BitArray64 second)
         {
-            return !BitArray64.Equals(first, second);
+            return !BitArray64.ReferenceEquals(first, second);
         }
     }
 }

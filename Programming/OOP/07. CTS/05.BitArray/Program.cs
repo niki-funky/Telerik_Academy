@@ -17,6 +17,7 @@ namespace BitArray
 
             BitArray64 bitObj = new BitArray64(31012365);
             BitArray64 bitObj2 = new BitArray64(311);
+            BitArray64 bitObj3 = bitObj;
 
             foreach (var item in bitObj)
             {
@@ -29,6 +30,8 @@ namespace BitArray
             bitObj[13] = 0;
             Console.WriteLine("Number after setting bit[13] to 0 is: " + bitObj.Number);
             Console.WriteLine(bitObj==bitObj2);
+            Console.WriteLine(bitObj == bitObj3);
+            Console.WriteLine(bitObj.GetHashCode().Equals(bitObj3.GetHashCode()));
 
             #endregion
         }
