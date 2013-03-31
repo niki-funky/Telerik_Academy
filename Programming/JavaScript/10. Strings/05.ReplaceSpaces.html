@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>05.Replace Spaces</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 05. Write a function that replaces non breaking white-spaces in a text with &nbsp;-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p id="text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus id nunc justo.
+                <br />
+                Morbi sed pulvinar elit. Mauris in urna sem, dignissim viverra arcu. Curabitur 
+                <br />
+                ultrices egestas dapibus. Praesent at elementum libero. Aenean eu rutrum est. 
+                <br />
+                Mauris sit amet feugiat leo. In quis purus quam. Donec luctus nisi sed lacus 
+                <br />
+                vestibulum eget vehicula odio aliquam. Morbi sit amet lectus nisl. Proin hendrerit
+                <br />
+                mauris quis massa pretium elementum.
+            </p>
+            <p>Replace non breaking white-spaces in the text above with & nbsp;</p>
+            <a href="#" onclick="onButtonClick()">Replace Spaces</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+
+        function replaceSpaces(text, symbol) {
+            var someText = new String(text);
+            someText = someText.replace(new RegExp(" ", "g"), symbol)
+            return someText;
+        }
+
+        function onButtonClick() {
+            var text = document.getElementById('text').innerHTML;
+            document.getElementById('text').innerHTML = replaceSpaces(text, "&nbsp;");
+        }
+    </script>
+</body>
+</html>

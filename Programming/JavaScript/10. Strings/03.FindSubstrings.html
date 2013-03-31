@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>03.Find Substrings</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 03. Write a JavaScript function that finds how many times a substring is
+         contained in a given text (perform case insensitive search).-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p id="text">
+                We are living in an yellow submarine. We don't have anything else.
+                <br />
+                Inside the submarine is very tight. So we are drinking all the day.
+                <br />
+                We will move out of it in 5 days.
+            </p>
+            <label for="first">String to search: </label>
+            <input type="text" id="first" />
+            <a href="#" onclick="onButtonClick()">Find substrings</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+
+        function highlight(container, word, isCaseSensitive) {
+            var target = new RegExp(word, 'gi');
+            if (isCaseSensitive === true)
+                target = new RegExp('\\b(' + word + ')\\b', 'gi');
+            var result = '<strong id="red">' + word + '</strong>';
+            var highlighted = container.innerHTML.replace(target, result)
+            return container.innerHTML = highlighted;
+        }
+
+        function onButtonClick() {
+            //variables
+            var container = document.getElementById("text");
+            var pattern = document.getElementById('first').value;
+            var re = new RegExp(pattern, "gi");
+
+            var arr = document.getElementById('text').innerHTML.match(re);
+
+            highlight(container, pattern, false);
+
+            document.getElementById('result').innerHTML = arr.length;
+        }
+    </script>
+</body>
+</html>

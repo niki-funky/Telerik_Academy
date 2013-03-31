@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>11.Placeholders</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 11. Write a function that formats a string using placeholders-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p id="text">
+                var str = stringFormat("Hello {0}!","Peter");
+                <br />
+                var format = "{0}, {1}, {0} text {2}";
+                <br />
+                var str = stringFormat(format,1,"Pesho","Gosho");
+            </p>
+            <a href="#" onclick="onButtonClick()">Format string</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+        <p id="result2"></p>
+    </div>
+    <script type="text/javascript">
+
+        function stringFormat(args) {
+            var match = "";
+            var text = arguments[0];
+            var len = arguments.length;
+            var pattern = new RegExp("{([0-9]*)}", 'g');
+
+            while (match = pattern.exec(text)) {
+                var number = parseInt(match[1]);
+                text = text.replace(match[0], arguments[number + 1])
+            }
+            return text;
+        };
+
+        function onButtonClick() {
+            document.getElementById('result').innerHTML = stringFormat("Hello {0}!", "Peter");
+            var format = "{0}, {1}, {0} text {2}";
+            document.getElementById('result2').innerHTML = stringFormat(format, 1, "Pesho", "Gosho");
+        }
+    </script>
+</body>
+</html>

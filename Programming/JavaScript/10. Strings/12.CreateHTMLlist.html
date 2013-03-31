@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>12.CreateHTMLlist</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 12. Write a function that creates a HTML UL using a template for every HTML LI. The source of the list should an array of elements.
+         Replace all placeholders marked with –{…}–   with the value of the corresponding property of the object.-->
+    <div data-type="template" id="list-item">
+        <strong>-{name}-</strong> <span>-{age}-</span>
+    </div>
+
+    <div id="wrapper">
+        <form name="forms">
+            <p id="text">Create an HTML UL using a template for every HTML LI</p>
+            <a href="#" onclick="onButtonClick()">Create HTML ul</a>
+        </form>
+    </div>
+
+    <div id="result">
+    </div>
+    <script type="text/javascript">
+
+        function Person(name, age) {
+            return {
+                name: name,
+                age: age,
+            }
+        }
+
+        function generateList(people, template) {
+            var resultList = "";
+            resultList += '<ul>';
+
+            for (var i = 0; i < people.length; ++i) {
+                resultList += '<li>';
+                resultList += template.replace(/-{(\w+)}-/ig, function () { return people[i][arguments[1]]; });
+                resultList += '</li>';
+            }
+            resultList += '</ul>';
+            return resultList;
+        }
+
+        function onButtonClick() {
+
+            var people = [
+            Person('Gosho', 43),
+            Person('Pesho', 32),
+            Person('Sasho', 54)
+            ];
+            var template = document.getElementById('list-item').innerHTML;
+            var peopleList = generateList(people, template);
+
+            document.getElementById('result').innerHTML = peopleList;
+        }
+    </script>
+</body>
+</html>

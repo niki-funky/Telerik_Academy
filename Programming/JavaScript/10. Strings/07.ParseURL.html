@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>07.Parse URL</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 07. Write a script that parses an URL address given in the format:
+        [protocol]://[server]/[resource]
+		and extracts from it the [protocol], [server] and [resource] elements. Return the elements in a JSON object.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p id="text">http://www.devbg.org/forum/index.php</p>
+            <p>Parse an URL address</p>
+            <a href="#" onclick="onButtonClick()">Parse URL</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+
+        function parseURL(url) {
+            var jsonObj = {};
+            var res = [];
+            var pattern = new RegExp("^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)", 'g');
+            res = pattern.exec(url);
+            jsonObj.protocol = res[2];
+            jsonObj.hostname = res[4];
+            jsonObj.pathname = res[5];
+            return jsonObj;
+        };
+
+        function onButtonClick() {
+            var link = document.getElementById('text').innerHTML;
+            var uri = parseURL(link);
+            document.getElementById('result').innerHTML = "protocol: " + uri.protocol + "<br />"
+                    + "server: " + uri.hostname + "<br />"
+                    + "resource: " + uri.pathname;
+        }
+    </script>
+</body>
+</html>

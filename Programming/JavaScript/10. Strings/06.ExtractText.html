@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>06.Extract Text</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 06. Write a function that extracts the content of a html page given as text.
+         The function should return anything that is in a tag, without the tags:-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p id="text">
+                &lt;html&gt;&lt;head&gt;&lt;title&gt;Sample site&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;div&gt;
+                text&lt;div&gt; more text&lt;/div&gt; and more...&lt;/div&gt; in body&lt;/body&gt;&lt;/html&gt;
+            </p>
+            <p>Extract the content of an html page</p>
+            <a href="#" onclick="onButtonClick()">Extract Text</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+
+        function extractText(text) {
+            var someText = "";
+            var result = "";
+            //decode text
+            var decoded = new String(text);
+            decoded = decoded.replace(/&lt;/g, '<');
+            decoded = decoded.replace(/&gt;/g, '>');
+            //regex pattern
+            //because JS doesn't have positive lookahead (?<=)
+            //using this (?:)
+            var pattern = "(?:>)[^>]*(?=<)";
+            var re = new RegExp(pattern, "g");
+            //get all matches
+            while ((result = re.exec(decoded)) != null) {
+                //remove first char(>)
+                result = result[0].substring(1);
+                someText += result;
+            }
+            return someText;
+        }
+
+        function onButtonClick() {
+            var text = document.getElementById('text').innerHTML;
+            document.getElementById('result').innerHTML = extractText(text);
+        }
+    </script>
+</body>
+</html>

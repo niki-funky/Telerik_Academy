@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>04.Change Text</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 04. You are given a text. Write a function that changes the text in all regions:
+            <upcase>text</upcase> to uppercase.
+            <lowcase>text</lowcase> to lowercase
+            <mixcase>text</mixcase> to mix casing(random)-->
+
+    <div id="wrapper">
+        <p id="text">We are<mixcase> living<lowcase> (test test test)</lowcase></mixcase> in a<upcase> yellow submarine<lowcase> (test test test)</lowcase></upcase>. We<mixcase> don't</mixcase> have<lowcase> anything<lowcase> (test test test)</lowcase></lowcase> else.
+        </p>
+        <form name="forms">
+            <a href="#" onclick="onButtonClick()">Change Text</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+
+        function returnCloseTag(str) {
+            var output = "";
+            return output = [str.slice(0, 1), '/', str.slice(1)].join('');
+        }
+
+        function replaceText(text, tagName) {
+            switch (tagName) {
+                case "<upcase>":
+                    return text.toUpperCase();
+                    break;
+                case "<lowcase>":
+                    return text.toLowerCase();
+                    break;
+                case "<mixcase>":
+                    return res = mix(text);
+                    function mix(text) {
+                        var result = '';
+                        for (i = 0; i < text.length; ++i) {
+                            var rand = Math.round(Math.random());
+                            if (rand === 0) {
+                                result += text[i].toUpperCase();
+                            }
+                            else {
+                                result += text[i].toLowerCase();
+                            }
+                        }
+                        return result;
+                    }
+                    break;
+                default:
+                    return null;
+            }
+        }
+
+        function multiReplace(text) {
+            var openTagIndexes = [];
+            var openTag = "";
+            var closeTag;
+            var currOpenTag;
+            var openTagIndex;
+            var nextOpenTagIndex;
+            var closeTagIndex;
+            var isClosingTag = true;
+            var patternTag = "<.+?case>";
+            var re = new RegExp(patternTag, 'g');
+
+            while (openTag != null) {
+                if (text.match(re) == null) {
+                    break;
+                }
+                openTag = text.match(re)[0];
+                closeTag = returnCloseTag(openTag);
+                currOpenTag = openTag;
+
+                if (isClosingTag == true) {
+                    openTagIndex = text.indexOf(currOpenTag);
+                    nextOpenTagIndex = text.indexOf(currOpenTag, openTagIndex + currOpenTag.length);                                  
+                    closeTagIndex = text.indexOf(closeTag);
+                }
+
+                if (closeTagIndex < nextOpenTagIndex || nextOpenTagIndex === -1) {
+                    var textRegion = text.substring(openTagIndex, closeTagIndex + closeTag.length);
+                    var newRegion = textRegion.replace(re, '');
+                    newRegion = replaceText(newRegion, openTag);
+                    text = text.replace(textRegion, newRegion);
+                }
+                else {
+                    isClosingTag = false;
+                    nextOpenTagIndex = text.indexOf(currOpenTag, nextOpenTagIndex + currOpenTag.length);
+                    closeTagIndex = text.indexOf(closeTag, closeTagIndex + closeTag.length);
+                }
+            }
+            return text;
+        }
+  
+        function onButtonClick() {
+
+            var text = document.getElementById('text').innerHTML;
+            document.getElementById('text').innerHTML = multiReplace(text);
+        }
+    </script>
+</body>
+</html>

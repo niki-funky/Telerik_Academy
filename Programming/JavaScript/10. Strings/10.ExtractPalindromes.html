@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>10.Extract Palindromes</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 10. Write a program that extracts from a given text all palindromes, e.g. "ABBA", "lamal", "exe".-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p id="text">deleveled - something that goes out of level; evitative – a grammatical case indicating fear or aversion; aba – a fabric woven of the hair of camels or goats</p>
+            <a href="#" onclick="onButtonClick()">Extract Palindromes</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+
+        function reverseStrings(str) {
+            var arr = [];
+            var words = [];
+            arr = str.split(/[\s,.-;:]+/g);
+            for (var i = 0; i < arr.length; i++) {
+                var word = arr[i].split('');
+                word = word.reverse();
+                if (arr[i] === word.join('') && arr[i].length > 1)
+                    words.push(arr[i]);
+            }
+            return words;
+        }
+
+        function onButtonClick() {
+            var text = document.getElementById('text').innerHTML;
+            document.getElementById('result').innerHTML = reverseStrings(text).join(',');
+        }
+    </script>
+</body>
+</html>

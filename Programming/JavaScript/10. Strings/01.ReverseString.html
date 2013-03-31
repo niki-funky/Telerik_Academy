@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>02.Reverse string</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 02. Write a JavaScript function reverses string and returns itExample: "sample" -> "elpmas".-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Enter a string to reverse it</p>
+            <label for="first">String: </label>
+            <input type="text" id="first" />
+            <a href="#" onclick="onButtonClick()">Show reversed</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            //I variant
+            var str = document.getElementById("first");
+            var strValue = str.value;
+
+            document.getElementById("result").innerHTML = reverse(strValue).valueOf();
+
+            //II variant
+            document.getElementById("result").innerHTML = strValue.split('').reverse().join('');
+
+            function reverse(someStr) {
+                var result;
+                for (var i = someStr.length - 1, result = ''; i >= 0; result += someStr[i--]) { }
+                return result;
+            }
+        }
+    </script>
+</body>
+</html>
