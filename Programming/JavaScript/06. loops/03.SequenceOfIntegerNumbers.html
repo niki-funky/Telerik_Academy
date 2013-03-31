@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>03.Max and min number in a sequence</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 03. Write a script that finds the max and min number from a sequence of numbers.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Find the max and min number from the sequence [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</p>
+            <a href="#" onclick="onButtonClick()">Find min and max</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result1"></p>
+        <p id="result2"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            min = max = 1;
+
+            for (var i = 1; i <= 10; i++) {
+                if (max < i) {
+                    max = i;
+                }
+                if (min > i) {
+                    min = i;
+                }
+            }
+            document.getElementById('result1').innerHTML = "The smallest number is: " + min;
+            document.getElementById('result2').innerHTML = "The biggest number is: "+ max;
+        }
+    </script>
+</body>
+</html>

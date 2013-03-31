@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>01.Array Of 20 Integers</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 01. Write a script that allocates array of 20 integers and initializes 
+        each element by its index multiplied by 5. Print the obtained array on the console..-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>
+                Allocate array of 20 integers and initialize
+                each element by its index multiplied by 5
+            </p>
+            <a href="#" onclick="onButtonClick()">Initialize and Print on console</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var array = [20];
+
+            for (var i = 1; i <= 20; i++) {
+                array[i] = i * 5;
+                //print result to browser console
+                console.log(array[i]);
+            }
+        }
+    </script>
+</body>
+</html>

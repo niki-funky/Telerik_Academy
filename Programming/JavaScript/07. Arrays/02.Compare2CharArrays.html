@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>02.Compare 2 Char Arrays</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 02. Write a script that compares two char arrays lexicographically (letter by letter).-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Compare array['ab', 'b', 'p', 'q'] with array['aa', 'b', 'o', 'd', 'e', 'a', 'g'] lexicographically </p>
+            <a href="#" onclick="onButtonClick()">Compare arrays</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result1"></p>
+        <p id="P1"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var array1 = ['ab', 'b', 'p', 'q'];
+            var array2 = ['aa', 'b', 'o', 'd', 'e', 'a', 'g'];
+            var arr1 = 0;
+            var arr2 = 0;
+
+            //compare lexicographically
+            document.getElementById('result1').innerHTML = (array1 >= array2 ? array2 : array1
+                + " is lexicographically first");
+        }
+    </script>
+</body>
+</html>

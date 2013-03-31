@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>06.Check Element</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 06. Write a function that checks if the element at given position in given
+         array of integers is bigger than its two neighbors (when such exist).-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Check if the element at given position in the array [4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3] is bigger than its two neighbors </p>
+            <label for="first">Index: </label>
+            <input type="text" id="first" />
+            <a href="#" onclick="onButtonClick()">Check element</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var array = [4, 1, 1, 4, 2, 3, 4, 4, 1, 2, 4, 9, 3];
+            var index = parseInt(document.getElementById('first').value, 10);
+
+            document.getElementById('result').innerHTML = checkElement(index, array);
+
+            function checkElement(idx, arr) {
+                var maxIndex = arr.length - 1;
+                if (idx <= maxIndex) {
+                    if (idx + 1 <= maxIndex && idx - 1 > 0) {
+                        if (arr[idx] > arr[idx - 1] && arr[idx] > arr[idx + 1]) {
+                            return "true";
+                        }
+                        else
+                            return "false";
+                    }
+                    else
+                        return "No neighbors!";
+                }
+                else
+                    return "Index out of range!";
+            }
+        }
+    </script>
+</body>
+</html>

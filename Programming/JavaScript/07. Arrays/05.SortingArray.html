@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>05.Sorting Array</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 05. Sorting an array means to arrange its elements in increasing order. 
+        Write a script to sort an array. Use the "selection sort" algorithm: 
+        Find the smallest element, move it at the first position, find the smallest
+         from the rest, move it at the second position, etc.Hint: Use a second array-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Sort the array [3, 2, 3, 4, 0, 2, 6]</p>
+            <a href="#" onclick="onButtonClick()">Show result</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var array = [3, 2, 3, 4, 0, 2, 6];
+            var max;
+
+            //sort the array from smallest to biggest
+            for (var i = array.length - 1; i > 0; i--) {
+                max = i;
+                for (var m = i - 1; m >= 0; m--) {
+                    if (array[m] > array[max]) {
+                        max = m;
+                    }
+                }
+                //swap current element with smallest element
+                if (i != max) {
+                    array[i] = array[i] ^ array[max];
+                    array[max] = array[max] ^ array[i];
+                    array[i] = array[i] ^ array[max];
+                }
+            }
+
+            //print sequence
+            document.getElementById('result').innerHTML = array;
+        }
+    </script>
+</body>
+</html>

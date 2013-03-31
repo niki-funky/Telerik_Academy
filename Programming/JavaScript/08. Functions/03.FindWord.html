@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>03.Find Word</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 03. Write a function that finds all the occurrences of word in a text
+        The search can case sensitive or case insensitive
+        Use function overloading.-->
+
+    <div id="wrapper">
+        <p id="text">
+            Hello Lorem ipsum Hello dolor sit amet, consectetur adipisicing elit, sed do 
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex Hello 
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
+            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecatHello
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim 
+            id est laborum Hello.
+        </p>
+        <form name="forms">
+            <p>Enter a word to search</p>
+            <label for="first">Number: </label>
+            <input type="text" id="first" />
+            <a href="#" onclick="onButtonClick()">Highlight</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var container = document.getElementById("text");
+            var word = document.getElementById("first").value;
+
+            highlight(container, word, false);
+
+            function highlight(container, word, isCaseSensitive) {
+                var target = new RegExp('\\b(' + word + ')\\b', 'g');
+                if (isCaseSensitive === true)
+                    target = new RegExp('\\b(' + word + ')\\b', 'gi');
+                var result = '<strong id="red">' + word + '</strong>';
+                var highlighted = container.innerHTML.replace(target, result)
+                return container.innerHTML = highlighted;
+            }
+        }
+    </script>
+</body>
+</html>

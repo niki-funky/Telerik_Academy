@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>01.Shapes</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 01. Write functions for working with shapes in standard Planar coordinate system
+            Points are represented by coordinates P(X, Y)
+            Lines are represented by two points, marking their beginning and ending
+            L(P1(X1,Y1),P2(X2,Y2))
+            Calculate the distance between two points
+            Check if three segment lines can form a triangle-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Check if three segment lines can form a triangle</p>
+            <a href="#" onclick="onButtonClick()">Start test</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var point1 = new Point(1, 3);
+            var point2 = new Point(2, 4);
+            var line1 = new Line(point1, point2);
+            var line2 = new Line(new Point(0, 1), new Point(-1, 0));
+            var line3 = new Line(new Point(0, 3), new Point(-2, -1));
+
+            document.getElementById('result').innerHTML = checkSegments(line1, line2, line3);
+
+            function Point(coordX, coordY) {
+                return {
+                    X: coordX,
+                    Y: coordY
+                }
+            }
+
+            //function Point(coordX, coordY) {
+            //        this.X= coordX,
+            //        this.Y= coordY                
+            //}
+
+            function Line(point1, point2) {
+                return {
+                    P1: point1,
+                    P2: point2
+                }
+            }
+
+            function calcDistance(line) {
+                var xd = line.P2.X - line.P1.X;
+                var yd = line.P2.Y - line.P1.Y;
+                var distance = Math.sqrt(xd * xd + yd * yd);
+                return distance;
+            }
+
+            function checkSegments(line1, line2, line3) {
+                if (calcDistance(line1) + calcDistance(line2) > calcDistance(line3)
+                    || calcDistance(line1) + calcDistance(line3) > calcDistance(line2)
+                    || calcDistance(line2) + calcDistance(line3) > calcDistance(line1)) {
+                    return "Line segments can form triangle.";
+                }
+                else
+                    return "Line segments can NOT form triangle.";
+            }
+        }
+    </script>
+</body>
+</html>

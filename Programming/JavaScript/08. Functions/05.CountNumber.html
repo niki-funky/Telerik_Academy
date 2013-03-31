@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>05.Count Number in Array</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 05. Write a function that counts how many times given number appears in given 
+        array. Write a test function to check if the function is working correctly.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Enter a number to count how many times it appears in the array [3, 2, 3, 4, 0, 2, 6]</p>
+            <label for="first">Number: </label>
+            <input type="text" id="first" />
+            <a href="#" onclick="onButtonClick()">Count number</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var array = [3, 2, 3, 4, 0, 2, 6];
+            var number = document.getElementById('first').value;
+
+            document.getElementById('result').innerHTML = count(array, number);
+
+            function count(arr, num) {
+                var counter = 0;
+                for (var i in arr) {
+                    if (arr[i] == num)
+                        counter++;
+                }
+                return counter;
+            }
+        }
+    </script>
+</body>
+</html>

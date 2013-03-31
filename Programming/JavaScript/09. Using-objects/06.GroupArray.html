@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>06.Group Array</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 06. Write a function that groups an array of persons by age, first or last name. 
+        The function must return an associative array, with keys - the groups, and values 
+        -arrays with persons in this groups
+        Use function overloading (i.e. just one function)-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Groups an array of persons by age, first or last name</p>
+            <a href="#" onclick="onButtonClick()">Group array</a>
+        </form>
+    </div>
+    <script type="text/javascript">
+
+        function groupBy(persons, prop) {
+            var grouped = {};
+
+            persons.map(function (person) {
+                if (!grouped[person[prop]])
+                    grouped[person[prop]] = new Array();
+                grouped[person[prop]].push(person);
+            });
+            return grouped;
+        }
+
+        function onButtonClick() {
+            var persons = [
+                { firstname: "Gosho", lastname: "Petrov", age: 32 },
+                { firstname: "Pesho", lastname: "Ivanov", age: 20 },
+                { firstname: "Misho", lastname: "Ivanev", age: 11 },
+                { firstname: "Sasho", lastname: "Ivanuv", age: 44 }
+            ];
+
+            var groupedByFname = groupBy(persons, "firstname");
+            var groupedByAge = groupBy(persons, "age");
+
+            for (var person in groupedByFname) {
+                el = document.createElement('p');
+                el.innerHTML = 'Group: ' + person + " - " + groupedByFname[person][0]['age'] + " years old";
+                document.body.appendChild(el);
+            }
+
+        }
+    </script>
+</body>
+</html>

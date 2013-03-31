@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>04.Find smallest and largest property</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 04. Write a script that finds the lexicographically smallest 
+        and largest property in document, window and navigator objects-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Find the lexicographically smallest and largest property in</p>
+            <p>document, window and navigator objects</p>
+            <a href="#" onclick="onButtonClick()">Show result</a>
+        </form>
+    </div>
+    <div id="results">
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var arr1 = [window, navigator, document];
+
+            for (var i = 0; i < 3; i++) {
+                var result = "";
+                var arr;
+                for (var property in arr1[i]) {
+                    result += property + " ";
+                }
+                arr = result.split(" ");
+                arr.sort();
+                result = "Min: " + arr[1] + "<br />" + "Max: " + arr[arr.length - 1];
+                //create new paragraph
+                var newNode = document.createElement("p");
+                newNode.setAttribute("id", "result" + i);
+                //add this <p> to the <div> with id="results"
+                document.getElementById("results").parentNode.appendChild(newNode);
+
+                var id = "result" + i;
+
+                document.getElementById(id).innerHTML = result;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>01.Last Digit</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 01. Write a function that returns the last digit of given integer
+         as an English word. Examples: 512 -> "two", 1024  "four", 12309 -> "nine"-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Enter a number to see its last digit</p>
+            <label for="first">Number: </label>
+            <input type="text" id="first" />
+            <a href="#" onclick="onButtonClick()">Show last digit</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            //I variant
+            var number = document.getElementById("first");
+            //var lastDigit = number.value[number.value.length - 1];
+
+            //II variant
+            var lastDigit = parseInt(number.value) % 10;
+            var resultWord;
+
+            sayLastDigit(lastDigit);
+            document.getElementById("result").innerHTML = resultWord;
+
+            function sayLastDigit(num) {
+                switch (num) {
+                    case 0:
+                    case "0":
+                        resultWord = "zero";
+                        break;
+                    case 1:
+                    case "1":
+                        resultWord = "one";
+                        break;
+                    case 2:
+                    case "2":
+                        resultWord = "two";
+                        break;
+                    case 3:
+                    case "3":
+                        resultWord = "three";
+                        break;
+                    case 4:
+                    case "4":
+                        resultWord = "four";
+                        break;
+                    case 5:
+                    case "5":
+                        resultWord = "five";
+                        break;
+                    case 6:
+                    case "6":
+                        resultWord = "six";
+                        break;
+                    case 7:
+                    case "7":
+                        resultWord = "seven";
+                        break;
+                    case 8:
+                    case "8":
+                        resultWord = "eight";
+                        break;
+                    case 9:
+                    case "9":
+                        resultWord = "nine";
+                        break;
+                }
+                return resultWord;
+            }
+        }
+    </script>
+</body>
+</html>

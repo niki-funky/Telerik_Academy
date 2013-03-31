@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>01.Print All Numbers [1__N]</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 01. Write a script that prints all the numbers from 1 to N.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Print all numbers [1__N]</p>
+            <label for="first">Number: </label>
+            <input type="text" id="first" />
+            <a href="#" onclick="onButtonClick()">Print numbers</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var number = parseInt(document.forms.first.value, 10);
+            var str = " ,";
+
+            //function createParagraph(text) {
+            //    var newParagraph = document.createElement('p');
+            //    newParagraph.textContent = text;
+            //    document.getElementById("results").appendChild(newParagraph);
+            //}
+
+            function appendText(textNode) {
+                document.getElementById("result").appendChild(textNode);
+            }
+
+            for (var i = 1; i <= number; i++) {
+                var txtNode = document.createTextNode(i);
+                appendText(txtNode);
+                appendText(document.createTextNode(str));
+            }
+        }
+    </script>
+</body>
+</html>

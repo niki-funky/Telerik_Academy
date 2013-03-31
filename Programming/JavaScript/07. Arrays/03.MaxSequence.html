@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>03.Max Sequence</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 03. Write a script that finds the maximal sequence of equal elements in an array.
+        Example: {2, 1, 1, 2, 3, 3, 2, 2, 2, 1} -> {2, 2, 2}..-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Find the max sequence of equal elements in the array {2, 1, 1, 2, 3, 3, 2, 2, 2, 1} </p>
+            <a href="#" onclick="onButtonClick()">Find max</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var array = [2, 1, 1, 2, 3, 3, 2, 2, 2, 1];
+            var next;
+            var equalElements = 1;
+            var maxElements = 1;
+            var current = array[0];
+            var value = array[0];
+
+            //find the maximal sequence of equal elements
+            for (var i = 1; i < array.length; i++) {
+                next = array[i];
+                if (next == current) {
+                    equalElements++;
+                }
+                else {
+                    current = next;
+                    if (equalElements > maxElements) {
+                        maxElements = equalElements;
+                        value = array[i - 1];
+                    }
+                    equalElements = 1;
+                }
+                //case when max sequence includes last index
+                if (i == array.length - 1) {
+                    if (equalElements > maxElements) {
+                        maxElements = equalElements;
+                        value = array[i];
+                    }
+                }
+            }
+
+            //print sequence
+            if (maxElements == 1) {
+                document.getElementById('result').innerHTML = "No equal elements ";
+            }
+            else {
+                document.getElementById('result').innerHTML = Array(maxElements+1).join(value + ", ");
+            }
+        }
+    </script>
+</body>
+</html>

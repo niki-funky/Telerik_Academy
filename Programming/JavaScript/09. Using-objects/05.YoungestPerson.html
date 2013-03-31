@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>05.Youngest Person in array</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 05. Write a function that finds the youngest person in a given array of persons and prints his/hers full name
+            Each person have properties firstname, lastname and age, as shown:
+                var persons = [
+                {firstname : "Gosho", lastname: "Petrov", age: 32}, 
+                {firstname : "Bay", lastname: "Ivan", age: 81},…];-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Finds the youngest person in a given array of persons and prints his/hers full name</p>
+            <a href="#" onclick="onButtonClick()">Find youngest person</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+
+        function findYoungest(arr) {
+            var number = 150;
+            var index = 0;
+            for (var i = 0; i < arr.length; i++) {
+                for (var prop in arr[1]) {
+                    if (prop == 'age' && arr[i][prop] < number) {
+                        number = arr[i][prop];
+                        index = i;
+                    }
+                }
+            }
+            return index;
+        }
+
+        function onButtonClick() {
+
+            var persons = [
+                { firstname: "Gosho", lastname: "Petrov", age: 32 },
+                { firstname: "Pesho", lastname: "Ivanov", age: 20 },
+                { firstname: "Misho", lastname: "Ivanev", age: 11 },
+                { firstname: "Sasho", lastname: "Ivanuv", age: 44 }
+            ];
+
+            var idx = findYoungest(persons);
+            document.getElementById('result').innerHTML = persons[idx].firstname + ", " + persons[idx].lastname;
+        }
+    </script>
+</body>
+</html>

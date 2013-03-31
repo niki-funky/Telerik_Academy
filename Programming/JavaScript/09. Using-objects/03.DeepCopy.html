@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>03.Deep Copy</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 03. Write a function that makes a deep copy of an object
+        The function should work for both primitive and reference types-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Makes a deep copy of an object(for both primitive and reference types)</p>
+            <a href="#" onclick="onButtonClick()">DeepCopy</a>
+        </form>
+    </div>
+    <script type="text/javascript">
+        //using recursion to iterate through all nested objects
+        //see tests below
+        function deepCopy(obj) {
+            //deep copy of arrays
+            if (Object.prototype.toString.call(obj) === '[object Array]') {
+                var out = [];
+                for (var i = 0; i < obj.length; i++) {
+                    out[i] = deepCopy(obj[i]);
+                }
+                return out;
+            }
+            //deep copy of custom objects
+            if (typeof obj === 'object') {
+                var out = {};
+                for (var i in obj) {
+                    out[i] = deepCopy(obj[i]);
+                }
+                return out;
+            }
+            return obj;
+        }
+
+        function onButtonClick() {
+            //variables
+            var original = {
+                Num: 1,                                             // number
+                Str: "I am a string",                               // string
+                Obj: {
+                    test1: "Old value"                              // an object
+                },
+                Arr: [                                              // array with object members
+                    "I am a string",                                     // string
+                    {
+                        test2: "Change me"                          // an object
+                    }
+                ]
+            };
+
+            //test 1
+            var copy = deepCopy(original);
+            copy.Obj.test1 = "New value";
+            alert(original.Obj.test1);                          // will show "Old value"
+
+            //test 2
+            copy.Arr[1].test2 = "I am changed";
+            alert(original.Arr[1].test2);                       // will show "Change me"
+        }
+    </script>
+</body>
+</html>

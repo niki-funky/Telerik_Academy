@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>07.Find Index Of Element</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 07. Write a Function that returns the index of the first element in array 
+        that is bigger than its neighbors, or -1, if there’s no such element.
+        Use the function from the previous exercise.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Find the index of the first element in the array[9, 5, 9, 4, 8, 3, 7, 2, 1, 6] that is bigger than its neighbors.</p>
+            <a href="#" onclick="onButtonClick()">Find index</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var array = [9, 5, 9, 4, 8, 3, 7, 2, 1, 6];
+
+            document.getElementById('result').innerHTML = findElement(array);
+
+            function findElement(arr) {
+                for (var i = 1; i < arr.length - 1; i++) {
+                    if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+        }
+    </script>
+</body>
+</html>

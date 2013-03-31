@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>04.Check Property</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 04. Write a function that checks if a given object contains a given property-->
+
+    <div id="wrapper">
+        <p id="text">Checks if a given object contains a given property</p>
+        <form name="forms">
+            <a href="#" onclick="onButtonClick()">Check Property</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function checkProperty(obj, prop) {
+            for (var i in obj) {
+                if (i == prop) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function onButtonClick() {
+
+            var someObject = {
+                Num: 1,
+                Str: "I am a string",
+                Obj: {
+                    test1: "Old value"
+                },
+                Arr: [
+                    "I am a string",
+                    {
+                        test2: "Change me"
+                    }
+                ]
+            };
+
+            document.getElementById('result').innerHTML = checkProperty(someObject, 'Num');
+        }
+    </script>
+</body>
+</html>

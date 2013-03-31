@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>04.Max Increasing Sequence</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 04. Write a script that finds the maximal increasing sequence in an array.
+         Example: {3, 2, 3, 4, 2, 2, 4}  {2, 3, 4}.-->
+
+    <div id="wrapper">
+        <form name="forms">
+            <p>Find the maximal increasing sequence in the  array [3, 2, 3, 4, 2, 2, 4]</p>
+            <a href="#" onclick="onButtonClick()">Show result</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            //variables
+            var array = [3, 2, 3, 4, 2, 2, 4];
+            var next;
+            var consecutiveElements = 1;
+            var maxElements = 1;
+            var current = array[0];
+            var value = array[0];
+            var para = document.getElementById("result");
+
+            //find the maximal sequence of equal elements
+            for (var i = 1; i < array.length; i++) {
+                next = array[i];
+                if (next == current + consecutiveElements) {
+                    consecutiveElements++;
+                }
+                else {
+                    current = next;
+                    if (consecutiveElements > maxElements) {
+                        maxElements = consecutiveElements;
+                        value = array[i - consecutiveElements];
+                    }
+                    consecutiveElements = 1;
+                }
+                //case when max sequence includes last index
+                if (i == array.length - 1) {
+                    if (consecutiveElements > maxElements) {
+                        maxElements = consecutiveElements;
+                        value = array[i - consecutiveElements + 1];
+                    }
+                }
+            }
+
+            //print sequence
+            if (maxElements == 1) {
+                document.getElementById('result').innerHTML = "No equal elements ";
+            }
+            else {
+                for (var i = 0; i < maxElements; i++) {
+                    var textNode = document.createTextNode(value + i + ", ");
+                    para.appendChild(textNode);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

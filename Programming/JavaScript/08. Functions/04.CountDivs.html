@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>04.Count Divs on page</title>
+    <link href="styles/StyleSheet3.less" rel="stylesheet" />
+</head>
+<body>
+    <!-- 04. Write a function to count the number of divs on the web page-->
+
+    <div id="wrapper">
+        <p id="text"></p>
+        <form name="forms">
+            <a href="#" onclick="onButtonClick()">Count divs</a>
+        </form>
+    </div>
+    <div id="results">
+        <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+        function onButtonClick() {
+            document.getElementById('result').innerHTML = count('div');
+
+            function count(element) {
+                var divs = document.getElementsByTagName(element);
+                return divs.length;;
+            }
+        }
+    </script>
+</body>
+</html>
