@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="03. exercise.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <form name="forms">
+            <p>Test</p>
+            <a href="#" onclick="onButtonClick()">Test</a>
+        </form>
+    </div>
+    <p id="result"></p>
+    <script type="text/javascript">
+        function onButtonClick() {
+            document.getElementById('result').innerHTML = Solve([
+                "def func sum[5, 3, 7, 2, 6, 3]",
+                "def func2 [5, 3, 7, 2, 6, 3]",
+            ]);
+        }
+    </script>
+</body>
+</html>
