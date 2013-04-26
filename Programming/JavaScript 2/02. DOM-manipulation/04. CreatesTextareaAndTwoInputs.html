@@ -1,25 +1,22 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <title>04. CreatesTextareaAndTwoInputs</title>
+    <link href="styles/StyleSheet.less" rel="stylesheet" />
 </head>
 <body>
     <!-- 04. Create a text area and two inputs with type="color"
 		Make the font color of the text area as the value of the first color input
-		Make the background color of the text area as the value of the second input		-->
-
-	<ul>
-		<li>
-			Font color:<input type='color' id='fontColor' onchange='changeFontColor()'/>
-		</li>
-		<li>
-			Background color:<input type='color' id='backgroundColor' onchange='changeBackgroundColor()'/>
-		</li>
-		<li>
-			<textarea>	
-			</textarea>
-		</li>
-	</ul>
-	<script type='text/javascript' src='source.js'> </script>
+		Make the background color of the text area as the value of the second input -->
+    <form name="colorInputs">
+        <label for="fontColor">Font color:</label>
+        <input type='color' id='fontColor' onchange='changeFontColor()' />
+        <br />
+        <label for="backgroundColor">Background color:</label>
+        <input type='color' id='backgroundColor' onchange='changeBackgroundColor()' />
+        <br />
+        <textarea></textarea>
+    </form>
+    <script src="scripts/textarea.creator.js" type="text/javascript"></script>
 </body>
 </html>
