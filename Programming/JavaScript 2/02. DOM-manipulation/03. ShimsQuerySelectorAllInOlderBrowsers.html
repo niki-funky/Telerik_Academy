@@ -19,6 +19,9 @@
         <b class="italic">Italic element in the container.</b>
         <br />
         <b class="big">Big element in the container.</b>
+        <ul>
+            <li>This is list.</li>
+        </ul>
     </div>
     <script type="text/javascript">
         function GetElements() {
@@ -26,24 +29,27 @@
             var listOfRedElements = document.querySelectorAll(".red");
             for (var i = 0; i < listOfRedElements.length; i++) {
                 var redElement = listOfRedElements[i];
-                alert("The contents of the (" + (i + 1) + ") found Red element\n" + redElement.innerHTML);
+                alert("The content of the (" + (i + 1) + ") found Red element\n" + redElement.innerHTML);
             }
             //test 2 for querySelectorAll
             var listOfItalicElements = document.querySelectorAll(".italic, .big");
             for (var i = 0; i < listOfItalicElements.length; i++) {
                 var italicElement = listOfItalicElements[i];
-                alert("The contents of the (" + (i + 1) + ") found Italic or Big element\n" + italicElement.innerHTML);
+                alert("The content of the (" + (i + 1) + ") found Italic or Big element\n" + italicElement.innerHTML);
             }
             //test 3 for querySelector            
             var firstRedElement = document.querySelector(".italic, .big");
-            alert("The contents of the first found Italic or Big element\n" + firstRedElement.innerHTML);
+            alert("The content of the first found Italic or Big element\n" + firstRedElement.innerHTML);
 
             //test 4 for querySelectorAll
             var listOfChildElements = document.querySelectorAll("div>b");
             for (var i = 0; i < listOfChildElements.length; i++) {
                 var childElement = listOfChildElements[i];
-                alert("The contents of the (" + (i + 1) + ") found <b> tag with parent - div\n" + childElement.innerHTML);
+                alert("The content of the (" + (i + 1) + ") found <b> tag with parent - div\n" + childElement.innerHTML);
             }
+            //test 5 for querySelector            
+            var firstListElement = document.querySelector("div ul li");
+            alert("The content of the first found List element\n" + firstListElement.innerHTML);
         }
     </script>
 </body>
