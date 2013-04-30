@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>03. ConsoleModule</title>
+    <script src="scripts/console.module.js"></script>
+</head>
+<body>
+    <!--Create a module to work with the console object.Implement functionality for:
+        Writing a line to the console 
+        Writing a line to the console using a format
+        Writing to the console should call toString() to each element
+        Writing errors and warnings to the console with and without format-->
+
+    <script type="text/javascript">
+        specialConsole.writeLine("Message: hello");
+        //logs to the console "Message: hello"
+        specialConsole.writeLine("Message: {0}", "hello");
+        //logs to the console "Message: hello"
+        specialConsole.writeError("Error: {0}", "Something happened");
+        specialConsole.writeWarning("Warning: {0}", "A warning");
+    </script>
+</body>
+</html>
