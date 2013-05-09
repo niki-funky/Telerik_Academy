@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>01. DOM transformer</title>
+    <script src="scripts/DOM.module.js"></script>
+</head>
+<body>
+    <!-- 01. Create a module for working to work with DOM. The module should have the following functionality
+        Add element to parent element by given selector
+        Remove element from the DOM  by given selector
+        Attach event to given selector by given event type and event hander
+        Add elements to buffer, which appends them to the DOM when their for some selector count becomes 100
+        The buffer contains elements for each selector it gets
+        Get elements by CSS selector
+        The module should reveal only the methods-->
+
+    <div id="wrapper">
+        <ul id="list">
+            <li><a href="#">Item 0</a></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        // demo
+        for (var i = 1; i < 6; i++) {
+            var liElement = document.createElement('li');
+            liElement.innerHTML = "<a href='#'>Item " + i + "</a>";
+            domModule.addChild(liElement, '#list');
+        }
+
+        var ulElement = document.createElement('ul');
+        ulElement.id = 'secondList';
+
+        domModule.removeChild('ul', 'li:first-child');
+        domModule.addElementToBuffer('#wrapper', ulElement);
+        domModule.removeChild('ul', 'li:last-child');
+
+        domModule.attachEvent('ul li', 'click', function () {
+            alert('Clicked li!');
+        });
+
+        for (var j = 0; j < 101; j++) {
+            var divElement = document.createElement('div');
+            domModule.addElementToBuffer("#wrapper", divElement);
+        }
+    </script>
+</body>
+</html>
