@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Vehicles</title>
+    <script src="scripts/vehicles.js"></script>
+</head>
+<body>
+    <!-- Write a hierarchy of classes to simulate vehicles -->
+
+    <script type="text/javascript">
+        var newWheel = new vehicles.Wheel(15);
+        var wheels = [newWheel, newWheel, newWheel, newWheel];
+
+        var landVehicle = new vehicles.LandVehicle(50, wheels);
+        console.log("Land vehicle speed is: " + landVehicle.speed + "kph");
+        landVehicle.accelerate();
+        console.log("Land vehicle speed after acceleration is: " + landVehicle.speed + "kph");
+
+        var propellingNozzles = [new vehicles.PropellingNozzle(100, false)];
+        var airVehicle = new vehicles.AirVehicle(100, propellingNozzles);
+        console.log("Air vehicle speed is: " + airVehicle.speed + "kph");
+        airVehicle.accelerate();
+        console.log("Air vehicle speed after acceleration is: " + airVehicle.speed + "kph");
+        // accelerate more by switching on the afterburners
+        airVehicle.switchAfterburners(true);
+        airVehicle.accelerate();
+        console.log("Air vehicle speed after acceleration with afterburners switched on is: " + airVehicle.speed + "kph");
+
+        var newPropeller = new vehicles.Propeller(5, vehicles.SpinDirection.clockwise);
+        var propellers = [newPropeller, newPropeller, newPropeller]
+        var waterVehicle = new vehicles.WaterVehicle(25, propellers);
+        console.log("Water vehicle speed is: " + waterVehicle.speed + "kph");
+        waterVehicle.accelerate();
+        console.log("Water vehicle speed after acceleration is: " + waterVehicle.speed + "kph");
+        // decelerate by changing the propellers spin direction
+        waterVehicle.changeSpinDerection(vehicles.SpinDirection.counterClockwise);
+        waterVehicle.accelerate();
+        console.log("Water vehicle speed after acceleration with propellers rotating counterclockwise: " + waterVehicle.speed + "kph");
+
+        var newAmphibiousPropeller = [new vehicles.Propeller(3, vehicles.SpinDirection.clockwise)];
+        var amphibiousVehicle = new vehicles.AmphibiousVehicle('land', 30, newAmphibiousPropeller, wheels);
+        console.log("Amphibious vehicle speed is: " + amphibiousVehicle.speed + "kph");
+        amphibiousVehicle.accelerate();
+        console.log("Amphibious vehicle speed after acceleration overland: " + amphibiousVehicle.speed + "kph");
+        // move Amphibious Vehicle on water
+        amphibiousVehicle.mode = 'water';
+        amphibiousVehicle.accelerate();
+        console.log("Amphibious vehicle speed after acceleration on water is: " + amphibiousVehicle.speed + "kph");
+    </script>
+</body>
+</html>

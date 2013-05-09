@@ -1,0 +1,36 @@
+﻿#container {
+  width: 500px;
+  height: 500px;
+  background-color: #808080;
+}
+#container img {
+  position: absolute;
+  top: 30px;
+}
+#startButton {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -50px;
+  padding: 10px;
+  background-color: #b63151;
+  color: white;
+  font: 20px Arial;
+  border: none;
+}
+#clock {
+  position: absolute;
+  left: 600px;
+  top: 50px;
+  color: #b63151;
+  font: 30px Arial;
+  font-weight: bolder;
+}
+#scores {
+  position: absolute;
+  left: 600px;
+  top: 150px;
+  color: #b63151;
+  font: 18px Arial;
+  padding: 0;
+}

@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>03. Storage Shim</title>
+    <script src="scripts/storage.js"></script>
+</head>
+<body>
+    <script>
+        // local storage demo
+        localStorage.setItem('telerik', 2013);
+        alert(localStorage.getItem('telerik'));
+
+        alert(localStorage.key('telerik'));
+
+        localStorage.removeItem('telerik');
+        alert(localStorage.length);
+
+        // session storage demo
+        newSessionStorage.setItem('telerik', 2013);
+        newSessionStorage.setItem('academy', 2013);
+        newSessionStorage.setItem('lecture', 2013);
+        alert(newSessionStorage.getItem('telerik'));
+
+        alert(newSessionStorage.key('telerik'));
+
+        newSessionStorage.removeItem('telerik');
+        alert(newSessionStorage.length());
+    </script>
+</body>
+</html>

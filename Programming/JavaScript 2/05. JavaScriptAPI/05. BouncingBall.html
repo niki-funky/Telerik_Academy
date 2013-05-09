@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>05. Bouncing Ball</title>
+    <link href="styles/05. StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="playField">
+        <div id="ball"></div>
+    </div>
+    <canvas width="960" height="600"></canvas>
+
+    <script>
+        var ball = document.getElementById("ball");
+        var TOP_POS_MIN = 10;
+        var TOP_POS_MAX = 130;
+        var LEFT_POS_MIN = 10;
+        var LEFT_POS_MAX = 530;
+
+        var directionTop = 1;
+        var directionLeft = 1;
+        var topPosCurrent = 10;
+        var leftPosCurrent = 10;
+
+        setInterval(function () {
+            topPosCurrent += directionTop;
+            leftPosCurrent += directionLeft;
+            if (topPosCurrent == TOP_POS_MAX) {
+                directionTop *= -1;
+            }
+
+            if (leftPosCurrent == LEFT_POS_MAX) {
+                directionLeft *= -1;
+            }
+
+            if (topPosCurrent == TOP_POS_MIN) {
+                directionTop *= -1;
+            }
+
+            if (leftPosCurrent == LEFT_POS_MIN) {
+                directionLeft *= -1;
+            }
+
+            ball.style.left = leftPosCurrent + "px";
+            ball.style.top = topPosCurrent + "px";
+        }, 1);
+    </script>
+</body>
+</html>

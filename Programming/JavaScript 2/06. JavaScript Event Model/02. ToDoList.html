@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>02. ToDo List</title>
+    <link href="styles/02. StyleSheet.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Create a TODO list with the following UI controls
+        Form input for new Item
+        Button for adding the new Item
+        Button for deleting some item
+        Show and Hide Button-->
+    <div>
+        <form>
+            <input id='newItem' type='text' />
+            <button id='add' type='button'>Add</button>
+            <br />
+            <button id='show' type='button'>Show</button>
+            <button id='hide' type='button'>Hide</button>
+        </form>
+
+        <ul id='toDoList'>
+            <li id='title'>TODO list</li>
+        </ul>
+    </div>
+    <script src="scripts/toDoList.js"></script>
+</body>
+</html>
