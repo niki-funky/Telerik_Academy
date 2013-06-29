@@ -1,4 +1,5 @@
 ﻿var player;
+videoURL;
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         height: '390', //must be bigger than 200px
@@ -14,6 +15,7 @@ function onYouTubeIframeAPIReady() {
 
 function onPlayerReady(event) {
     event.target.pauseVideo();
+    videoURL = player.getVideoUrl();
 }
 
 document.getElementById('single-video').addEventListener('click', function () {
