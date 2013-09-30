@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Twitter.Models.Tweet>
+
+@{
+    ViewBag.Title = "Twitter";
+}
+
+<h2 id="title-twitter">Twitter</h2>
+
+<div id="search">
+    @using (Ajax.BeginForm("Search",
+    new AjaxOptions
+    {
+        UpdateTargetId = "tweets",
+        HttpMethod = "GET",
+        InsertionMode = InsertionMode.Replace,
+    }))
+    {
+        @*@Html.AntiForgeryToken()*@
+        @Html.ValidationSummary(true)
+
+        <fieldset class="form-horizontal">
+            @*<legend>Tweet</legend>*@
+
+            <div class="control-group">
+                <div class="controls">
+                    @Html.TextBox("tag", null, new { @placeholder = "search for tag" })
+                    <input type="submit" value="Search" />
+                </div>
+            </div>
+        </fieldset>
+    }
+</div>
+
+@*@if (Roles.IsUserInRole("Admin"))
+    {*@
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@*}*@
+
+<div id="tweets">
+    @Html.Partial("Tweets", Model)
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

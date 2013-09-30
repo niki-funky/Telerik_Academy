@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Twitter.Models.Tweet>
+
+@foreach (var tweet in Model)
+{
+    <div class="media">
+        <div class="pull-left">
+            <img class="media-object" src="~/Content/Avatars/@tweet.User.Avatar" style="width: 50px; height: 50px;">
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">@tweet.Creator</h4>
+            <p>@Html.Raw(HttpUtility.HtmlDecode(tweet.Content))</p>
+
+            @if (ViewBag.CheckAdminRole)
+            {
+                <div class="pull-right">
+                    @*@Html.ActionLink("Edit", "Edit") |
+                        @Html.ActionLink("Delete", "Delete")*@
+
+                    @Ajax.ActionLink("Edit", "Edit", new { id = tweet.Id }, new AjaxOptions()
+                    {
+                        HttpMethod = "GET",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "edit-tweet" + @tweet.Id
+                    }) |
+                    @Ajax.ActionLink("Delete", "Delete", new { id = tweet.Id }, new AjaxOptions()
+                    {
+                        HttpMethod = "GET",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "delete-tweet" + @tweet.Id
+                    })
+
+                </div>
+                
+                <div id="edit-tweet@(tweet.Id)"> </div>
+                <div id="delete-tweet@(tweet.Id)"></div>
+            }
+            
+        </div>
+    </div>
+}

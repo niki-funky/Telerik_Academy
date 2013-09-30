@@ -1,0 +1,14 @@
+﻿@model Twitter.Models.Tweet
+
+@{
+    ViewBag.Title = "Error";
+}
+
+<h2>Error</h2>
+
+<p>You must have Admin rights!</p>
+
+<div class="form-actions no-color">
+    @Html.ActionLink("Back to Tweeter", "Index")
+    @*<input type="button" value="Return" class="btn" onclick="returnForm()" />*@
+</div>
