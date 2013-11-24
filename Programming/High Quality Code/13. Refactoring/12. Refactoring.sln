@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Matrix", "01. Matrix\01. Matrix.csproj", "{251C3827-408D-4CD4-9A93-E6C69D481B3C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. MatrixDemo", "01. MatrixDemo\01. MatrixDemo.csproj", "{DD736677-C9B0-4EF7-BA76-5A3F4E051829}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. MatrixTest", "01. MatrixTest\01. MatrixTest.csproj", "{1BB63A31-8FF0-4285-9E4E-54DAE2611F01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{251C3827-408D-4CD4-9A93-E6C69D481B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{251C3827-408D-4CD4-9A93-E6C69D481B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{251C3827-408D-4CD4-9A93-E6C69D481B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{251C3827-408D-4CD4-9A93-E6C69D481B3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD736677-C9B0-4EF7-BA76-5A3F4E051829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD736677-C9B0-4EF7-BA76-5A3F4E051829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD736677-C9B0-4EF7-BA76-5A3F4E051829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD736677-C9B0-4EF7-BA76-5A3F4E051829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BB63A31-8FF0-4285-9E4E-54DAE2611F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BB63A31-8FF0-4285-9E4E-54DAE2611F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BB63A31-8FF0-4285-9E4E-54DAE2611F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BB63A31-8FF0-4285-9E4E-54DAE2611F01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

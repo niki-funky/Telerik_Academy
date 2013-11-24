@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Human", "02. Human\02. Human.csproj", "{BB42DB9C-3828-4C91-B081-98797A2B82A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. BoolExtension", "01. BoolExtension\01. BoolExtension.csproj", "{C496F2E6-1915-4B24-8F06-10B660C9053C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. MinesGame", "04. MinesGame\04. MinesGame.csproj", "{B57F1FF1-E013-44CD-A4FB-340895BDC2A1}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "03. RefactorCodeJS", "03. RefactorCodeJS\", "{A7D9AF77-739F-412B-93BE-CD46926A8FAD}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/03. RefactorCodeJS"
+		Debug.AspNetCompiler.PhysicalPath = "03. RefactorCodeJS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\03. RefactorCodeJS\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/03. RefactorCodeJS"
+		Release.AspNetCompiler.PhysicalPath = "03. RefactorCodeJS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\03. RefactorCodeJS\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "29486"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB42DB9C-3828-4C91-B081-98797A2B82A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB42DB9C-3828-4C91-B081-98797A2B82A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB42DB9C-3828-4C91-B081-98797A2B82A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB42DB9C-3828-4C91-B081-98797A2B82A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C496F2E6-1915-4B24-8F06-10B660C9053C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C496F2E6-1915-4B24-8F06-10B660C9053C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C496F2E6-1915-4B24-8F06-10B660C9053C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C496F2E6-1915-4B24-8F06-10B660C9053C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B57F1FF1-E013-44CD-A4FB-340895BDC2A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B57F1FF1-E013-44CD-A4FB-340895BDC2A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B57F1FF1-E013-44CD-A4FB-340895BDC2A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B57F1FF1-E013-44CD-A4FB-340895BDC2A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7D9AF77-739F-412B-93BE-CD46926A8FAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D9AF77-739F-412B-93BE-CD46926A8FAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7D9AF77-739F-412B-93BE-CD46926A8FAD}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7D9AF77-739F-412B-93BE-CD46926A8FAD}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Poker", "01. Poker\01. Poker.csproj", "{2D4B720B-D13E-40C2-A25F-3418FDE17596}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. PokerTest", "02. PokerTest\02. PokerTest.csproj", "{78B1F99D-2188-43BB-8497-07303AF48F5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. PokerDemo", "01. PokerDemo\01. PokerDemo.csproj", "{A3181C11-F881-41CD-9B82-8DC12AB7B8F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D4B720B-D13E-40C2-A25F-3418FDE17596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D4B720B-D13E-40C2-A25F-3418FDE17596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D4B720B-D13E-40C2-A25F-3418FDE17596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D4B720B-D13E-40C2-A25F-3418FDE17596}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78B1F99D-2188-43BB-8497-07303AF48F5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78B1F99D-2188-43BB-8497-07303AF48F5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78B1F99D-2188-43BB-8497-07303AF48F5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78B1F99D-2188-43BB-8497-07303AF48F5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3181C11-F881-41CD-9B82-8DC12AB7B8F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3181C11-F881-41CD-9B82-8DC12AB7B8F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3181C11-F881-41CD-9B82-8DC12AB7B8F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3181C11-F881-41CD-9B82-8DC12AB7B8F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
