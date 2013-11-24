@@ -1,0 +1,46 @@
+﻿div {
+  float: left;
+}
+div ul {
+  list-style: none;
+  padding: 5px;
+  border: 1px solid black;
+  text-align: center;
+}
+div ul li:not(.subAlbum) {
+  width: 120px;
+  margin: 10px;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+div ul li:not(.subAlbum) a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+div ul li:not(.subAlbum) a img {
+  width: 100px;
+  height: 100px;
+}
+div ul .subAlbum {
+  display: block;
+}
+div ul .subAlbum a {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+div ul .subAlbum a img {
+  width: 100px;
+  height: 100px;
+}
+#enlargedImages {
+  float: left;
+  margin: 20px;
+}
+#enlargedImages img {
+  width: 200px;
+  height: 200px;
+}

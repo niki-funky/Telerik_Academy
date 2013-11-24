@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>01. HtmlPage</title>
+    <link href="styles/01. StyleSheet.css" rel="stylesheet" />
+    <script src="scripts/gallery.js"></script>
+</head>
+<body>
+    <div id="image-gallery-holder">
+    </div>
+    <div id="enlargedImages">
+    </div>
+
+    <script type="text/javascript">
+        //<!--Task number: 01-->
+        var gallery = controls.getImageGalerry("#image-gallery-holder");
+        gallery.addImage("JS Ninja", "images/js-ninja.jpg");
+        gallery.addImage("JS Ninja", "images/js-ninja.jpg");
+        gallery.addImage("JS Ninja", "images/js-ninja.jpg");
+
+        var ninjasAlbum = gallery.addAlbum("Ninja");
+        ninjasAlbum.addImage("JS Ninja2", "images/js-ninja.jpg");
+        ninjasAlbum.addImage("JS Ninja2", "images/js-ninja.jpg");
+        ninjasAlbum.addImage("JS Ninja2", "images/js-ninja.jpg");
+
+        //<!--Task number: 01-->
+        var kidsAlbum = ninjasAlbum.addAlbum("Kids Ninjas");
+        kidsAlbum.addImage("Kid Ninja", "images/js-ninja.jpg");
+        kidsAlbum.addImage("Kid Ninja", "images/js-ninja.jpg");
+        kidsAlbum.addImage("Kid Ninja", "images/js-ninja.jpg");
+
+        gallery.render();
+
+        //var imageGalleryData = [/*image_gallery_data*/];
+        var serialized = gallery.serialize();
+        imageGalleryRepository.save("ninjas-gallery", imageGalleryData);
+        var galleryData = imageGalleryRepository.load("ninjas-gallery");
+    </script>
+</body>
+</html>
