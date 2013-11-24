@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>01. Slider</title>
+    <link href="styles/StyleSheet1.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/jquery-1.10.1.js"></script>
+    <script type="text/javascript" src="scripts/object_create.js"></script>
+</head>
+<body>
+    <!--01. Create a slider control using jQuery
+            The slider can have many slides
+            Only one slide is visible at a time
+            Each slide contains HTML code
+            i.e. it can contain images, forms, divs, headers, links, etc…
+            Implement functionality for changing the visible slide after 5 seconds
+            Create buttons for next and previous slide-->
+
+    <div id="slider">
+        <div id="wrapper"></div>
+    </div>
+    <script type="text/javascript" src="scripts/slider.js"></script>
+    <script>
+        var slider = Object.create(Slider);
+        slider.init(5000);
+
+        slider.addSlide('<img src="images/nasa2012.jpg">');
+        slider.addSlide('<form><input type="text" name="First" size="12" maxlength="12" /><br /><input type="text" name="Last" size="24" maxlength="24" /><br /> <input type="submit" value="Submit" /><br /> <input type="submit" value="Send" /><br /> <input type="submit" value="Submit Form" /><br /></form>');
+        slider.addSlide('<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rutrum enim et mi ultricies, a sagittis velit bibendum. Etiam vitae velit feugiat, tempus turpis quis, laoreet tellus. Aliquam sodales mi massa, in dictum enim aliquam ac. Cras accumsan justo vitae massa accumsan egestas. Sed bibendum, diam id rhoncus malesuada, nunc mauris ultricies ligula, id feugiat felis nunc quis nisi. Sed imperdiet id turpis blandit feugiat. Praesent tempor vestibulum consequat. Nunc at turpis odio. Ut semper pharetra lorem vel iaculis. Aliquam eget mi id felis hendrerit ullamcorper. Vivamus vehicula, eros id aliquam semper, nulla dui aliquam lorem, ac tempus magna libero interdum tortor. Proin tempor congue tincidunt. Pellentesque at tincidunt ligula, ut feugiat enim. Nam eleifend velit nec facilisis bibendum. Nulla tempus dictum lacus, nec tempor eros venenatis vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam rutrum enim et mi ultricies, a sagittis velit bibendum. Etiam vitae velit feugiat, tempus turpis quis, laoreet tellus. Aliquam sodales mi massa, in dictum enim aliquam ac. Cras accumsan justo vitae massa accumsan egestas. Sed bibendum, diam id rhoncus malesuada, nunc mauris ultricies ligula, id feugiat felis nunc quis nisi. Sed imperdiet id turpis blandit feugiat. Praesent tempor vestibulum consequat. Nunc at turpis odio. Ut semper pharetra lorem vel iaculis. Aliquam eget mi id felis hendrerit ullamcorper. Vivamus vehicula, eros id aliquam semper, nulla dui aliquam lorem, ac tempus magna libero interdum tortor. Proin tempor congue tincidunt. Pellentesque at tincidunt ligula, ut feugiat enim. Nam eleifend velit nec facilisis bibendum. Nulla tempus dictum lacus, nec tempor eros venenatis vel.</p>');
+        slider.addSlide('<iframe name="inlineframe" src="http://cnn.com" frameborder="0" scrolling="auto" ></iframe>');
+        slider.addSlide('<H1>This is a size "1" heading</H1><H2>This is a size "2" heading</H2><H3>This is a size "3" heading</H3><H4>This is a size "4" heading</H4><H5>This is a size "5" heading</H5><H6>This is a size "6" heading</H6>');
+
+        slider.render();
+    </script>
+</body>
+</html>

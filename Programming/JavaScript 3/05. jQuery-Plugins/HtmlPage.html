@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>01. TreeView</title>
+    <link href="styles/StyleSheet.css" rel="stylesheet" />
+    <script src="scripts/external/jquery-2.0.2.js"></script>
+    <script src="scripts/tree-view.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.treeView').treeView();
+        });
+    </script>
+</head>
+<body>
+    <ul class="treeView">
+        <li><a href="#">Item</a></li>
+        <li><a href="#">Item</a></li>
+        <li>
+            Item
+            <ul>
+                <li>
+                    Sub item
+                    <ul>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Sub item
+                    <ul>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Sub item
+                    <ul>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Item
+            <ul>
+                <li>Sub item
+                    <ul>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                    </ul>
+                </li>
+                <li>Sub item
+                    <ul>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                    </ul>
+                </li>
+                <li>Sub item
+                    <ul>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                        <li><a href="#">Sub item</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="#">Item</a></li>
+    </ul>
+</body>
+</html>

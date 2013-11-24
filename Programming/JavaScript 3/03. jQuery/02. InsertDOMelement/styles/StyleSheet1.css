@@ -1,0 +1,23 @@
+﻿body {
+  margin: 0;
+  padding: 0;
+}
+#container {
+  margin: 30px;
+}
+#container .box {
+  width: 80px;
+  height: 80px;
+  background: #0026ff;
+  margin: 0 30px;
+  display: inline-block;
+}
+#container .center {
+  background: violet;
+}
+#control {
+  margin: 30px;
+}
+#control button {
+  font-size: 20px;
+}

@@ -1,0 +1,48 @@
+﻿html,
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #808080;
+}
+#favourites_bar {
+  font-family: Arial;
+  font-size: 12px;
+}
+#favourites_bar ul {
+  list-style: none;
+  background: #000000;
+  height: 40px;
+  color: #fff;
+}
+#favourites_bar ul li {
+  float: left;
+  position: relative;
+  padding-left: 20px;
+  padding-right: 20px;
+  line-height: 40px;
+}
+#favourites_bar ul li ul {
+  position: absolute;
+  left: 0;
+  display: none;
+  height: auto;
+}
+#favourites_bar ul li:hover {
+  background: #84131a;
+}
+#favourites_bar ul li:hover ul {
+  position: absolute;
+  left: 0;
+  display: block;
+}
+#favourites_bar ul ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#favourites_bar a {
+  color: #fff;
+}

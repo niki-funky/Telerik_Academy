@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>03. Image slider</title>
+    <link href="styles/StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+    <!--03. Implement a image slider control using Prototypal OOP
+            The slider has a set of images and only one can be enlarged
+            Each image in the image slider has a title and two urls (thumbnail url and large image url)
+            When an image from the thumbnails is clicked
+            The slider must have buttons for prev/next image-->
+    <div id="nav">
+        <button id="previous">Previous</button>
+        <button id="next">Next</button>
+    </div>
+    <div id="imageSlider">
+        <div id="container">
+        </div>
+    </div>
+    <div id="enlargedImage">
+    </div>
+    <script src="scripts/object_create.js"></script>
+    <script src="scripts/image_slider.js"></script>
+    <script>
+        var image1 = Object.create(Image);
+        image1.init("image01", "images_thumbs/thumb01.jpg", "images/image01.jpg")
+        var image2 = Object.create(Image);
+        image2.init("image02", "images_thumbs/thumb02.jpg", "images/image02.jpg")
+        var image3 = Object.create(Image);
+        image3.init("image03", "images_thumbs/thumb03.jpg", "images/image03.jpg")
+        var image4 = Object.create(Image);
+        image4.init("image04", "images_thumbs/thumb04.jpg", "images/image04.jpg")
+        var image5 = Object.create(Image);
+        image5.init("image05", "images_thumbs/thumb05.jpg", "images/image05.jpg")
+        var image6 = Object.create(Image);
+        image6.init("image06", "images_thumbs/thumb06.jpg", "images/image06.jpg")
+        var image7 = Object.create(Image);
+        image7.init("image07", "images_thumbs/thumb07.jpg", "images/image07.jpg")
+        var image8 = Object.create(Image);
+        image8.init("image08", "images_thumbs/thumb08.jpg", "images/image08.jpg")
+        var image9 = Object.create(Image);
+        image9.init("image09", "images_thumbs/thumb09.jpg", "images/image09.jpg")
+        var image10 = Object.create(Image);
+        image10.init("image10", "images_thumbs/thumb10.jpg", "images/image10.jpg")
+
+        var imageSlider = Object.create(ImageSlider);
+        imageSlider.init(new Array(image1, image2, image3, image4, image5,
+                                   image6, image7, image8, image9, image10));
+
+        imageSlider.render();
+    </script>
+</body>
+</html>

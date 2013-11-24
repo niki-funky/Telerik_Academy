@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>03. TableWithStudents</title>
+    <link href="styles/StyleSheet1.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/jquery-1.10.1.js"></script>
+    <script type="text/javascript" src="scripts/table_create.js"></script>
+    <script type="text/javascript" src="scripts/object_create.js"></script>
+</head>
+<body>
+    <!--03. By given an array of students, generate a table that represents these students
+            Each student has first name,last name and grade
+            Use jQuery-->
+
+    <div id="table"></div>
+    <script>
+        // prototypal OOP
+        var pesho = Object.create(Student);
+        pesho.init("Pesho", "Ivanov", 3);
+        var gosho = Object.create(Student);
+        gosho.init("Gosho", "Ivanov", 4);
+        var misho = Object.create(Student);
+        misho.init("Misho", "Ivanov", 4);
+        var sasho = Object.create(Student);
+        sasho.init("Sasho", "Ivanov", 3);
+
+        var data = [pesho, gosho, misho, sasho];
+        createTable(data);
+    </script>
+</body>
+</html>

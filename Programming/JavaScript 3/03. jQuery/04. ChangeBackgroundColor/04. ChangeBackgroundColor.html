@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>04. ChangeBackgroundColor</title>
+    <link href="styles/StyleSheet1.css" rel="stylesheet" />
+    <script type="text/javascript" src="scripts/jquery-1.10.1.js"></script>
+
+</head>
+<body>
+    <!--04. Implement functionality to change the background color of a web page
+            i.e. select a color from a color picker and set this color as the background color of the page-->
+
+    <form name="color">
+        <label for="backgroundColor">Background color:</label>
+        <input type='color' id='bkgColor' />
+    </form>
+
+    <script>
+        var colorPicker = $("#bkgColor");
+        colorPicker.on("change", function () {
+            $("body").css("background", colorPicker.val());
+        });
+    </script>
+</body>
+</html>

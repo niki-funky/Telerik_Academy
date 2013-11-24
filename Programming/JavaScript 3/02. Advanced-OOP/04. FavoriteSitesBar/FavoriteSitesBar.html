@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>04. FavoriteSitesBar</title>
+    <link href="styles/StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="favourites_bar"></div>
+    <script src="scripts/class_create.js"></script>
+    <script src="scripts/favorite_bar.js"></script>
+    <script>
+        var academy = new Url("Telerik academy", "http://academy.telerik.com/");
+        var calendar = new Url("Academy calendar", "http://telerikacademy.com/Calendar/All/");
+        var tubata = new Url("Youtube", "http://www.youtube.com");
+        var search = new Url("GOOGLE", "http://www.google.com");
+        var programming = new Url("Programming",
+            "http://academy.telerik.com/student-courses/programming/about");
+        var web_design = new Url("Web programming",
+            "http://academy.telerik.com/student-courses/web-design-and-ui/about");
+        var vicove = new Url("Vicove", "http://vicove.org/");
+        var novini = new Url("Novinite", "http://www.actualno.com/");
+
+        var courses = new Folder("Telerik Courses", [programming, web_design]);
+        var telerik = new Folder("Telerik academy", [academy, calendar]);
+        var google = new Folder("Google", [search, tubata]);
+
+        var favourites = new FavouritesBar([courses, google, telerik], [novini, vicove]);
+
+        favourites.render("favourites_bar");
+    </script>
+</body>
+</html>

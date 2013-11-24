@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>02. School</title>
+</head>
+<body>
+    <!--02. Implement a repository to keep students and teachers in schools
+            Each school have a name, town and classes of students
+            Students have firstname, last name, age and grade
+            Teachers have firstname, last name, age and speciality
+            Students and Teachers can introduce themselves by printing all
+            their non-function properties in the format PropertyName: PropertyValue
+            Implement the schools repository using Classical OOP-->
+
+    <script src="scripts/class_create.js"></script>
+    <script src="scripts/school_classic_OOP.js"></script>
+    <script>
+        // classic OOP
+        var pesho = new Student("Pesho", "Ivanov", 20, 3);
+        var gosho = new Student("Gosho", "Ivanov", 21, 4);
+        var misho = new Student("Misho", "Ivanov", 22, 4);
+        var sasho = new Student("Sasho", "Ivanov", 23, 3);
+
+        var bad = new Teacher("Bad", "Snakey", 50, "Math");
+        var good = new Teacher("Good", "Muzzle", 33, "Literature");
+
+        var classD = new SchoolClass("Drivellers", 15,
+            new Array(pesho, gosho, misho, sasho), bad);
+
+        var school = new School("Telerik", "Sofia", new Array(classD));
+
+        console.log(pesho.introduce());
+        console.log(gosho.introduce());
+        console.log(misho.introduce());
+        console.log(sasho.introduce());
+        console.log(bad.introduce());
+        console.log(classD.introduce());
+        console.log(school.introduce());
+    </script>
+</body>
+</html>

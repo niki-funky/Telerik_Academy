@@ -1,0 +1,204 @@
+﻿
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    -o-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+    .modalDialog:target {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .modalDialog > div {
+        width: 400px;
+        position: relative;
+        margin: 10% auto;
+        padding: 5px 20px 13px 20px;
+        /*border-radius: 10px;*/
+        background: #fff;
+        background: -moz-linear-gradient(#fff, #999);
+        background: -webkit-linear-gradient(#fff, #999);
+        background: -o-linear-gradient(#fff, #999);
+        -webkit-box-shadow: 1px 1px 20px #000;
+        box-shadow: 1px 1px 20px #000;
+        border: 1px solid #00d9ff;
+    }
+
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+
+    .close:hover {
+        background: #00d9ff;
+    }
+
+#wrapper {
+    width: 1024px;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #00d9ff;
+    margin-top: 50px;
+    padding: 10px;
+    font: normal 14px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+    -moz-box-shadow: 1px 1px 20px #000;
+    -webkit-box-shadow: 1px 1px 20px #000;
+    box-shadow: 1px 1px 20px #000;
+}
+
+    #wrapper > header {
+    }
+
+#start-game {
+    padding: 5px 15px;
+    margin: 5px 10px;
+    border: 1px solid #444;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    background-color: #00d9ff;
+}
+
+#user-nickname {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.button {
+    display: inline-block;
+    padding: 5px 15px;
+    margin-top: 5px;
+    margin-left: 10px;
+    border: 1px solid #444;
+    text-decoration: none;
+    color: black;
+    background-color: #ccc;
+}
+
+form label {
+    /*text-align: left;
+    right: 50px;*/
+    float: left;
+    margin-right: 10px;
+}
+
+#btn-login,
+#btn-register {
+    display: inline-block;
+    float: right;
+    clear: right;
+    /*margin-top: -40px;*/
+}
+
+#open-games-container {
+    width: 300px;
+    float: left;
+    border: 1px solid #00d9ff;
+    padding: 5px;
+}
+
+#active-games-container {
+    width: 300px;
+    float: right;
+    border: 1px solid #00d9ff;
+    padding: 5px;
+}
+
+#content {
+    -ms-zoom: 1;
+    zoom: 1;
+}
+
+    #content:after {
+        clear: both;
+        display: block;
+        height: 0;
+        content: "";
+    }
+
+#create-game-holder {
+    display: block;
+    /*text-align: right;*/
+    margin: 10px;
+}
+
+.button.selected {
+    font-weight: bold;
+}
+
+#active-games {
+    left: 0;
+}
+
+.game-list {
+    list-style-type: none;
+    display: inline-block;
+    text-align: left;
+    margin: 0;
+}
+
+#active-games-container a, #open-games-container a {
+    color: #222;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+    #active-games-container a:hover, #open-games-container a:hover {
+        text-decoration: underline;
+        background-color: #00d9ff;
+    }
+
+#active-games-container .full {
+    color: #bbb;
+}
+
+#game-state {
+    width: 380px;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid #00d9ff;
+}
+
+    #game-state .guess-holder {
+        display: inline-block;
+        width: 180px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+#game-messages {
+    width: 380px;
+    border: 1px solid #00d9ff;
+}
+
+.hide {
+    display: none;
+}
