@@ -1,0 +1,9 @@
+CREATE  TABLE books`Books` (
+  `BookID` INT NOT NULL AUTO_INCREMENT ,
+  `Ttile` VARCHAR(100) NULL ,
+  `Author` VARCHAR(100) NULL ,
+  `PublishDate` DATE NULL ,
+  `ISBN` VARCHAR(17) NULL ,
+  PRIMARY KEY (`BookID`) ,
+  UNIQUE INDEX `BookID_UNIQUE` (`BookID` ASC) )
+ENGINE = InnoDB

@@ -1,0 +1,117 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarket", "SuperMarket\SuperMarket.csproj", "{DCE68819-A478-4BFD-8D94-BD1394DEAEA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarket.PDF.Client", "SuperMarket.PDF.Client\SuperMarket.PDF.Client.csproj", "{232C2D58-BE93-4C59-9614-D0DAB6DA37C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarket.MongoDB.Client", "SuperMarket.MongoDB.Client\SuperMarket.MongoDB.Client.csproj", "{F36E9A14-0142-413D-989D-F40FD4F4802F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarket.MySQL.Client", "SuperMarket.MySQL.Client\SuperMarket.MySQL.Client.csproj", "{73BFFD9B-CE03-4EBC-8633-2262570E18EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarket.MySQL.Data", "SuperMarket.MySQL.Data\SuperMarket.MySQL.Data.csproj", "{C50145E6-A244-4F1F-B41F-90D1925B4A00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarket.SQLServer.Data", "SuperMarket.SQLServer.Data\SuperMarket.SQLServer.Data.csproj", "{DD0FEB3A-F309-4AEE-8715-2EFF2088F037}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarket.SQLServer.Models", "SuperMarket.SQLServer.Models\SuperMarket.SQLServer.Models.csproj", "{F909CECE-A75A-4D37-872F-BDB3672A8E7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarket.App", "SuperMarket.App\SuperMarket.App.csproj", "{5B97372F-D94A-46E0-ACCE-124CA0CA0F8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarket.Formats", "Supermarket.Formats\SuperMarket.Formats.csproj", "{A53C4F08-191F-4362-8FDE-349169A371B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarket.SQLite.Models", "SuperMarket.SQLite.Models\SuperMarket.SQLite.Models.csproj", "{3BF80AE4-8BBE-47D7-A2E7-78AD014E65EE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQLiteDB", "SQLiteDB", "{568659B9-CAF8-471E-BFE4-50BFBC0037F9}"
+	ProjectSection(SolutionItems) = preProject
+		SQLiteDB\SuperMarket.db = SQLiteDB\SuperMarket.db
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Product-Reports", "Product-Reports", "{F08D72F6-0156-491D-A3E7-348EC4D50E5D}"
+	ProjectSection(SolutionItems) = preProject
+		Product-Reports\readme.txt = Product-Reports\readme.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sales-Reports", "Sales-Reports", "{E0BFAAF7-28B9-4755-9B99-590777B0563E}"
+	ProjectSection(SolutionItems) = preProject
+		Sales-Reports\readme.txt = Sales-Reports\readme.txt
+		Sales-Reports\Sales-Reports.zip = Sales-Reports\Sales-Reports.zip
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sales-By-Vendors", "Sales-By-Vendors", "{ABE57933-7E94-4774-95FB-6A5BA4468175}"
+	ProjectSection(SolutionItems) = preProject
+		Sales-By-Vendors\readme.txt = Sales-By-Vendors\readme.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aggregated-Sales-Reports", "Aggregated-Sales-Reports", "{C4D02B22-FA84-4080-9AF2-0BB770875028}"
+	ProjectSection(SolutionItems) = preProject
+		Aggregated-Sales-Reports\readme.txt = Aggregated-Sales-Reports\readme.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSS", "CSS", "{9D2757C4-07EF-46EB-A92A-E6CB0F0449EA}"
+	ProjectSection(SolutionItems) = preProject
+		CSS\style.css = CSS\style.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Expenses", "Expenses", "{FE6C68A9-727B-4328-843C-EF8339C1EFF3}"
+	ProjectSection(SolutionItems) = preProject
+		Expenses\readme.txt = Expenses\readme.txt
+		Expenses\Vendors-Expenses.xml = Expenses\Vendors-Expenses.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMarket.SQLite.DataProvider", "SuperMarket.SQLite.DataProvider\SuperMarket.SQLite.DataProvider.csproj", "{1375E6FA-D8B7-42EE-B3B2-E9A26C4857C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCE68819-A478-4BFD-8D94-BD1394DEAEA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE68819-A478-4BFD-8D94-BD1394DEAEA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE68819-A478-4BFD-8D94-BD1394DEAEA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE68819-A478-4BFD-8D94-BD1394DEAEA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{232C2D58-BE93-4C59-9614-D0DAB6DA37C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{232C2D58-BE93-4C59-9614-D0DAB6DA37C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{232C2D58-BE93-4C59-9614-D0DAB6DA37C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{232C2D58-BE93-4C59-9614-D0DAB6DA37C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F36E9A14-0142-413D-989D-F40FD4F4802F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F36E9A14-0142-413D-989D-F40FD4F4802F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F36E9A14-0142-413D-989D-F40FD4F4802F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F36E9A14-0142-413D-989D-F40FD4F4802F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73BFFD9B-CE03-4EBC-8633-2262570E18EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73BFFD9B-CE03-4EBC-8633-2262570E18EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73BFFD9B-CE03-4EBC-8633-2262570E18EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73BFFD9B-CE03-4EBC-8633-2262570E18EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C50145E6-A244-4F1F-B41F-90D1925B4A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C50145E6-A244-4F1F-B41F-90D1925B4A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C50145E6-A244-4F1F-B41F-90D1925B4A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C50145E6-A244-4F1F-B41F-90D1925B4A00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD0FEB3A-F309-4AEE-8715-2EFF2088F037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD0FEB3A-F309-4AEE-8715-2EFF2088F037}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD0FEB3A-F309-4AEE-8715-2EFF2088F037}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD0FEB3A-F309-4AEE-8715-2EFF2088F037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F909CECE-A75A-4D37-872F-BDB3672A8E7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F909CECE-A75A-4D37-872F-BDB3672A8E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F909CECE-A75A-4D37-872F-BDB3672A8E7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F909CECE-A75A-4D37-872F-BDB3672A8E7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B97372F-D94A-46E0-ACCE-124CA0CA0F8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B97372F-D94A-46E0-ACCE-124CA0CA0F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B97372F-D94A-46E0-ACCE-124CA0CA0F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B97372F-D94A-46E0-ACCE-124CA0CA0F8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A53C4F08-191F-4362-8FDE-349169A371B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A53C4F08-191F-4362-8FDE-349169A371B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A53C4F08-191F-4362-8FDE-349169A371B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A53C4F08-191F-4362-8FDE-349169A371B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BF80AE4-8BBE-47D7-A2E7-78AD014E65EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BF80AE4-8BBE-47D7-A2E7-78AD014E65EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BF80AE4-8BBE-47D7-A2E7-78AD014E65EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BF80AE4-8BBE-47D7-A2E7-78AD014E65EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1375E6FA-D8B7-42EE-B3B2-E9A26C4857C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1375E6FA-D8B7-42EE-B3B2-E9A26C4857C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1375E6FA-D8B7-42EE-B3B2-E9A26C4857C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1375E6FA-D8B7-42EE-B3B2-E9A26C4857C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
