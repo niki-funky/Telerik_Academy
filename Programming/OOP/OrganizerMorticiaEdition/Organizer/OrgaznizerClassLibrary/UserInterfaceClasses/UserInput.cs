@@ -10,14 +10,12 @@ namespace OrganizerClassLibrary.UserInterfaceClasses
 
         public static void InputEmail(OrganizerCore core)
         {
-            string name = NameInput();
             string sendTo = SentToInput();
             string subject = SubjectInput();
             string textBody = TextInput();
             string filePath = FilePathInput();
-            string comment = CommentInput();
 
-            ObjectCreator.CreateEmail(core, sendTo, subject, textBody, filePath, comment);
+            ObjectCreator.CreateEmail(core, sendTo, subject, textBody, filePath);
         }
 
         public static void InputProject(OrganizerCore core)

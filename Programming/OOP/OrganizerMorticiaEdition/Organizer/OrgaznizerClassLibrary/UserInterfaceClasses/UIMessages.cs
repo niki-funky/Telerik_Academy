@@ -70,7 +70,7 @@ namespace OrganizerClassLibrary.UserInterfaceClasses
             Console.WriteLine();
             Utilities.PrintColorMessage("1. Create event.", Color.Green);
             Utilities.PrintColorMessage("2. Create contact.", Color.Cyan);
-            Utilities.PrintColorMessage("3. Create email", Color.DarkCyan);
+            Utilities.PrintColorMessage("3. Create email", Color.Yellow);
             Utilities.PrintColorMessage("10. Exit", Color.White);
             Console.WriteLine();
         }

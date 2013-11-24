@@ -1,5 +1,6 @@
 ﻿using OrganizerClassLibrary;
 using OrganizerClassLibrary.Enums;
+using OrganizerClassLibrary.UserInterfaceClasses;
 using System;
 using System.Globalization;
 
@@ -11,9 +12,9 @@ namespace Demo
         {
             System.Threading.Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
             OrganizerCore core = OrganizerCore.GetOrganizerCoreInstance();
-            //OrganizerCore.Initialize(core);
-            //UserInterface.MainMenu(core);
-            //core.PrintTotalObjectsCreated();
+            OrganizerCore.Initialize(core);
+            UserInterface.MainMenu(core);
+            core.PrintTotalObjectsCreated();
 
 
             Friend tzanko = new Friend("Tzanko", "tzanko@gmail.com", nickname: "Jujo");

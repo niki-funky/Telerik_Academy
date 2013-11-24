@@ -6,12 +6,12 @@ namespace OrgaznizerClassLibrary
 {
     public static class ObjectCreator
     {
-        public static void CreateEmail(OrganizerCore core, string sendTo, string subject, string body, string filePath, string comment)
+        public static void CreateEmail(OrganizerCore core, string sendTo, string subject, string body, string filePath, string comment="")
         {
             Email email = new Email(sendTo, subject, body, filePath, comment);
             core.AddObject(email);
             email.SendEmail();
-            Utilities.PrintColorMessage(String.Format("The Email \"{0}\" was created and sent.", email.Name), Color.Blue);
+            Utilities.PrintColorMessage(String.Format("The Email was created and sent."), Color.Blue);
             Utilities.GoToMainMenu(core);
         }
 
