@@ -1,0 +1,37 @@
+﻿<div id="example" class="k-content">
+    <div id="loginForm">
+        <div id="tabstrip">
+            <ul>
+                <li class="k-state-active">Login
+                </li>
+                <li>Register
+                </li>
+            </ul>
+            <div class="tab">
+                <fieldset>
+                    <legend>Login</legend>
+                    <label for="tb-username-login">Username</label>
+                    <input data-bind="value: username" type="text" id="tb-username-login" />
+                    <label for="tb-password-login">Password</label>
+                    <input data-bind="value: password" type="password" id="tb-password-login" />
+                    <button data-bind="click: login">Login</button>
+                </fieldset>
+                <div data-bind="text: message"></div>
+            </div>
+            <div class="tab">
+                <fieldset>
+                    <legend>Register</legend>
+                    <label for="tb-username-register">Username</label>
+                    <input data-bind="value: username" type="text" id="tb-username-register" />
+                    <label for="tb-email">Email</label>
+                    <input data-bind="value: email" type="email" id="tb-email" />
+                    <label for="tb-password-register">Password</label>
+                    <input data-bind="value: password" type="password" id="tb-password-register" />
+                    <button data-bind="click: register">Register</button>
+                </fieldset>
+                <div data-bind="text: message"></div>
+            </div>
+        </div>
+    </div>
+</div>
+

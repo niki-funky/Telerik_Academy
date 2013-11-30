@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StudentsDB</title>
+    <link href="styles/StyleSheet1.css" rel="stylesheet" />
+    <script src="scripts/libs/require.js" data-main="scripts/app-config"></script>
+</head>
+<body>
+    <div id="main-content">
+    </div>
+    <div id="marks" style="display:none">
+    </div>
+
+    <script id="student-template" type="x-mustache-template">
+		<div class="student" data-id="{{id}}">
+          Name: {{name}}, Grade: {{grade}}
+        </div>
+    </script>
+
+    <script id="mark-template" type="x-mustache-template">
+		<p>
+            <strong>{{subject}}</strong> - score: {{score}}
+        </p>
+    </script>
+</body>
+</html>

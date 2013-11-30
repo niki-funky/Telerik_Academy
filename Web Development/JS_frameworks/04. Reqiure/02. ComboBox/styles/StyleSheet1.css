@@ -1,0 +1,14 @@
+﻿body {
+}
+
+.student:hover {
+    display:inline-block;
+    background-color: #68c3ff;
+    cursor: pointer;
+}
+
+#marks:hover {
+    display:inline-block;
+    background-color: #68c3ff;
+    cursor: pointer;
+}

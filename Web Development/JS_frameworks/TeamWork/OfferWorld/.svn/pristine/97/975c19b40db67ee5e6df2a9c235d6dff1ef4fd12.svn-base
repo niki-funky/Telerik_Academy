@@ -1,0 +1,196 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web;
+using System.Web.Http;
+using OfferWorld.Models;
+using OfferWorld.Data;
+using OfferWorld.WebApi.Models;
+
+namespace OfferWorld.WebApi.Controllers
+{
+    public class UsersController : ApiController
+    {
+        #region PrivateFields
+        private const int UsernameMinChars = 5;
+        private const int UsernameMaxChars = 15;
+        private const int AuthCodeLength = 40;
+        private const int SessionKeyLength = 50;
+        private const string UsernameValidChars = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890_.";
+        private const string AuthCodeChars = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
+        private const string SessionKeyChars = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+        private readonly Random rand = new Random();
+        #endregion
+
+        #region Register
+        [ActionName("register")]
+        public HttpResponseMessage PostRegisterUser(UserModel model)
+        {
+            try
+            {
+                using (var context = new OfferWorldContext())
+                {
+                    this.ValidateUsername(model.Username);
+                    this.ValidateAuthCode(model.AuthCode);
+                    // TODO validate email
+
+                    var usernameToLower = model.Username.ToLower();
+                    var username = (context.Users.FirstOrDefault(usr => usr.Username == usernameToLower || usr.Email == model.Email));
+                    
+                    if (username != null)
+                    {
+                        throw new ArgumentException("Username or Email already exist");
+                    }
+
+                    var user = new User()
+                    {
+                        Username = model.Username,
+                        AuthCode = model.AuthCode, 
+                        Email = model.Email
+                    };
+
+                    context.Users.Add(user);
+                    context.SaveChanges();
+
+                    user.SessionKey = this.GenerateSessionKey(user.UserId);
+
+                    context.SaveChanges();
+
+                    var loggedModel = new UserLoggedModel()
+                    {
+                        Username = user.Username,
+                        SessionKey = user.SessionKey
+                    };
+
+                    var response = this.Request.CreateResponse(HttpStatusCode.Created, loggedModel);
+                    return response;
+                }
+            }
+            catch (Exception ex)
+            {
+                var errResponse = this.Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+                return errResponse;
+            }
+        }
+        #endregion
+
+        #region Login
+        [ActionName("login")]
+        public HttpResponseMessage PostLoginUser(UserModel model)
+        {
+            try
+            {
+                using (var context = new OfferWorldContext())
+                {
+                    this.ValidateUsername(model.Username);
+                    this.ValidateAuthCode(model.AuthCode);
+
+                    var usernameToLower = model.Username.ToLower();
+                    var user = (context.Users.FirstOrDefault(usr => usr.Username == usernameToLower &&
+                            usr.AuthCode == model.AuthCode));
+
+                    if (user == null)
+                    {
+                        throw new ArgumentException("Username does not exist!");
+                    }
+                    else if (user.SessionKey == null)
+                    {
+                        user.SessionKey = this.GenerateSessionKey(user.UserId);
+                        context.SaveChanges();
+                    }
+
+                    var loggedModel = new UserLoggedModel()
+                    {
+                        Username = user.Username,
+                        SessionKey = user.SessionKey
+                    };
+
+                    var response = this.Request.CreateResponse(HttpStatusCode.Created, loggedModel);
+                    return response;
+                }
+            }
+            catch (Exception ex)
+            {
+                var errResponse = this.Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+                return errResponse;
+            }
+        }
+        #endregion
+
+        #region Logout
+        [ActionName("logout")]
+        public HttpResponseMessage PutLogoutUser(UserLoggedModel model)
+        {
+            try
+            {
+                using (var context = new OfferWorldContext())
+                {
+                    var user = context.Users.FirstOrDefault(usr => usr.SessionKey == model.SessionKey);
+
+                    if (user == null)
+                    {
+                        throw new InvalidOperationException("Invalid operation.");
+                    }
+
+                    user.SessionKey = null;
+
+                    context.SaveChanges();
+
+                    return this.Request.CreateResponse(HttpStatusCode.OK);
+                }
+            }
+            catch (Exception ex)
+            {
+                return this.Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+        #endregion
+
+        #region PrivateMethods
+        private string GenerateSessionKey(int userId)
+        {
+            int userIdLength = userId.ToString().Length;
+            string sessionKey = userId.ToString();
+            for (var i = 0; i < SessionKeyLength - userIdLength; i++)
+            {
+                sessionKey += SessionKeyChars[rand.Next(0, SessionKeyChars.Length)];
+            }
+            return sessionKey;
+        }
+
+        private void ValidateAuthCode(string authCode)
+        {
+            if (authCode.Length != AuthCodeLength)
+            {
+                throw new ArgumentException("Password should be encrypted");
+            }
+            else if (authCode.Any(ch => !AuthCodeChars.Contains(ch)))
+            {
+                throw new ArgumentException("Wrong encrypted password");
+            }
+        }
+
+        private void ValidateUsername(string user)
+        {
+            if (user == null)
+            {
+                throw new NullReferenceException("Username cannot be empty!");
+            }
+            else if (user.Length < UsernameMinChars || user.Length > UsernameMaxChars)
+            {
+                throw new ArgumentOutOfRangeException(string.Format(
+                    "Nickname length must be between {0} and {1} characters", UsernameMinChars, UsernameMaxChars));
+            }
+            else if (user.Any(ch => !UsernameValidChars.Contains(ch)))
+            {
+                throw new ArgumentException("You are using not allowed characted.");
+            }
+        }
+        #endregion
+    }
+}

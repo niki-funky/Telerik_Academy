@@ -1,0 +1,113 @@
+﻿/// <reference path="libs/_references.js" />
+
+(function () {
+    var appLayout = new kendo.Layout('<div id="main-content"></div>');
+
+    var data = persisters.get("http://localhost:37755/api/");
+    vmFactory.setPersister(data);
+
+    var router = new kendo.Router();
+    router.route("/", function () {
+        //debugger;
+        if (data.users.currentUser()) {
+            router.navigate("/all-items");
+        }
+        else {
+            router.navigate("/login");
+        }
+    });
+
+    router.route("/login", function () {
+        $("#logout-div").toggle();
+        if (data.users.currentUser()) {
+            router.navigate("/");
+        }
+        else {
+            viewsFactory.getLoginView()
+				.then(function (loginViewHtml) {
+				    var loginVm = vmFactory.getLoginVM(function () {
+				        router.navigate("/");
+				    });
+				    var view = new kendo.View(loginViewHtml, { model: loginVm });
+				    appLayout.showIn("#main-content", view);
+				});
+        }
+    });
+
+    router.route("/all-items", function () {
+        if (!data.users.currentUser()) {
+            router.navigate("/login");
+        }
+
+        viewsFactory.getItemsView()
+            .then(function (itemListHtml) {
+                //debugger;
+                //var itemsTemplate = kendo.template($(itemListHtml).find($("#items-template").html()));
+                //debugger;
+                vmFactory.getItemsVM(function (id) {
+                    router.navigate("/item-details/" + id);
+                })
+                .then(function (vm) {
+                    debugger;
+                    var itemsListModel = vm;
+                    //$("#pager").kendoPager({
+                    //    dataSource: vm
+                    //});
+
+                    //var view = $("#listView").kendoListView({
+                    //    dataSource: vm,
+                    //    //template: itemsTemplate
+                    //    template: kendo.template($("#template").html())
+                    //});
+                    //debugger;
+                    var view = new kendo.View(itemListHtml, { model: itemsListModel });
+                    appLayout.showIn("#main-content", view)
+                });
+            });
+    });
+
+    router.route("/item-details/:id", function (id) {
+        if (!data.users.currentUser()) {
+            router.navigate("/login");
+        }
+
+        viewsFactory.getItemDetailsView()
+        .then(function (itemDetailsHtml) {
+            // debugger;
+            vmFactory.getItemDetailVM(id, function () {
+                // debugger;
+                router.navigate("/redirection/" + id);
+            }).then(function (vm) {;
+                // debugger;
+                var itemDetailsModel = vm;
+                var view = new kendo.View(itemDetailsHtml, { model: itemDetailsModel });
+                appLayout.showIn("#main-content", view);
+            },
+                function (err) {
+                    // debugger;
+                });
+        });
+    });
+
+    router.route("/redirection/:id", function (id) {
+        if (!data.users.currentUser()) {
+            router.navigate("/login");
+        }
+
+        // debugger;
+        router.navigate("/item-details/" + id);
+
+    });
+
+    //only for registered users
+    router.route("/special", function () {
+        if (!data.users.currentUser()) {
+            router.navigate("/login");
+        }
+    });
+
+    $(function () {
+        appLayout.render("#app");
+        router.start();
+    });
+}());

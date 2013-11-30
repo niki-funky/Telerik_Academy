@@ -1,0 +1,31 @@
+﻿<div id="create-app">
+    <div class="login-container">
+        <ul id="register" class="forms">
+            <li>
+                <input id="tb-app-subject" data-bind="value: subject" type="text" class="k-textbox" placeholder="Subject" />
+            </li>
+            <li>
+                <input data-bind="value: description" type="text" id="tb-app-description" class="k-textbox" placeholder="Description" />
+            </li>
+            <li>
+                <div id="calender" class="k-content">
+                    <input id="datepicker" data-bind="value: appointmentDate" placeholder="3/09/2013" style="width: 150px;" />
+                    <script>
+                        // create DatePicker from input HTML element
+                        $("#datepicker").kendoDatePicker({
+                            //change: onChange,
+                        });
+                        //});
+                    </script>
+                </div>
+            </li>
+            <li>
+                <input data-bind="value: duration" type="number" id="duration" class="k-textbox" placeholder="in minutes" />
+            </li>
+            <li>
+                <button data-bind="click: create" class="k-button">Create</button>
+            </li>
+        </ul>
+    </div>
+    <span class="reg"></span>
+</div>

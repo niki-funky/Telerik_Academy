@@ -1,0 +1,66 @@
+﻿<div id="example" class="k-content">
+    <div id="login-form-container">
+        <div id="tabstrip">
+            <ul>
+                <li class="k-state-active">Login
+                </li>
+                <li>Register
+                </li>
+            </ul>
+            <!--LOGIN-->
+            <div id="login-pic" style="background: url('http://png.findicons.com/files/icons/990/vistaico_toolbar/128/login.png') no-repeat 30px 30px">
+                <div class="login-container">
+                    <ul id="login" class="forms">
+                        <li>
+                            <input data-bind="value: username" type="text" class="k-textbox" placeholder="Username" />
+                        </li>
+                        <li>
+                            <span class="k-textbox">
+                                <input data-bind="value: password" type="password" placeholder="Password" />
+                            </span>
+                        </li>
+                        <li>
+                            <button data-bind="click: login" class="k-button">Login</button>
+                        </li>
+                    </ul>
+                </div>
+                <span class="log"></span>
+            </div>
+
+            <!--REGISTER-->
+            <div id="register-pic" style="background: url('http://png.findicons.com/files/icons/943/application/128/login.png') no-repeat 30px 30px">
+                <div class="login-container">
+                    <ul id="register" class="forms">
+                        <li>
+                            <input id="tb-username-register" data-bind="value: username" type="text" class="k-textbox" placeholder="Username" />
+                        </li>
+                        <li>
+                            <input data-bind="value: email" type="email" id="tb-email" class="k-textbox" placeholder="Email" />
+                        </li>
+                        <li>
+                            <span class="k-textbox">
+                                <input id="tb-password-register" data-bind="value: password" type="password" placeholder="Password" />
+                            </span>
+                        </li>
+                        <li>
+                            <button data-bind="click: register" class="k-button">Register</button>
+                        </li>
+                    </ul>
+                </div>
+                <span class="reg"></span>
+            </div>
+
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#tabstrip").kendoTabStrip({
+                animation: {
+                    open: {
+                        effects: "fadeIn"
+                    }
+                }
+            });
+        });
+    </script>

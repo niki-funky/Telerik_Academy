@@ -1,0 +1,13 @@
+﻿<div id="items-container" class="k-content">
+    <h2>Items</h2>
+    <div id="listView"></div>
+    <div id="pager" class="k-pager-wrap"></div>
+
+    <script type="text/x-kendo-templ" id="items-template">
+        <div class="product" item-id="#: Id#" >   
+            <img src="#: Pictures[0].Link #", alt="#: Pictures[0].Link#", title="#: Pictures[0].Link#" />   
+            <h3 >#: Title #</h3>   
+            <p>#: kendo.toString(Price, "c") #</p>   
+        </div>   
+    </script>
+</div>

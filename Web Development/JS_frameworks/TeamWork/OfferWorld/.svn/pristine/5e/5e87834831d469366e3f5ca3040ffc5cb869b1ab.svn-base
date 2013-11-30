@@ -1,0 +1,102 @@
+﻿/// <reference path="libs/_references.js" />
+
+(function () {
+	var appLayout =
+		new kendo.Layout('<div id="main-content"></div>');
+	var data = persisters.get("http://localhost:37755/api/");
+	vmFactory.setPersister(data);
+
+	var router = new kendo.Router();
+	router.route("/", function () {
+		//viewsFactory.getItemsView()
+		//	.then(function (itemsViewHtml) {
+		//	    debugger;
+		//	    vmFactory.getItemsVM()
+		//		.then(function (vm) {
+		//		    debugger;
+		//			var view =
+		//				new kendo.View(itemsViewHtml,
+		//				{ model: vm });
+		//			appLayout.showIn("#main-content", view);
+		//		}, function (err) {
+		//		    debugger;
+		//			//...
+		//		});
+		//	});
+	    debugger;
+		if (data.users.currentUser()) {
+		    router.navigate("/all-items");
+		}
+		else {
+		    router.navigate("/login");
+		}
+	});
+
+	router.route("/login", function () {
+	    $("#logout-div").toggle();
+		if (data.users.currentUser()) {
+			router.navigate("/");
+		}
+		else {
+			viewsFactory.getLoginView()
+				.then(function (loginViewHtml) {
+					var loginVm = vmFactory.getLoginVM(
+						function () {
+							router.navigate("/");
+						});
+					var view = new kendo.View(loginViewHtml,
+						{ model: loginVm });
+					appLayout.showIn("#main-content", view);
+				});
+		}
+	});
+
+	router.route("/all-items", function () {
+	    if (!data.users.currentUser()) {
+	        router.navigate("/login");
+	    }
+
+	    viewsFactory.getItemsView()
+            .then(function (itemListHtml) {
+                debugger;
+                //$("#pager").kendoPager({
+                //    dataSource: dataSource
+                //});
+
+                //$("#listView").kendoListView({
+                //    dataSource: dataSource,
+                //    template: kendo.template($("#template").html())
+                //});
+                vmFactory.getItemsVM(function (id) {
+                    router.navigate("/item-details/" + id);
+                })
+                .then(function (vm) {
+                    debugger;
+                    var itemsListModel = vm;
+                    $("#pager").kendoPager({
+                        dataSource: vm.items
+                    });
+
+                    $("#listView").kendoListView({
+                        dataSource: vm.items,
+                        template: kendo.template($("#items-template").html())
+                    });
+                    debugger;
+                    var view = new kendo.View(itemListHtml, { model: itemsListModel });
+                    appLayout.showIn("#main-content", view)
+                });
+            });
+	});
+
+	//only for registered users
+	router.route("/special", function () {
+		if (!data.users.currentUser()) {
+			router.navigate("/login");
+		}
+	});
+
+	$(function () {
+		appLayout.render("#app");
+		router.start();
+	});
+}());

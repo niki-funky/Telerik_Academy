@@ -1,0 +1,103 @@
+﻿/// <reference path="../libs/_references.js" />
+
+window.vmFactory = (function () {
+    var data = null;
+
+    function getLoginViewModel(successCallback) {
+        var viewModel = {
+            login: function () {
+                data.users.login(this.get("username"), this.get("password"))
+					.then(function () {
+					    if (successCallback) {
+					        successCallback();
+					    }
+					}, function (err) {
+					    return err;
+					});
+            },
+            register: function () {
+                debugger
+                data.users.register(this.get("username"),this.get("email"), this.get("password"))
+					.then(function () {
+					    if (successCallback) {
+					        debugger;
+					        successCallback();
+					    }
+					}, function (err) {
+                    return err;
+                });
+            }
+        };
+        return kendo.observable(viewModel);
+    };
+
+    function getLogoutViewModel(successCallback) {
+        var viewModel = {
+            logout: function () {
+                data.users.logout()
+                .then(function () {
+                    debugger;
+                    if (successCallback) {
+                        successCallback();
+                    }
+                }, function () {
+                    debugger;
+                    if (successCallback) {
+                        successCallback();
+                    }
+                });
+            },
+            username: localStorage.getItem("username")
+        }
+
+        return kendo.observable(viewModel);
+    };
+
+    function getItemsViewModel(successCallback) {
+        debugger;
+        return data.items.getAll()
+			.then(function (data) {
+			    debugger
+			    var dataSource = new kendo.data.DataSource({
+			        data: data,
+			        //transport: {
+			        //    read: {
+			        //        url: "http://demos.kendoui.com/service/Products",
+			        //        dataType: "jsonp"
+			        //    }
+			        //},
+			        pageSize: 15
+			    });
+
+			    var viewModel = {
+			        items: dataSource,
+			        showDetails: function (ev) {
+			            debugger;
+			            var id = $(ev.target).attr("item-id");
+			            successCallback(id);
+			        }
+			    };
+			    debugger
+			    //$("#pager").kendoPager({
+			    //    dataSource: dataSource
+			    //});
+
+			    //$("#listView").kendoListView({
+			    //    dataSource: dataSource,
+			    //    template: kendo.template($("#template").html())
+			    //});
+			    return kendo.observable(viewModel);
+			}, function (err) {
+			    return err;
+			});
+    };
+
+    return {
+        getLoginVM: getLoginViewModel,
+        getLogoutVM: getLogoutViewModel,
+        getItemsVM: getItemsViewModel,
+        setPersister: function (persister) {
+            data = persister
+        }
+    };
+}());

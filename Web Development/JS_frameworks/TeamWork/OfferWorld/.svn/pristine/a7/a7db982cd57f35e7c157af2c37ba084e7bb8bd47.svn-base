@@ -1,0 +1,25 @@
+﻿<div class="row metrouicss">
+    <div class="col-md-4">
+        <a href="#/category/create" class="tile double bg-color-orange" style="display: block">
+            <div class="brand">
+                <div class="name">
+                    <h3>Create Category</h3>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4">
+        <a href="#/category/delete" class="tile double bg-color-green">
+            <div class="brand">
+                <div class="name">
+                    <h3>Delete Category</h3>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <a href="#" ng-click="logout()" class="btn btn-default">Logout</a>
+        </div>
+    </div>
+</div>

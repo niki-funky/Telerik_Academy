@@ -1,0 +1,19 @@
+﻿<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <form ng-submit="login(user.username, user.password)" class="form-horizontal" role="form" id="login-form">
+            <div class="row">
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" class="form-control" id="login-username" placeholder="Enter Username" ng-model="user.username">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" class="form-control" id="login-password" placeholder="Enter Password" ng-model="user.password">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default btn-block">Login</button>
+        </form>
+    </div>
+</div>

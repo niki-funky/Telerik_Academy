@@ -1,0 +1,5 @@
+﻿<form id="sendFileForm" enctype="multipart/form-data">
+    <input name="file" type="file" id="chooseFile" />
+    <br />
+    <input type="submit" id="UploadFile" value="Upload" />
+</form>

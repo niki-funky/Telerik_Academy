@@ -1,0 +1,46 @@
+﻿/// <reference path="../libs/_references.js" />
+
+window.vmFactory = (function () {
+	var data = null;
+
+	function getLoginViewModel(successCallback) {		
+		var viewModel = {
+			login: function () {
+				data.users.login(this.get("username"), this.get("password"))
+					.then(function () {
+						if (successCallback) {
+							successCallback();
+						}
+					});
+			},
+			register: function () {
+				data.users.register(this.get("username"), this.get("password"))
+					.then(function () {
+						if (successCallback) {
+							successCallback();
+						}
+					});
+			}
+		};
+		return kendo.observable(viewModel);
+	};
+
+	function getItemsViewModel() {
+		return data.items.all()
+			.then(function (items) {
+				var viewModel = {
+					items: items,
+					message: ""
+				};
+				return kendo.observable(viewModel);
+			});
+	}
+
+	return {
+		getLoginVM: getLoginViewModel,
+		getCarsVM: getItemsViewModel,
+		setPersister: function (persister) {
+			data = persister
+		}
+	};
+}());

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="OfferWorld">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <link href="Content/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/modern.css" rel="stylesheet" />
+    <link href="Content/styles.css" rel="stylesheet" />
+    
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/sha1.js"></script>
+    <script src="Scripts/underscore.js"></script>
+    <script src="AdminClient/app.js"></script>
+    <script src="AdminClient/app/controllers.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <header id="main-header">
+                    <h1>OfferWorld - Admin Panel</h1>
+                </header>
+            </div>
+        </div>
+        <div ng-view></div>
+        <div class="row">
+            <div class="col-md-12">
+                <footer id="main-footer">
+                    <h3>Telerik Academy &copy;2013</h3>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

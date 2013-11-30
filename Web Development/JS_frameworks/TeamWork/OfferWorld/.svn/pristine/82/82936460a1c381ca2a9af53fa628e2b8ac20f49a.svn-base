@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>OfferWorld</title>
+    <link href="styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="styles/login-form-style.css" rel="stylesheet" />
+
+    <script src="libs/jquery-2.0.3.js"></script>
+    <script src="libs/external/kendo.web.min.js"></script>
+    <script src="libs/rsvp.min.js"></script>
+    <script src="libs/class.js"></script>
+    <script src="libs/http-requester.js"></script>
+    <script src="app/data.js"></script>
+    <script src="app/view-models.js"></script>
+    <script src="app/views.js"></script>
+    <script src="app.js"></script>
+    <script src="libs/external/jquery.ui.widget.js"></script>
+    <script src="libs/external/jquery.iframe-transport.js"></script>
+    <script src="libs/external/jquery.fileupload.js"></script>
+    <script src="libs/external/jquery.cloudinary.js"></script>
+    <!--<script src="libs/request.js"></script>-->
+    <!--    <script src="libs/refresh.js"></script>-->
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"></script>
+
+</head>
+<body>
+    <header>
+        OfferWorld
+    </header>
+
+    <!--image upload-->
+
+    <!--last variant-->
+    <!--<script type="text/javascript">
+        $.cloudinary.config({ "api_key": "698931419268423", "cloud_name": "hii7qls1o" });
+    </script>
+
+    <input name="file" type="file" id="uploadinput"
+        class="cloudinary-fileupload" data-cloudinary-field="image_id"
+        data-form-data='' />
+
+    <script>
+
+        //var data = {
+        //    "callback": "http://funky.cloudvps.bg/CORS/cloudinary_cors.html",
+        //    "signature": "472a67ec5652804a7219a124450c2d962ca1608c",
+        //    "timestamp": 1345719094,
+        //    "api_key": "698931419268423"
+        //}
+        var data = {&quot;callback&quot;: &quot;http://funky.cloudvps.bg/CORS/cloudinary_cors.html&quot;,&quot;signature&quot;: &quot;472a67ec5652804a7219a124450c2d962ca1608c&quot;,&quot;timestamp&quot;: 1345719094,&quot;api_key&quot;: &quot;698931419268423&quot;}
+
+        //$('#uploadinput').attr('data-form-data', JSON.stringify(data));
+            $('#uploadinput').attr('data-form-data', data);
+        //$('#uploadinput').fileupload({ formData: data });
+        //$('#uploadinput').fileupload({
+        //    formData: data.params,
+        //    url: data.url,
+        //    headers: { "X-Requested-With": "XMLHttpRequest" }
+        //});
+    </script>-->
+
+    <!--<script type="text/javascript">
+        //$.cloudinary.config({ "api_key": "541992669642412", "cloud_name": "drcuoglec" });
+        $.cloudinary.config({ cloud_name: 'drcuoglec', api_key: '541992669642412' });
+
+    </script>
+    <input name="file" type="file" id="uploadinput"
+        class="cloudinary-fileupload" data-cloudinary-field="image_id"
+        data-form-data='' />
+
+    <script>
+        var data = {
+            timestamp: 1345719094,
+            callback: "http://funky.cloudvps.bg/CORS/cloudinary_cors.html",
+            signature: "dcf8e8cc3df3172a8e055fc82c19288b810c5517",
+            api_key: "541992669642412"
+        }
+
+        //$('#uploadinput').attr('data-form-data', JSON.stringify(data));
+        //$('#uploadinput').attr('data-form-data', data);
+        $('#uploadinput').fileupload({ formData: data });
+        //$('#uploadinput').fileupload({
+        //    formData: data.params,
+        //    url: data.url,
+        //    headers: { "X-Requested-With": "XMLHttpRequest" }
+        //});
+    </script>-->
+
+    <!--   <input type="file" class="cloudinary-fileupload" data-cloudinary-field="image_upload" data-bind="attr: { 'data-form-data': formData, name: tag }" 
+        data-form-data="&quot;public_id&quot;:&quot;1_overall&quot;,&quot;tags&quot;:&quot;overall&quot;,&quot;format&quot;:&quot;jpg&quot;,&quot;timestamp&quot;:&quot;1367772489&quot;,&quot;callback&quot;:&quot;http://funky.cloudvps.bg/CORS/cloudinary_cors.html&quot;,&quot;signature&quot;:&quot;472a67ec5652804a7219a124450c2d962ca1608c&quot;,&quot;api_key&quot;:&quot;698931419268423&quot;" 
+        name="overall" />
+    <div class="preview"></div>
+
+    <script type="text/javascript">
+        $.cloudinary.config({ "api_key": "698931419268423", "cloud_name": "hii7qls1o" });
+        $('.cloudinary-fileupload').bind('cloudinarydone', function (e, data) {
+            $('.preview').html(
+                   $.cloudinary.image(data.result.public_id,
+                       {
+                           format: data.result.format, version: data.result.version,
+                           crop: 'scale', width: 200
+                       }));
+            $('.image_public_id').val(data.result.public_id);
+            return true;
+        });
+    </script> -->
+
+    <!--image upload-->
+
+    <div id="app">
+    </div>
+
+    <footer>
+    </footer>
+
+
+    <script>
+
+    </script>
+</body>
+</html>

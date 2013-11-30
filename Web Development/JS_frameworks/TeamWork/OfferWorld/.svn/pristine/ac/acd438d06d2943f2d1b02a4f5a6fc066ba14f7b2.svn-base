@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="libs/jquery-2.0.3.js"></script>
+    <script src="libs/external/kendo.web.min.js"></script>
+    <script src="libs/rsvp.min.js"></script>
+    <script src="libs/class.js"></script>
+    <script src="libs/http-requester.js"></script>
+    <script src="app/data.js"></script>
+    <script src="app/view-models.js"></script>
+    <script src="app/views.js"></script>
+    <script src="app.js"></script>
+    <!--<script src="libs/request.js"></script>-->
+    <!--    <script src="libs/refresh.js"></script>-->
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"></script>
+    <link href="styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="styles/login-form-style.css" rel="stylesheet" />
+ 
+</head>
+<body>
+    <header>
+        OffeWorld
+    </header>
+
+    <div id="app">
+
+    </div>
+
+    <footer>
+    </footer>
+
+
+    <script>
+        //var GoogleTokenProvider = require("L6VVMsJZhwIQ1dZ_Gr34L8ss9Z0kuexCCWM6lJn5Xk4").GoogleTokenProvider;
+
+        //CLIENT_ID = "55889408904.apps.googleusercontent.com";
+        //CLIENT_SECRET = "P1BhzBjfutSrhHaPe1di38tj";
+        //REFRESH_TOKEN = "1/L6VVMsJZhwIQ1dZ_Gr34L8ss9Z0kuexCCWM6lJn5Xk4";
+
+
+        //var tokenProvider = new GoogleTokenProvider({
+        //    'refresh_token': REFRESH_TOKEN,
+        //    'client_id' : CLIENT_ID,
+        //    'client_secret': CLIENT_SECRET
+        //});
+
+        //tokenProvider.getToken(function(err, access_token) {
+        //    console.log("Access Token=", token);
+        //});
+
+        //httpRequester.postToken()
+        //		.then(function (data) {
+        //		    console.log(data)
+        //		});
+
+
+    </script>
+</body>
+</html>

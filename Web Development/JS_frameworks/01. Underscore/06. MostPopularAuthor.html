@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>06. MostPopularAuthor</title>
+    <script src="scripts/class.js"></script>
+    <script src="scripts/underscore.js"></script>
+</head>
+<body>
+    <div id="books"></div>
+    <script>
+        var Book = Class.create({
+            init: function (title, author) {
+                this.title = title;
+                this.author = author;
+            },
+            toString: function () {
+                return this.title + " - " + this.author;
+            }
+        });
+        var books = [
+			new Book("book title: Doncho", "Minkov"),
+			new Book("book title: Joro", "Georgiev"),
+			new Book("book title: Joro2", "Georgiev"),
+			new Book("book title: Joro3", "Georgiev"),
+			new Book("book title: Niki", "Kostov"),
+			new Book("book title: Svetlin", "Nakov"),
+			new Book("book title: Svetlin2", "Nakov"),
+			new Book("book title: Svetlin3", "Nakov"),
+			new Book("book title: Ivaylo", "Kenov"),
+	        new Book("book title: Ivaylo", "Jenov")];
+
+        //function sortByValue(object) {
+        //    var tuples = _.map(object, function (value, key) { return [key, value]; });
+        //    return _.sortBy(tuples, function (tuple) { return tuple[1]; });
+        //}
+
+        var result = _.chain(books)
+            .countBy('author')
+            .map(function (value, key) { return [key, value]; })
+            .sortBy(function (author) { return author[1]; })
+            .groupBy(function (author) { return author[1]; })
+            .toArray()
+            .last()
+            .value();
+
+        for (var i in result) {
+            var list = document.getElementById('books').innerHTML += result[i] + "<br/>";
+        }
+        
+
+    </script>
+</body>
+</html>

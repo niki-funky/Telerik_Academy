@@ -1,0 +1,12 @@
+﻿<div id="example" class="k-content">
+    <div>
+        <ul class="forms">
+             <li>
+                <span class="k-textbox k-space-right">
+                    <input id="search-box" type="text" placeholder="search" />
+                    <a href="#" class="k-icon k-i-search">&nbsp;</a>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>

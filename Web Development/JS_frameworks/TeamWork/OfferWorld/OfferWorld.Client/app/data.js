@@ -1,0 +1,168 @@
+﻿window.persisters = (function () {
+    var username = localStorage.getItem("username");
+    var sessionKey = localStorage.getItem("sessionKey");
+
+    function saveUserData(userData) {
+        //debugger;
+        localStorage.setItem("username", userData.Username);
+        localStorage.setItem("sessionKey", userData.SessionKey);
+        username = userData.Username;
+        sessionKey = userData.SessionKey;
+    }
+    function clearUserData() {
+        localStorage.removeItem("username");
+        localStorage.removeItem("sessionKey");
+        username = "";
+        sessionKey = "";
+    }
+
+    var UsersPersister = Class.create({
+        init: function (apiUrl) {
+            this.apiUrl = apiUrl;
+        },
+        login: function (username, password) {
+            //debugger;
+            var user = {
+                username: username,
+                authCode: CryptoJS.SHA1(password).toString()
+            };
+            return httpRequester.postJSON(this.apiUrl + "login", user)
+				.then(function (data) {
+				    //debugger;
+				    //save to localStorage
+				    saveUserData(data);
+				});
+        },
+        register: function (username, email, password) {
+            debugger;
+            var user = {
+                username: username,
+                email: email,
+                authCode: CryptoJS.SHA1(password).toString()
+            };
+            return httpRequester.postJSON(this.apiUrl + "register", user)
+				.then(function (data) {
+				    //save to localStorage
+				    saveUserData(data);
+				}, function (err) {
+				    debugger;
+                return err;
+            });
+        },
+        logout: function () {
+            if (!sessionKey) {
+                //gyrmi
+            }
+            var headers = {
+                "X-sessionKey": sessionKey
+            };
+            localStorage.removeItem("sessionKey");
+            sessionKey = "";
+            localStorage.removeItem("username");
+            username = "";
+            debugger;
+
+            return httpRequester.putJSON(this.apiUrl + "logout", headers)
+            .then(function (data) {
+                clearUserData();
+            });
+        },
+        currentUser: function () {
+            //debugger;
+            return username;
+        }
+    });
+
+    var ItemsPersister = Class.create({
+        init: function (apiUrl) {
+            this.apiUrl = apiUrl;
+        },
+        getAll: function () {
+            //debugger;
+            var headers = {
+                "X-sessionKey": sessionKey
+            };
+
+            return httpRequester.getJSON(this.apiUrl + "all", headers)
+            .then(function (data) {
+                return data;
+                },
+                function (err) {
+                    debugger;
+                    return err;
+                });
+        },
+        getById: function (id) {
+            //debugger;
+            var headers = {
+                "X-sessionKey": sessionKey
+            };
+
+            return httpRequester.getJSON(this.apiUrl + "?id=" + id, headers);
+        },
+        sendFile: function (file, success, error) {
+            var url = this.apiUrl + "sendFile";
+
+            return httpRequester.postFileData(url, file, success, error);
+        }
+    });
+
+    var CommentsPersister = Class.create({
+        init: function (apiUrl) {
+            this.apiUrl = apiUrl;
+        },
+        getById: function (id) {
+            var headers = {
+                "X-sessionKey": sessionKey
+            };
+
+            return httpRequester.getJSON(this.apiUrl + "?bookId=" + id, headers);
+        },
+        postComment: function (text, id) {
+            var headers = {
+                "X-sessionKey": sessionKey
+            };
+
+            var data = {
+                text: text,
+                bookId: id
+            };
+
+            return httpRequester.postJSON(this.apiUrl + "?bookId=" + id, data, headers);
+        },
+        getAll: function () {
+            var headers = {
+                "X-sessionKey": sessionKey
+            };
+
+            return httpRequester.getJSON(this.apiUrl, headers);
+        },
+        deleteComment: function (id) {
+            var headers = {
+                "X-sessionKey": sessionKey
+            };
+
+            return httpRequester.deleteJSON(this.apiUrl + id, headers);
+        }
+    });
+
+    var StoresPersister = Class.create({
+    })
+
+    var DataPersister = Class.create({
+        init: function (apiUrl) {
+            this.apiUrl = apiUrl;
+            this.users = new UsersPersister(apiUrl + "users/");
+            this.items = new ItemsPersister(apiUrl + "items/");
+            this.stores = new StoresPersister(apiUrl + "stores/");
+            this.comments = new CommentsPersister(apiUrl + "comments/");
+        }
+    });
+
+
+    return {
+        get: function (apiUrl) {
+            return new DataPersister(apiUrl);
+        }
+    }
+}());

@@ -1,0 +1,118 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Text.RegularExpressions;
+using System.Web.Http;
+
+namespace OfferWorld.WebApi.Controllers
+{
+    public static class Validator
+    {
+        private const int UsernameMinChars = 5;
+        private const int UsernameMaxChars = 15;
+        private const int AuthCodeLength = 40;
+         
+        private const int LocationMinChars = 3;
+        private const int LocationMaxChars = 35;
+        private const string UsernameValidChars = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890_.";
+        private const string AuthCodeChars = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890";
+         
+        private const string LocationChars = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+        private const int CategoryTitleMinChars = 2;
+        private const int CategoryTitleMaxChars = 30;
+
+        #region UsersValidations
+         
+
+        public static void ValidateAuthCode(string authCode)
+        {
+            if (authCode.Length != AuthCodeLength)
+            {
+                throw new ArgumentException("Password should be encrypted");
+            }
+            else if (authCode.Any(ch => !AuthCodeChars.Contains(ch)))
+            {
+                throw new ArgumentException("Wrong encrypted password");
+            }
+        }
+
+        public static void ValidateUsername(string user)
+        {
+            if (user == null)
+            {
+                throw new NullReferenceException("Username cannot be empty!");
+            }
+            else if (user.Length < UsernameMinChars || user.Length > UsernameMaxChars)
+            {
+                throw new ArgumentOutOfRangeException(string.Format(
+                    "Nickname length must be between {0} and {1} characters", UsernameMinChars, UsernameMaxChars));
+            }
+            else if (user.Any(ch => !UsernameValidChars.Contains(ch)))
+            {
+                throw new ArgumentException("You are using not allowed characted.");
+            }
+        }
+
+        public static void ValidateEmail(string email)
+        {
+            if (email == null)
+            {
+                throw new ArgumentNullException("Email cannot be empty!");
+            }
+
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            Match match = regex.Match(email);
+            if (!match.Success)
+            {
+                throw new ArgumentException("Incorrect email!");
+            }
+                
+        }
+
+        public static void ValidateLocation(string location)
+        {
+            if (location.Length < LocationMinChars || location.Length > LocationMaxChars)
+            {
+                throw new ArgumentOutOfRangeException(string.Format(
+                    "Location length must be between {0} and {1} characters", LocationMinChars, LocationMaxChars));
+            }
+            else if (location.Any(ch => !LocationChars.Contains(ch)))
+            {
+                throw new ArgumentException("You are using not allowed characted.");
+            }
+        }
+
+        public static void ValidatePhoneNumber(string phoneNumber)
+        {
+
+        }
+
+        public static void ValidateAvatar(string avatar)
+        {
+            bool isUri = Uri.IsWellFormedUriString(avatar, UriKind.RelativeOrAbsolute);
+            if (!isUri)
+            {
+                throw new ArgumentException("Avatar invalid URL!");
+            }
+        }
+
+        #endregion
+
+        #region CategoriesValidations
+        public static void ValidateCategoryTitle(string title)
+        {
+            if (title == null)
+            {
+                throw new ArgumentNullException("Title cannot be Empty");
+            }
+            if (title.Length < CategoryTitleMinChars || title.Length > CategoryTitleMaxChars)
+            {
+                throw new ArgumentOutOfRangeException(string.Format(
+                    "Category length must be between {0} and {1} characters", CategoryTitleMinChars, CategoryTitleMaxChars));
+            }
+        }
+        #endregion
+    }
+}

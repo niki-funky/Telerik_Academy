@@ -1,0 +1,8 @@
+﻿<ul class="game-list active-games">
+    {{#games}}
+        <li data-game-id="{{id}}">
+            <a href="#" class="{{status}}">({{status}}) {{title}}</a>
+            <span> by {{creator}}</span>
+        </li>
+    {{/games}}
+</ul>

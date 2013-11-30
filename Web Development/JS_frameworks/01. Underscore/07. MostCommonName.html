@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>07. MostCommonName</title>
+    <script src="scripts/class.js"></script>
+    <script src="scripts/underscore.js"></script>
+</head>
+<body>
+    <div id="people"></div>
+    <script>
+        var Person = Class.create({
+            init: function (firstName, lastName) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+            }
+        });
+        var people = [
+			new Person("Doncho", "Minkov"),
+			new Person("Joro", "Georgiev"),
+			new Person("Joro2", "Georgiev"),
+			new Person("Joro", "Georgiev"),
+			new Person("Niki", "Kostov"),
+			new Person("Svetlin", "Nakov"),
+			new Person("Svetlin2", "Nakov"),
+			new Person("Svetlin3", "Nakov"),
+			new Person("Ivaylo", "Kenov"),
+	        new Person("Ivaylo", "Jenov")];
+
+        function mostCommon(param) {
+            return _.chain(people)
+            .countBy(param)
+            .map(function (value, key) { return [key, value]; })
+            .sortBy(function (val) { return val[1]; })
+            .groupBy(function (val) { return val[1]; })
+            .toArray()
+            .last()
+            .value();
+        };
+
+        var elements = ['firstName', 'lastName'];
+
+        for (var p = 0; p < elements.length; p++) {
+            var result = mostCommon(elements[p]);
+            document.getElementById('people').innerHTML +=
+                    elements[p] + ": " + result[0][1] + " times <br/>"
+            for (var i in result) {
+                var list = document.getElementById('people').innerHTML +=
+                    result[i][0] + "<br/>";
+            }
+            var list = document.getElementById('people').innerHTML += "<hr>";
+        }
+    </script>
+</body>
+</html>

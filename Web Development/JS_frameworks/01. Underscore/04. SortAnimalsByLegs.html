@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>04. SortAnimalsByLegs</title>
+    <script src="scripts/class.js"></script>
+    <script src="scripts/underscore.js"></script>
+</head>
+<body>
+    <div id="students"></div>
+    <script>
+        var animal = Class.create({
+            init: function (species, legs) {
+                this.species = species;
+                this.legs = legs;
+            },
+            toString: function () {
+                return this.species + " " + this.legs;
+            }
+        });
+        var animals = [
+			new animal("Ivaylo", 88),
+			new animal("Joro", 48),
+			new animal("Niki", 100),
+			new animal("Svetlin", 16),
+			new animal("Ivaylo", 28),
+	        new animal("Niki", 66)];
+
+        var result = _.chain(animals)
+            .groupBy('species')
+            .each(function (s) {
+                document.write(_.sortBy(s, 'legs') + '<br/>')
+            });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿<h1>Items</h1>
+<ul data-template="items-template" data-bind="source: items">
+</ul>
+
+<script type="text/x-kendo-template" id="items-template">
+        <li class="item">
+            <h3>#: Title #</h3>
+            <p>#: kendo.toString(Price, "c") #</p>
+        </li>
+</script>

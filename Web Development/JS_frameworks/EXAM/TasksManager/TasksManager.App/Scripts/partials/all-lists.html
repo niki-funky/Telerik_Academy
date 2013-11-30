@@ -1,0 +1,10 @@
+﻿<ul data-template="list-template" data-bind="source: lists"></ul>
+
+<a class="out-button" href="http://localhost:16183/index.html#/logged">Return to menu</a>
+
+<script id="list-template" type="text/x-kendo-template">
+    <li>
+        <p>Subject: #: title#</p>
+        <button data-bind="attr: { list-id: id }, events: { click: showDetails } ">See details</button>
+    </li>
+</script>

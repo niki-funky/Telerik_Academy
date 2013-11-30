@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>05. TotalNumberOfLegs</title>
+    <script src="scripts/class.js"></script>
+    <script src="scripts/underscore.js"></script>
+</head>
+<body>
+    <div id="students"></div>
+    <script>
+        var animal = Class.create({
+            init: function (species, legs) {
+                this.species = species;
+                this.legs = legs;
+            },
+            toString: function () {
+                return this.legs;
+            }
+        });
+        var animals = [
+			new animal("Ivaylo", 2),
+			new animal("Joro", 100),
+			new animal("Niki", 4),
+			new animal("Svetlin", 6),
+			new animal("Ivaylo", 2),
+	        new animal("Niki", 100)];
+
+        var result = 0;
+        _.each(animals, function (l) {
+            result += l.legs;
+        });
+
+        var list = document.getElementById('students').innerHTML = result;
+    </script>
+</body>
+</html>

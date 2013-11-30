@@ -1,0 +1,20 @@
+﻿
+<ul data-template="app-template" data-bind="source: appointments"></ul>
+
+<a class="out-button" href="http://localhost:16183/index.html#/logged">Return to menu</a>
+
+
+<!--<script id="list-template" type="text/x-kendo-template">
+    <li data-bind = "text: this"></li>
+</script>-->
+
+<script id="app-template" type="text/x-kendo-template">
+    <li>
+        <p>Subject: #: subject#</p>
+        <p>Description: #: description#</p>
+        <p>Creation date: #: createdAt#</p>
+        <p>Appointment date: #: appointmentDate#</p>
+        <p>Duration: #: duration#</p>
+        <p>State: #: state#</p>
+    </li>
+</script>

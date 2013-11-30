@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>01. SortStudents</title>
+    <script src="scripts/class.js"></script>
+    <script src="scripts/underscore.js"></script>
+</head>
+<body>
+    <div id="students"></div>
+    <script>
+        var Student = Class.create({
+            init: function (fname, lname, age) {
+                this.fname = fname;
+                this.lname = lname;
+                this.age = age;
+            },
+            toString: function () {
+                return this.fname + " " + this.lname;
+            }
+        });
+        var students = [
+			new Student("Doncho", "Minkov", 18),
+			new Student("Joro", "Georgiev", 48),
+			new Student("Niki", "Kostov", 21),
+			new Student("Svetlin", "Nakov", 16),
+			new Student("Ivaylo", "Kenov", 87),
+	        new Student("Ivaylo", "Jenov", 87)];
+
+        var result = _.filter(students, function (s) {
+            return s.fname < s.lname
+        }).sort(function (a, b) {
+            if (a < b) return 1;
+            if (b < a) return -1;
+            return 0;
+        });
+
+        var list = document.getElementById('students').innerHTML = result;
+
+    </script>
+</body>
+</html>

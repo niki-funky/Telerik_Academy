@@ -1,0 +1,11 @@
+{
+"Id":1,
+"Title":"post title 1",
+"Content":"post content 1",
+"CategoryId":1
+}
+
+content-type: application/json
+
+http://forumangularjs.apphb.com/api/posts
+http://forumangularjs.apphb.com/api/categories/1/posts

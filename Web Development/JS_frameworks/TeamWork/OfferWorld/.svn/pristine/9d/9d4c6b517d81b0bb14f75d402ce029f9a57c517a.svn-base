@@ -1,0 +1,18 @@
+﻿<h1>Items</h1>
+<div id="example" class="k-content">
+
+    <div class="demo-section">
+        <div id="listView"></div>
+        <div id="pager" class="k-pager-wrap"></div>
+    </div>
+
+    <script type="text/x-kendo-template" id="car-template">
+    <div class="item">
+        <!--<img src="../../content/web/foods/${ItemID}.jpg" alt="${ItemID} image" />-->
+        <img src="../../content/web/foods/${ItemID}.jpg" alt="${ItemID} image" />
+        <h3>#:Title#</h3>
+        <p>#:kendo.toString(Price, "c")#</p>
+    </div>
+    </script>
+
+</div>

@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>02. Students-master-details</title>
+    <link href="styles/StyleSheet1.css" rel="stylesheet" />
+    <script src="scripts/external/jquery-2.0.3.js"></script>
+    <script src="scripts/external/class.js"></script>
+    <script src="scripts/external/mustache.js"></script>
+    <script src="scripts/http-requester.js"></script>
+    <script src="scripts/list-view.js"></script>
+    <script src="scripts/data-persister.js"></script>
+</head>
+<body>
+    <div id="content"></div>
+
+    <script type="x-mustache-template" id="student-template">
+        <ul id="{{Id}}">
+            <li class="student" >
+                  name: {{FirstName}}	{{LastName}}
+            </li>
+            <li class="student" >
+                  grade: {{Grade}}
+            </li>
+            <li class="hidden">
+                  marks:
+                    <ul>
+                        {{#Marks}} 
+                        <li>
+                                {{Subject}}: <strong>{{Value}}</strong>							
+                        </li>
+                        {{/Marks}}
+                        {{^Marks}}	   
+                        <li>
+                            This student has no marks, yet	  						
+                        </li>
+                        {{/Marks}}
+                    </ul>
+            </li>
+        </ul>			
+    </script>
+
+    <script>
+
+        readData();
+
+    </script>
+</body>
+</html>

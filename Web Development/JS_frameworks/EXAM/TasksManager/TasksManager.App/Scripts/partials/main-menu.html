@@ -1,0 +1,61 @@
+﻿<div id="logout-container">
+    <span id="user-name-span" data-bind="text: username"></span>
+    <button data-bind="click: logout">Logout</button>
+</div>
+<nav>
+    <ul id="app-menu">
+        <li>
+            <h2>Appointments</h2>
+            <li>
+        <li>
+            <a href="http://localhost:16183/index.html#/create-app">Create new </a>
+        </li>
+        <li>
+            <a href="http://localhost:16183/index.html#/all-app">All </a>
+        </li>
+        <li>
+            <a href="http://localhost:16183/index.html#/coming-app">All coming </a>
+        </li>
+        <li>
+            <a href="http://localhost:16183/index.html#/search-by-date-app">Search by date</a>
+        </li>
+        <li>
+            <a href="http://localhost:16183/index.html#/all-from-today-app">All from today</a>
+        </li>
+        <li>
+            <a href="http://localhost:16183/index.html#/all-current">All current</a>
+        </li>
+    </ul>
+    <ul id="lists-menu">
+        <li>
+            <h2>Lists</h2>
+        </li>
+        <li>
+            <a href="http://localhost:16183/index.html#/create-list">Create new </a>
+        </li>
+        <li>
+            <a href="http://localhost:16183/index.html#/all-lists">All </a>
+        </li>
+        <li>
+            <a href="http://localhost:16183/index.html#/get-by-id-list">Search by Id </a>
+        </li>
+    </ul>
+    <ul id="todo-menu">
+        <li>
+            <h2>Todos</h2>
+        </li>
+
+        <li>
+            <a href="http://localhost:16183/index.html#/create-for-list-todo">Create new </a>
+        </li>
+        <li>
+            <a href="http://localhost:16183/index.html#/change-todo">Change status </a>
+        </li>
+    </ul>
+</nav>
+
+<script>
+    $(function () {
+        $("#main-menu").kendoMenu({ orientation: "horizontal" });
+    })
+</script>

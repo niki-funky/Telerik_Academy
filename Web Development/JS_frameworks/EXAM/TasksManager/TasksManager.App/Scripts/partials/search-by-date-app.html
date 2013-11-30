@@ -1,0 +1,24 @@
+﻿<label for="datepicker1">Searched Date</label>
+<input id="datepicker1" data-bind="value: searchedDate" placeholder="3/09/2013" style="width: 150px;" />
+<script>
+    // create DatePicker from input HTML element
+    $("#datepicker1").kendoDatePicker({
+        //change: onChange,
+    });
+</script>
+<button data-bind="events: { click: searchByDate } ">See appointments</button>
+
+<ul data-template="app-template" data-bind="source: appointments"></ul>
+
+<a class="out-button" href="http://localhost:16183/index.html#/logged">Return to menu</a>
+
+<script id="app-template" type="text/x-kendo-template">
+    <li>
+        <p>Subject: #: subject#</p>
+        <p>Description: #: description#</p>
+        <p>Creation date: #: createdAt#</p>
+        <p>Appointment date: #: appointmentDate#</p>
+        <p>Duration: #: duration#</p>
+        <p>State: #: state#</p>
+    </li>
+</script>

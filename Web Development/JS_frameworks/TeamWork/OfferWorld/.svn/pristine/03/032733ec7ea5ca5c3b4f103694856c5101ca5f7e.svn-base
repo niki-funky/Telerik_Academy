@@ -1,0 +1,48 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace OfferWorld.Models
+{
+    public class Item
+    {
+        public int ItemId { get; set; }
+
+        [Required]
+        public string Title { get; set; }
+
+        [Required]
+        public string Description { get; set; }
+
+        [Required]
+        public string AdInfo { get; set; }
+
+        [Required]
+        public double Price { get; set; }
+
+        [Required]
+        public virtual Category Category { get; set; }
+
+        [Required]
+        public virtual User User { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
+
+        public virtual ICollection<Picture> Pictures { get; set; }
+
+        public virtual ICollection<Offer> Offers { get; set; }
+
+        public Item()
+        {
+            this.Comments = new HashSet<Comment>();
+            this.Pictures = new HashSet<Picture>();
+            this.Offers = new HashSet<Offer>();
+        }
+        
+
+    }
+}

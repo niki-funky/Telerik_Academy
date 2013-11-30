@@ -1,0 +1,158 @@
+﻿#loginForm {
+    width: 360px;
+    height: 337px;
+    margin: 30px auto;
+    padding: 80px 15px 0 15px;
+}
+
+.tab {
+    width: 160px;
+    padding: 40px 0 0 0;
+    float: right;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+#login-form-container {
+    width: 450px;
+    height: 337px;
+    margin: 30px auto;
+    padding: 80px 15px 0 15px;
+    background: url('../../content/web/tabstrip/forecast.png') transparent no-repeat 0 0;
+}
+
+.log, .reg {
+    display: inline-block;
+    margin: 20px 0 20px 10px;
+    width: 128px;
+    height: 128px;
+    background: url('../../content/web/tabstrip/weather.png') transparent no-repeat 0 0;
+}
+
+.cloudy {
+    background-position: -128px 0;
+}
+
+.rainy {
+    background-position: -256px 0;
+}
+
+.login-container {
+    width: 250px;
+    float: right;
+}
+
+#forecast h2 {
+    font-weight: lighter;
+    font-size: 5em;
+    padding: 0;
+    margin: 0;
+}
+
+    #forecast h2 span {
+        background: none;
+        padding-left: 5px;
+        font-size: .5em;
+        vertical-align: top;
+    }
+
+#forecast p {
+    margin: 0;
+    padding: 0;
+}
+
+.forms {
+    float: left;
+}
+
+    .forms li {
+        margin-bottom: 5px;
+        list-style: none;
+    }
+
+        .forms li > * {
+            width: 200px;
+        }
+
+
+
+
+
+
+.demo-section {
+    padding: 30px;
+    width: 577px;
+}
+
+#listView {
+    padding: 10px;
+    margin-bottom: -1px;
+    min-width: 555px;
+    min-height: 510px;
+}
+
+.product {
+    float: left;
+    position: relative;
+    width: 265px;
+    height: 265px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+    .product img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .product h3 {
+        margin: 0;
+        padding: 3px 5px 0 0;
+        max-width: 245px;
+        overflow: hidden;
+        line-height: 1.1em;
+        font-size: .9em;
+        font-weight: normal;
+        text-transform: uppercase;
+        color: #999;
+    }
+
+    .product p {
+        visibility: hidden;
+    }
+
+    .product:hover p {
+        visibility: visible;
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        line-height: 250px;
+        vertical-align: middle;
+        text-align: center;
+        color: #fff;
+        background-color: rgba(0,0,0,0.75);
+        transition: background .2s linear, color .2s linear;
+        -moz-transition: background .2s linear, color .2s linear;
+        -webkit-transition: background .2s linear, color .2s linear;
+        -o-transition: background .2s linear, color .2s linear;
+    }
+
+.k-listview:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+#search-box {
+}

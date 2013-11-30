@@ -1,0 +1,30 @@
+﻿<ul data-bind="source: item" id="item-container" data-template="item-template">
+</ul>
+<!--<div id="comments-container">
+    <ul data-bind="source: Comments" data-template="comments-template"></ul>
+</div>-->
+<!--<div id="comment-post-container">
+    <textarea  id="post-content-value"></textarea>
+    <button item-id="#: item[0].id#" onclick="postComment()">Post Comment</button>
+</div>-->
+
+<script id="item-template" type="text/x-kendo-template">
+    <li>
+
+        <h3 >#: Title #</h3>   
+        <p>#: kendo.toString(Price, "c") #</p> 
+    </li>
+</script>
+
+<!--<script id="pictures-template" type="text/x-kendo-template">
+    <li>
+        <img src"#: Link#" alt="picture" />
+    </li>
+</script>-->
+
+<!--<script id="comments-template" type="text/x-kendo-template">
+    <li>
+        <p>#: PostDate"></p>
+        <p>#: Content"></p>
+    </li>
+</script>-->
