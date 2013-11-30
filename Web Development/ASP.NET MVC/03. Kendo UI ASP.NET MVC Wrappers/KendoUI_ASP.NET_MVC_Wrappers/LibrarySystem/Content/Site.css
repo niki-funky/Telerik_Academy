@@ -1,0 +1,54 @@
+﻿body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    background-color: rgb(176, 176, 176);
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* styles for removing the background from form */
+.no-color {
+    /*background-color: white;*/
+    background-color: rgb(176, 176, 176);
+    border-style: none;
+}
+
+/*kendo*/
+.k-in {
+    font-size: 18px;
+    /*font-weight: bold;*/
+}
+
+.container > h2 {
+    display:inline-block;
+}
+
+/*.search {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: 0px;
+    margin-top: 10px;
+}*/

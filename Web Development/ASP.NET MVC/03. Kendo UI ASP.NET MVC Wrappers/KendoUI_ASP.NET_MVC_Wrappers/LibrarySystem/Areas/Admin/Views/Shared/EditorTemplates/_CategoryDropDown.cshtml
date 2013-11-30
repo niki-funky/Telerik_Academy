@@ -1,0 +1,15 @@
+﻿@using Kendo.Mvc.UI;
+
+@model LibrarySystem.ViewModels.BookVM
+
+@{
+    Layout = null;
+}
+
+@(
+ Html.Kendo().DropDownListFor(m => m)
+ .Name("Category")
+     .DataValueField("CategoryId")
+            .DataTextField("Name")
+                .DataSource(ds => ds.Read("GetAllCategories", "Admin", new { area = "Admin" }))
+)

@@ -1,0 +1,232 @@
+﻿@using Kendo.Mvc.UI;
+
+@model IEnumerable<LibrarySystem.ViewModels.BookVM>
+
+@{
+    ViewBag.Title = "Admin panel";
+}
+
+<h2>Admin panel</h2>
+
+@(Html.Kendo().Grid<LibrarySystem.ViewModels.BookVM>()
+    .Name("adminPanel")
+    .BindTo(Model)
+    .Columns(columns =>
+        {
+            columns.Bound(m => m.Title);
+            columns.Bound(m => m.Description).ClientTemplate("#=getDescription(Description)#");
+            columns.Bound(m => m.Authors);
+            columns.Bound(m => m.ISBN);
+            columns.Bound(m => m.WebSite);
+            columns.Bound(m => m.CategoryName);
+            columns.Command(commands =>
+            {
+                commands.Edit();
+                commands.Custom("Delete").Click("deleteCmd");
+            }).Title("Commands").Width(200);
+        })
+    .Pageable()
+    .Sortable()
+    .ToolBar(toolbar => toolbar.Create())
+    .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("_BookCreateEdit")
+    .DisplayDeleteConfirmation(false))
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(5)
+        .Events(events =>
+        {
+            events.Error("error_handler");
+        })
+        .Model(model =>
+        {
+            model.Id(m => m.BookId);
+            model.Field(m => m.BookId).Editable(false);
+        })
+        .Create(update => update.Action("Create", "Admin", new { area = "Admin" }).Data("serialize"))
+        .Read(read => read.Action("Read", "Admin", new { area = "Admin" }).Data("serialize"))
+        .Update(update => update.Action("Edit", "Admin", new { area = "Admin" }).Data("serialize"))
+        .Destroy(update => update.Action("Delete", "Admin", new { area = "Admin" }).Data("serialize"))
+    )
+)
+
+<div id="modalWindow"></div>
+
+<script type="text/javascript">
+    //var getActorsName = function (data) {
+    //    var builder = "";
+    //    if (data != null) {
+    //        if (data.length == 0) {
+    //            return "No Actors";
+    //        }
+    //        for (var i = 0; i < data.length; i++) {
+    //            builder += data[i].Name;
+    //            builder += ", ";
+    //        }
+
+    //        if (builder.length < 100) {
+    //            var u = builder.length - 2;
+    //            builder = builder.substring(0, u);
+    //            var c = $("<span></span>").text(builder);
+    //            return $(c).html();
+    //        }
+    //        else {
+    //            builder = builder.substring(0, 100) + "...";
+    //            var c = $("<span></span>").text(builder);
+    //            return $(c).html();
+    //        }
+    //    }
+    //}
+
+    //var getDescription = function (data) {
+    //    var builder = "";
+    //    if (data != null) {
+    //        if (data.length < 70) {
+    //            var c = $("<span></span>").text(data);
+    //            return $(c).html();
+    //        }
+    //        else {
+    //            data = data.substring(0, 70) + "...";
+    //            var c = $("<span></span>").text(data);
+    //            return $(c).html();
+    //        }
+    //    }
+    //    else {
+    //        return "No Description";
+    //    }
+    //}
+
+    //var getImage = function (data) {
+    //    var root = "<img src='/Content/Posters/";
+    //    var ending = "' alt='no-image' class='images-grid'/>";
+    //    if (data != null) {
+    //        return root + data + ending;
+    //    }
+    //    else {
+    //        return root + "noPoster.jpg" + ending;
+    //    }
+    //}
+</script>
+
+<script type="text/javascript">
+
+    var getDescription = function (data) {
+        var builder = "";
+        if (data != null) {
+            if (data.length < 70) {
+                var c = $("<span></span>").text(data);
+                return $(c).html();
+            }
+            else {
+                data = data.substring(0, 70) + "...";
+                var c = $("<span></span>").text(data);
+                return $(c).html();
+            }
+        }
+        else {
+            return "No Description";
+        }
+    }
+
+    function error_handler(args) {
+
+        if (args.errors) {
+            var message = "";
+            var grid = $("#adminPanel").data("kendoGrid");
+
+            grid.one("dataBinding", function (e) {
+                e.preventDefault();   // cancel grid rebind if error occurs
+
+                for (var error in args.errors) {
+                    message += args.errors[error].errors;
+                }
+
+                $("#error-grid").css("display", "block")
+                   .html(message).fadeOut(9000);
+            });
+        }
+    }
+
+    var wnd;
+
+    $(document).ready(function () {
+        wnd = $("#modalWindow").kendoWindow({
+            title: "Delete confirmation",
+            modal: true,
+            visible: false,
+            resizable: false,
+            width: 300
+        }).data("kendoWindow");
+
+        detailsTemplate = kendo.template($("#template").html());
+    });
+
+    function serialize(data) {
+        for (var property in data) {
+            if ($.isArray(data[property])) {
+                serializeArray(property, data[property], data);
+            }
+        }
+        return {
+            "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val(),
+        }
+    }
+
+    function serializeArray(prefix, array, result) {
+        for (var i = 0; i < array.length; i++) {
+            if ($.isPlainObject(array[i])) {
+                for (var property in array[i]) {
+                    result[prefix + "[" + i + "]." + property] = array[i][property];
+                }
+            }
+            else {
+                result[prefix + "[" + i + "]"] = array[i];
+            }
+        }
+    }
+
+    function deleteCmd(e) {
+        e.preventDefault();
+
+        var grid = this;
+        var row = $(e.currentTarget).closest("tr");
+
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        wnd.content(detailsTemplate(dataItem));
+
+        wnd.center().open();
+
+        $("#yes").click(function () {
+            grid.removeRow(row);
+            wnd.close();
+        });
+
+        $("#no").click(function () {
+            wnd.close();
+        });
+    }
+
+    //function onActorsBinding() {
+    //    var placeholderActors = $("#Actors").data('kendoMultiSelect').options.placeholder;
+    //    var requestedActor = $("#Actors").data('kendoMultiSelect').input.val();
+    //    if (requestedActor == placeholderActors) {
+    //        requestedActor = "";
+    //    }
+
+    //    return {
+    //        text: requestedActor
+    //    };
+    //}
+
+</script>
+
+<script type="text/x-kendo-template" id="template">
+    <h2>Delete ?</h2>
+    <div id="details-container">
+        @*<div class="confirm-delete-poster">#= getImage(Poster) #</div>*@
+        <label class="label label-info mylabel">Title</label><i> #= Title #</i>
+        <br />
+        <button id="yes" class="k-button">Yes</button>
+        <button id="no" class="k-button">No</button>
+    </div>
+</script>
+

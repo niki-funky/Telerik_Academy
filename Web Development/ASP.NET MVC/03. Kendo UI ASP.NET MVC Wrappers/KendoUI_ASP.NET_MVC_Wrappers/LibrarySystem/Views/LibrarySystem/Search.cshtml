@@ -1,0 +1,38 @@
+﻿@model IEnumerable<LibrarySystem.Models.BookShortVM>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+@(Html.Kendo().ListView<LibrarySystem.Models.BookShortVM>(Model)
+    .Name("listView")
+    .TagName("ul")
+    .ClientTemplateId("template")
+    .BindTo(Model)
+    .Selectable()
+    .Events(ev => ev
+            .Change(@<text>
+                    function(e) {
+                        var index = this.select().index();
+                        dataItem = this.dataSource.view()[index];
+                        $.post('@Url.Action("Details", "LibrarySystem")', {
+                            id: dataItem.BookId
+                            }, function (data) {
+                                $('body>.container').empty()
+                                $('body>.container').append(data)
+                    });
+                }
+            </text>))
+)
+
+@{
+    <script type="text/x-kendo-template" id="template">
+        <li>#:Title# by #:Authors# (Category: #:CategoryName#)</li>
+    </script>
+}
+
+<div>
+    @Html.ActionLink("Back to Books", "Index")
+</div>

@@ -1,0 +1,39 @@
+@{
+    <script>
+        var treeview;
+
+        function Selected(e) {
+            //var value = $("#EventIdn").val();
+            var treeItem = treeview.dataItem(e.node);
+
+            $.post('@Url.Action("Details", "LibrarySystem")', {
+                id: treeItem.id
+            }, function (data) {
+                //$('#detail-pane').empty()
+                //$('#detail-pane').append(data)
+                alert("Changed " + data);
+            });
+        }
+
+        $(document).ready(function () {
+            treeview = $("#trvBooks").data("kendoTreeView");
+        });
+    </script>
+}
+--------------------------------------------------------------------
+
+[22:37:11] Niki: na treeviewitemnode , tam kakto mu beshe klasa
+[22:37:39] Niki: Text = c.Name,
+                Items = c.Books.Select(b => new TreeViewItemModel
+                {
+                    Text = string.Format("{0} by {1}", b.Title, b.Author),
+                    Url = string.Format("{0}{1}", "Home/BookDetails/", b.Id),
+                })
+
+
+--------------------------------------------------------------------
+#:kendo.toString(UnitPrice, "c")#
+
+
+--------------------------------------------------------------------
+

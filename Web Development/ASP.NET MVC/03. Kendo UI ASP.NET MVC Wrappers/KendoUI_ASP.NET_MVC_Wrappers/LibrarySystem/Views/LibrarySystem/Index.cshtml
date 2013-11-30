@@ -1,0 +1,81 @@
+﻿@*@model IEnumerable<LibrarySystem.Models.Book>*@
+@model IEnumerable<Kendo.Mvc.UI.TreeViewItemModel>
+
+@{
+    ViewBag.Title = "Books";
+}
+
+<h2>Books</h2>
+
+@using (Html.BeginForm("Search", "LibrarySystem"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <input class="pull-right btn" type="submit" id="btnSearch" value="Search" />
+    
+    @(Html.Kendo().AutoComplete()
+          .Name("books")
+          .Filter("contains")
+          .Placeholder("Search book...")
+          .HtmlAttributes(new { @class = "pull-right" })
+          .IgnoreCase(true)
+          .MinLength(2)
+        //.DataTextField("Authors")
+        //.DataSource(source =>
+        //{
+        //    source.Read(read =>
+        //    {
+        //        read.Action("Search", "LibrarySystem")
+        //            .Data("onAdditionalData");
+        //    })
+        //    .ServerFiltering(true);
+        //})
+    )
+    @Html.Hidden("book", new { book = "" });
+}
+
+<script>
+    //function onAdditionalData() {
+    //    return {
+    //        book: $("#books").val()
+    //    };
+    //}
+
+    $('#btnSearch').click(function (e) {
+        var value = $("#books").data("kendoAutoComplete").value();
+        $("#book").val(value);
+    });
+
+    //$(document).ready(function () {
+    //    var autoComplete = $("#books").data("kendoAutoComplete");
+    //    autoComplete.bind("open", function (e) {
+    //        e.preventDefault();
+    //    });
+    //    autoComplete.options.suggest = false;
+    //});
+</script>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@(Html.Kendo().TreeView()
+    .Name("trvBooks")
+    .BindTo(Model)
+    .Events(ev => ev
+        .Select(
+        @<text>
+            function(e) {
+            var data = this.dataItem(e.node);
+            $.post('@Url.Action("Details", "LibrarySystem")', {
+                id: data.id
+                }, function (data) {
+                    $('body>.container').empty()
+                    $('body>.container').append(data)
+                    //alert("Changed " + data);
+                });
+            }
+        </text>))
+)
