@@ -1,0 +1,147 @@
+﻿body {
+}
+
+header {
+    /*display: block;*/
+    text-align: center;
+    background-color: #afccd3;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+    header .home-link {
+        float: left;
+    }
+
+        header .home-link:hover {
+            float: left;
+            height: 24px;
+        }
+
+        header .home-link a {
+            text-decoration: none;
+        }
+
+#germany-area {
+    margin: 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #ffaa00;
+}
+
+#bulgaria-area {
+    margin: 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #b23535;
+}
+
+#brazil-area {
+    margin: 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #259b3d;
+}
+
+.container {
+    position: relative;
+    height: 120px;
+}
+
+#sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 150px;
+    background: #DDFFDD;
+}
+
+    #sidebar .sidebar-title {
+        font-size: 14pt;
+        font-weight: bold;
+    }
+
+    #sidebar ul {
+        list-style: none;
+        margin: 0;
+    }
+
+        #sidebar ul li {
+            padding: 5px;
+        }
+
+            #sidebar ul li:hover {
+                background-color: #e8a950;
+            }
+
+    #sidebar a {
+        text-decoration: none;
+    }
+
+#main-content {
+    margin-left: 150px;
+    padding: 10px;
+}
+
+#welcome-text {
+    font-size: 24px;
+    margin: 15px 15px 0px 15px;
+    font-weight: normal;
+}
+
+.icon {
+    display: inline-block;
+    width: 200px;
+    height: 180px;
+    border: 2px solid #ff7d00;
+    border-radius: 3px;
+    background-color: rgba(255, 106, 0, 0.40);
+    background-image: url('Images/users.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    -moz-background-size: 200px 140px;
+    -o-background-size: 200px 140px;
+    -webkit-background-size: 200px 140px;
+    background-size: 200px 140px;
+    background-position-y: 60px;
+    text-align: center;
+    text-decoration: none;
+    padding-top: 20px;
+    margin: 15px;
+    font-size: 18pt;
+    color: #271674;
+    font-weight: bold;
+    font-family: Arial;
+}
+
+    .icon:hover {
+        background-color: rgba(255, 106, 0, 0.70);
+    }
+
+.bulgaria {
+    background-image: url('Images/bulgaria.jpg');
+}
+
+.germany {
+    background-image: url('Images/germany.jpg');
+}
+
+.brazil {
+    background-image: url('Images/brazil.jpg');
+}
+
+footer {
+    /*display: block;*/
+    text-align: center;
+    background-color: #afccd3;
+    font-size: 16px;
+    /*padding: 5px;*/
+    /*margin-top: 10px;*/
+    /*clear: both;*/
+}

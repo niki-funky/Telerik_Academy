@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="MasterPages.NestedPages.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <title>International Company</title>
+    <link href="StyleSheet1.css" rel="stylesheet" />
+</head>
+
+<body>
+    <form id="FormMain" runat="server">
+        <header>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderHeader" runat="server">
+            </asp:ContentPlaceHolder>
+            <div>International Company</div>
+        </header>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderPageContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <footer>(c) 2013 – Telerik Software Academy</footer>
+    </form>
+</body>
+
+</html>

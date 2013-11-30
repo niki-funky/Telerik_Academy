@@ -1,0 +1,15 @@
+﻿body {
+}
+
+#lbContinents {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+#grdCountries {
+    /*display: inline-block;*/
+    /*margin-left: 20px;*/
+    /*margin-top: 8px;*/
+    /*Width: 500px;*/
+    /*Height: 239px;*/
+}

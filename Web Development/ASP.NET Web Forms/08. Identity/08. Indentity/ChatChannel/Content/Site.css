@@ -1,0 +1,61 @@
+﻿body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+/* styles for removing the background from form */
+.no-color {
+    background-color: white;
+    border-style: none;
+}
+
+.helper
+{
+    /*margin-left: 200px;
+    margin-bottom: 5px;*/
+    color: #959595;
+}
+
+#messages {
+    /*width: 100%;*/
+    height: 200px;
+    border: 1px solid #4DA1FF;
+    padding: 5px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+#content {
+    color: #4DA1FF;
+    font-weight: bold;
+    margin-right: 10px;
+    word-wrap: break-word;
+}
+
+#date {
+    position: relative;
+    /*right: 0;*/
+    float: right;
+}
+
+.container table, th, td {
+    border: 1px solid #4DA1FF;
+    border-collapse: collapse;
+    padding: 2px;
+}
+
+td > table {
+    border: none;
+}
+
+td table tbody {
+    border: none;
+}
+
+td table tbody tr {
+    border: none;
+}
+
+td table tbody tr td {
+    border: none;
+}

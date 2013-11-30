@@ -1,0 +1,16 @@
+
+
+            Console.WriteLine(countryEntities.Countries.Count());
+
+            //var filePath = "ninja.png";
+            //System.Convert.ToBase64String(System.IO.File.ReadAllBytes(filePath));
+
+            foreach (var item in countryEntities.Countries)
+            {
+                var image = ReadImage("../../ninja.png");
+                item.Flag = image;
+            }
+
+            //countryEntities.Countries.Add(newCountry);
+
+            countryEntities.SaveChanges();
