@@ -1,0 +1,1 @@
+You should unzip the file text.zip in the folder 03. Trie.

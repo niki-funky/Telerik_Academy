@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+ 
+namespace _10ShortestOperations
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int m = int.Parse(Console.ReadLine());
+ 
+            int current = m;
+            List<int> l=new List<int>();
+            l.Add(current);
+            while (current / 2 >= n)
+            {
+                if (current % 2 == 0)
+                {
+                    current /= 2;
+                    l.Add(current);
+                }
+                else
+                {
+                    current -= 1;
+                    l.Add(current);
+                    current /= 2;
+                    l.Add(current);
+                }
+            }
+            while (current - 2 >= n)
+            {
+                current -= 2;
+                l.Add(current);
+            }
+            while (current - 1 >= n)
+            {
+                current -= 1;
+                l.Add(current);
+            }
+            l.Reverse();
+            foreach (var item in l)
+            {
+                Console.Write(item+" ");
+            }
+        }
+    }
+}
