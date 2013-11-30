@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNet.Identity
+@model LizardmanCinemas.Models.ApplicationUser
+
+@using (Html.BeginForm("ManageDetails", "Account", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset class="form-horizontal">
+        <legend>Change User details Form</legend>
+
+        <div class="control-group">
+            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+            <div class="controls">
+                @Html.TextBoxFor(m => m.Email)
+            </div>
+        </div>
+        <div class="control-group">
+            @{
+                var display = "hidden";
+                if (Model.ProfilePicture != null)
+                {
+                    display = "visible";
+                }
+            }
+            
+            @Html.LabelFor(m => m.ProfilePicture, new { @class = "control-label" })
+            <div class="controls">
+                <img src="~/Content/Avatars/@Model.ProfilePicture" style="visibility:@display; width: 50px; height: 50px;" />
+                <input type="file" name="file" id="file" style="width: 100%;" />
+            </div>
+        </div>
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Change details" class="btn" />
+        </div>
+    </fieldset>
+}

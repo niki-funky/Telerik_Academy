@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - LizardmanMovieDb</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/kendo")
+    @Scripts.Render("~/bundles/kendo")
+    @*<script src="~/Scripts/jquery-1.8.2.min.js"></script>*@
+    @*<script type="text/javascript">
+            jQuery.noConflict();
+        </script>*@
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("LizardmanMoviesDb", "Index", "Home", new { area = "" }, new { @class = "brand" })*@
+                <a href='@Url.Action("index", "Home", new { area = "" })' class="brand">
+                    <img src='@Url.Content("~/Content/Images/lizard.png")' id="lizard" />
+                </a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li>@Html.ActionLink("Movies", "Index", "Movies", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Actors", "Index", "Actors", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Directors", "Index", "Directors", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("Categories", "Index", "Categories", new { area = "" }, null)</li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                        <li class="dropdown">
+                            @Html.ActionLink("Admin", "Index", "MovieAdmin", new { area = "Admin" }, new { @class = "dropdown-toggle", data_toggle = "dropdown" })
+                            <ul class="dropdown-menu lizard-dropdown-menu">
+                                <li class="lizard-dropdown">@Html.ActionLink("Movies", "Index", "MovieAdmin", new { area = "Admin" }, null)</li>
+                                <li class="lizard-dropdown">@Html.ActionLink("Categories", "Index", "CategoryAdmin", new { area = "Admin" }, null)</li>
+                                <li class="lizard-dropdown">@Html.ActionLink("Actors", "Index", "ActorAdmin", new { area = "Admin" }, null)</li>
+                                <li class="lizard-dropdown">@Html.ActionLink("Directors", "Index", "DirectorAdmin", new { area = "Admin" }, null)</li>
+                            </ul>
+                        </li>
+                        }
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+            <div class="container">
+                @Html.Partial("_SearchNavbar")
+            </div>
+        </div>
+    </div>
+
+    @if (HttpContext.Current.Request.Url.AbsoluteUri == "http://localhost:3960/")
+    {
+        <div id="player" style="position: fixed; z-index: -99; width: 100%; height: 100%">
+            <iframe frameborder="0" height="100%" width="100%"
+                    src="https://youtube.com/embed/YsOl6kIDDOc?hd=1&autoplay=1&controls=0&showinfo=0&rel=0&autohide=1&modestbranding=1&end=30&loop=1"></iframe>
+        </div>
+    }
+
+    <script>
+        //// 2. This code loads the IFrame Player API code asynchronously.
+        //var tag = document.createElement('script');
+        //tag.src = "http://www.youtube.com/player_api";
+        //var firstScriptTag = document.getElementsByTagName('script')[0];
+        //firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        //// 3. This function creates an <iframe> (and YouTube player)
+        ////    after the API code downloads.
+        //var player;
+        //function onYouTubePlayerAPIReady() {
+        //    player = new YT.Player('player', {
+        //        playerVars: { 'autoplay': 1, 'controls': 0, 'rel': 0, 'autohide': 1, 'showinfo': 0, 'modestbranding': 1, 'wmode': 'opaque' },
+        //        videoId: '3KumjBXHdzY',
+        //        events: {
+        //            'onReady': onPlayerReady
+        //        }
+        //    });
+        //}
+
+        //// 4. The API will call this function when the video player is ready.
+        //function onPlayerReady(event) {
+        //    event.target.mute();
+        //}
+    </script>
+
+    <div class="container" id="container">
+        <div id="error" class="alert alert-error" style="display:none"></div>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - LizardmanMovieDb</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

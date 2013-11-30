@@ -1,0 +1,13 @@
+﻿@model LizardmanCinemas.ViewModels.MovieVM
+
+@{
+    Layout = null;
+}
+
+@(
+ Html.Kendo().DropDownListFor(m => m)
+ .Name("Category")
+     .DataValueField("Id")
+            .DataTextField("Name").OptionLabel("Select Cat")
+                .DataSource(ds => ds.Read("GetAllCategories", "MovieAdmin", new { area = "Admin"}))
+)

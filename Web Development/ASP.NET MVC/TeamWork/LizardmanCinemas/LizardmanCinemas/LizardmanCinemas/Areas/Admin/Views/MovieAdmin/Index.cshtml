@@ -1,0 +1,235 @@
+﻿@model IEnumerable<LizardmanCinemas.ViewModels.MovieVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Movies</h2>
+
+<script type="text/javascript">
+    var getActorsName = function (data) {
+        var builder = "";
+        if (data != null) {
+            if (data.length == 0) {
+                return "No Actors";
+            }
+            for (var i = 0; i < data.length; i++) {
+                builder += data[i].Name;
+                builder += ", ";
+            }
+
+            if (builder.length < 100) {
+                var u = builder.length - 2;
+                builder = builder.substring(0, u);
+                var c = $("<span></span>").text(builder);
+                return $(c).html();
+            }
+            else {
+                builder = builder.substring(0, 100) + "...";
+                var c = $("<span></span>").text(builder);
+                return $(c).html();
+            }
+        }
+    }
+
+    var getDescription = function (data) {
+        var builder = "";
+        if (data != null) {           
+            if (data.length < 70) {
+                var c = $("<span></span>").text(data);
+                return $(c).html();
+            }
+            else {
+                data = data.substring(0, 70) + "...";
+                var c = $("<span></span>").text(data);
+                return $(c).html();
+            }
+        }
+        else {
+            return "No Description";
+        }
+    }
+
+    var getImage = function (data) {
+        var root = "<img src='/Content/Posters/";
+        var ending = "' alt='no-image' class='images-grid'/>";
+        if (data != null) {
+            return root + data + ending;
+        }
+        else {
+            return root + "noPoster.jpg" + ending;
+        }
+    }
+</script>
+
+@using (Html.BeginForm("GetMovie", "MovieAdmin", new { area = "Admin" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="control-group">
+        <div class="controls">
+            <p>Enter movie Title to Find in IMDB:</p>
+            <div class="editor-field">
+                <input class="text-box single-line" type="text" name="movieTitle" id="addMovie" />
+                @Html.ValidationMessage("addMovie", new { @class = "help-inline" })
+                <input type="submit" value="Add to DB" class="btn add-movie" />
+            </div>
+        </div>
+    </div>
+}
+
+@(Html.Kendo()
+    .Grid<LizardmanCinemas.ViewModels.MovieVM>()
+    .Name("movies")
+.BindTo(Model)
+.Columns(columns =>
+    {
+        columns.Bound(m => m.Title);
+        columns.Bound(m => m.Description).ClientTemplate("#=getDescription(Description)#");//.ClientTemplate("#if(Description.Length < 50){# #:Description# #}else{# #: Description.substring(0, 50) #...  #}#");
+        columns.Bound(m => m.CategoryName);
+        columns.Bound(m => m.DirectorName);
+        columns.Bound(m => m.CountryName);
+        columns.Bound(m => m.ParentsGuideName);
+        columns.Bound(m => m.Actors).ClientTemplate("#=getActorsName(Actors)#");
+        columns.Bound(m => m.Year);
+        columns.Bound(m => m.Poster).ClientTemplate("#=getImage(Poster)#");//.ClientTemplate("<img src='/Content/Posters/#=Poster #' alt='no-image' class='images-grid'/>");
+        columns.Bound(m => m.Duration);
+        columns.Command(commands =>
+        {
+            commands.Edit();
+            commands.Custom("Delete").Click("deleteCmd");
+        }).Title("Commands").Width(200);
+    })
+        .Pageable()
+        .Sortable()
+        .ToolBar(toolbar => toolbar.Create())
+        .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("_MovieCreateEdit")
+        .DisplayDeleteConfirmation(false))
+        .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(5)
+        .Events(events =>
+        {
+            events.Error("error_handler");
+        })
+        .Model(model =>
+            {
+                model.Id(m => m.Id);
+                model.Field(m => m.Id).Editable(false);
+                model.Field(m => m.Actors).DefaultValue(new List<LizardmanCinemas.ViewModels.ActorVM>());
+                model.Field(m => m.Poster).DefaultValue("noPoster.jpg");
+            })
+        .Create(update => update.Action("Create", "MovieAdmin", new { area = "Admin" }).Data("serialize"))
+        .Read(read => read.Action("Read", "MovieAdmin", new { area = "Admin" }).Data("serialize"))
+        .Update(update => update.Action("Edit", "MovieAdmin", new { area = "Admin" }).Data("serialize"))
+        .Destroy(update => update.Action("Delete", "MovieAdmin", new { area = "Admin" }).Data("serialize"))
+)
+)
+
+<div id="modalWindow">
+</div>
+
+<script type="text/javascript">
+    function error_handler(args) {
+
+        if (args.errors) {
+            var message = "";
+            var grid = $("#movies").data("kendoGrid");
+
+            grid.one("dataBinding", function (e) {
+                e.preventDefault();   // cancel grid rebind if error occurs                  
+
+                for (var error in args.errors) {
+                    message += args.errors[error].errors;
+                }
+
+                $("#error-grid").css("display", "block")
+                   .html(message).fadeOut(9000);
+            });
+        }
+    }
+
+    var wnd;
+
+    $(document).ready(function () {
+        wnd = $("#modalWindow").kendoWindow({
+            title: "Delete confirmation",
+            modal: true,
+            visible: false,
+            resizable: false,
+            width: 300
+        }).data("kendoWindow");
+
+        detailsTemplate = kendo.template($("#template").html());
+    });
+
+    function serialize(data) {
+        for (var property in data) {
+            if ($.isArray(data[property])) {
+                serializeArray(property, data[property], data);
+            }
+        }
+        return {
+            "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val(),
+        }
+    }
+
+    function serializeArray(prefix, array, result) {
+        for (var i = 0; i < array.length; i++) {
+            if ($.isPlainObject(array[i])) {
+                for (var property in array[i]) {
+                    result[prefix + "[" + i + "]." + property] = array[i][property];
+                }
+            }
+            else {
+                result[prefix + "[" + i + "]"] = array[i];
+            }
+        }
+    }
+
+    function deleteCmd(e) {
+        e.preventDefault();
+
+        var grid = this;
+        var row = $(e.currentTarget).closest("tr");
+
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        wnd.content(detailsTemplate(dataItem));
+
+        wnd.center().open();
+
+        $("#yes").click(function () {
+            grid.removeRow(row);
+            wnd.close();
+        });
+
+        $("#no").click(function () {
+            wnd.close();
+        });
+    }
+
+    function onActorsBinding() {
+        var placeholderActors = $("#Actors").data('kendoMultiSelect').options.placeholder;
+        var requestedActor = $("#Actors").data('kendoMultiSelect').input.val();
+        if (requestedActor == placeholderActors) {
+            requestedActor = "";
+        }
+
+        return {
+            text: requestedActor
+        };
+    }
+
+</script>
+
+<script type="text/x-kendo-template" id="template">
+    <h2>Delete ?</h2>
+    <div id="details-container">
+        <div class="confirm-delete-poster">#= getImage(Poster) #</div>
+        <label class="label label-info mylabel">Title</label><i>#= Title #</i>
+        <br />
+        <button id="yes" class="k-button">Yes</button>
+        <button id="no" class="k-button">No</button>
+    </div>
+</script>

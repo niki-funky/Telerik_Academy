@@ -1,0 +1,112 @@
+﻿@model LizardmanCinemas.ViewModels.MovieVM
+@{
+    Layout = null;
+}
+@using (Html.BeginForm("Edit", "MovieAdmin", FormMethod.Post,
+                            new { enctype = "multipart/form-data" }))
+{
+        <div id="error-grid" class="alert alert-error" style="display:none"></div>
+    
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div>
+        <div class="k-edit-form-container">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Title, "Title")
+
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Title)
+            </div>
+        </div>
+        <div class="k-edit-form-container">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CategoryName, "Category")
+
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Category)
+            </div>
+        </div>
+
+        <div class="k-edit-form-container">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.DirectorName, "Director")
+
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Director)
+                    </div>
+                </div>
+
+        <div class="k-edit-form-container">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Country, "Country")
+
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.CountryName)
+                    </div>
+                </div>
+
+        <div class="k-edit-form-container">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ParentsGuideId, "Parents Guide")
+
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ParentsGuide)
+                    </div>
+                </div>
+
+        <div class="k-edit-form-container">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Actors, "Actors")
+
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Actors)
+                    </div>
+                </div>
+
+        <div class="k-edit-form-container">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Poster, "Poster")
+
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Poster)
+                    </div>
+                </div>
+
+        <div class="k-edit-form-container">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Year, "Year")
+
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Year)
+                    </div>
+                </div>
+
+        <div class="k-edit-form-container">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Duration, "Duration")
+
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Duration)
+                    </div>
+                </div>
+
+        <div class="k-edit-form-container">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Description, "Description")
+
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Description)
+            </div>
+        </div>
+    </div>
+}

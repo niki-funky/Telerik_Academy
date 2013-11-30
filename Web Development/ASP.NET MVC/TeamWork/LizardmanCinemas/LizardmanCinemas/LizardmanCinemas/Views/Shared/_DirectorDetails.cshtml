@@ -1,0 +1,35 @@
+﻿@model LizardmanCinemas.ViewModels.DirectorDetails
+
+@{
+    ViewBag.Title = "Director Details";
+
+    var directorPicture = "/Content/Actors/" + Model.Picture;
+}
+
+@Html.LabelFor(d => d.FullName, "Full Name", new { @class = "label label-info mylabel" })
+@Html.DisplayFor(d=> d.FullName)
+<br />
+
+<div class="movie-details">
+    @if (String.IsNullOrEmpty(Model.Picture))
+    {
+        <div class="label label-info mylabel">
+            Director's picture is not available
+        </div>
+    }
+    else
+    {
+        <img src=@directorPicture alt="picture" style="width: 90px; height: 135px" />
+    }
+</div><br />
+
+@Html.LabelFor(d => d.Age, "Age", new { @class = "label label-info mylabel" })
+@Html.DisplayFor(d => d.Age)
+<br />
+
+@foreach (var mov in Model.Movies)
+{
+    <h5><a href="@mov.DetailsUrl">@mov.Title</a><i>&nbsp;(@mov.CategoryName)</i></h5>
+}
+
+@Html.ActionLink("Details", "Details", "Directors", new { id = Model.Id }, new { @class = "btn" })

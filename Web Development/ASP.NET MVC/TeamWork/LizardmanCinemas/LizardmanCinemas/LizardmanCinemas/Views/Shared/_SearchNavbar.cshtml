@@ -1,0 +1,93 @@
+﻿@using (Html.BeginForm("Search", "Search", new { area = "" }, FormMethod.Post, new { id = "SearchForm" }))
+{
+    @(Html.Kendo().AutoComplete()
+    .Name("SearchAutoComplete")
+    .DataTextField("Name")
+            .DataSource(source =>
+              {
+                  source.Read(read =>
+                  {
+                      read.Action("GetSearchResults", "Search", new { area = "" }).Data("onAdditionalData");
+                  }).ServerFiltering(true);
+              }).MinLength(2)
+          .Height(100).Placeholder("Search...")
+          .Template("<strong>${ data.Name }</strong> <i>(${ data.Type})</i>")
+    .Filter("contains")
+    .Events(e =>
+        {
+            e.Select("onSelect");
+        }))
+
+    @(Html.Kendo().DropDownListFor(m => m)
+.Name("SearchDropDown")
+     .DataValueField("Name")
+        .DataTextField("Name")
+                 .DataSource(source =>
+                  {
+                      source.Read(read =>
+                      {
+                          read.Action("GetSearchDropDownData", "Search", new { area = "" });
+                      });
+                  })
+    )
+
+    @Html.Hidden("query", new { book = "" });
+    @Html.Hidden("table", new { book = "" });
+
+    <button type="submit" class="primary btn" id="navbar-submit-button">
+        <i class="icon-search icon-large"></i>
+    </button>
+}
+
+<div id="searchModalWindow">
+</div>
+
+<script>
+    var url;
+    var wnd;
+    var specific;
+
+    function onAdditionalData() {
+        var searchText = jQuery('#SearchDropDown').val();
+
+        return {
+            text: jQuery("#SearchAutoComplete").val(),
+            table: jQuery('#SearchDropDown').val()
+        };
+    }
+
+    function onSelect(e) {
+
+        var dataItem = this.dataItem(e.item.index());
+
+        url = dataItem.Url;
+        wnd = $("#searchModalWindow").kendoWindow({
+            title: (dataItem.Type + " Details"),
+            modal: true,
+            visible: false,
+            content: url,
+            resizable: false,
+            width: 500
+        }).data("kendoWindow");
+
+        wnd.center().open();
+
+    }
+
+    $('#navbar-submit-button').click(function (e) {
+        var text = $("#SearchAutoComplete").data("kendoAutoComplete").value();
+        var table = $('#SearchDropDown').val();
+
+        if (text.length > 100) {
+            e.preventDefault();
+            e.stopPropagation();
+            $("#error").css("display", "block")
+                .html("The Search query must be less than 100 characters long!").fadeOut(5000);
+
+            return false;
+        }
+
+        $("#query").val(text);
+        $("#table").val(table);
+    });
+</script>

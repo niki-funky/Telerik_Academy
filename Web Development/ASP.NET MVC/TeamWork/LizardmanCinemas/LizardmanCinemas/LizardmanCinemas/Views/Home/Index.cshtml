@@ -1,0 +1,132 @@
+﻿@model IEnumerable<LizardmanCinemas.ViewModels.MovieHomeVM>
+
+@{
+    ViewBag.Title = "Lizardman MovieDB";
+}
+
+<h2>@ViewBag.Title</h2>
+<h4>Featured movies</h4>
+
+<script type="text/x-kendo-tmpl" id="template">
+    <div class="movies">
+        <a href="#:Trailer#" class="trailer-btn" data-title="#: Title#" data-year="#: Year#">
+            #if(data.Poster != null){#
+            <img src="/Content/Posters/#: Poster #" alt="#:Title#" />
+            #}else{#
+            <img src="/Content/Posters/noPoster.jpg" alt="#:Title#" />
+            #}#
+            <p>Watch #:Title# Trailer <br /> <img class="play-trailer" src="/Content/Images/Play_Icon.png" /></p>
+        </a>
+        <h3><a class="movie-view-details" href="/Movies/Details/#:Id#">#:Title#</a></h3>
+    </div>
+</script>
+
+
+<script type="text/javascript">
+    var template = kendo.template($("#template").html(), { useWithBlock: false });
+</script>
+
+
+<div class="movies-section">
+    @(Html.Kendo().ListView<LizardmanCinemas.ViewModels.MovieHomeVM>(Model)
+    .Name("listView1")
+    .TagName("div")
+    .ClientTemplateId("template")
+    .DataSource(dataSource =>
+    {
+        dataSource.Read(read => read.Action("ReadMovies", "Movies"));
+    })
+    )
+
+    <div class="pull-right">
+        @Html.Partial("_Comment", Model)
+    </div>
+</div>
+
+<div id="watchTrailer">
+</div>
+
+<h4>Featured Actors</h4>
+
+<script type="text/x-kendo-tmpl" id="templateActors">
+    <div class="actors">
+        <a href="Actors/Details/#:Id#">
+            #if(data.Picture != null){#
+            <img src="/Content/Actors/#: Picture #" alt="#:Name#" />
+            #}else{#
+            <img src="/Content/Actors/noPoster.jpg" alt="#:Name#" />
+            #}#
+            <h3>#:Name#</h3>
+            <p>#:Name#</p>
+        </a>
+    </div>
+</script>
+
+<script type="text/javascript">
+    var templateActors = kendo.template($("#templateActors").html(), { useWithBlock: false });
+</script>
+
+<div class="actors-section">
+    @(Html.Kendo().ListView<LizardmanCinemas.ViewModels.ActorsShortViewModel>()
+    .Name("listView2")
+    .TagName("div")
+    .ClientTemplateId("templateActors")
+    .DataSource(dataSource =>
+    {
+        dataSource.Read(read => read.Action("ReadActors", "Actors"));
+        dataSource.PageSize(10);
+    })
+            //.Pageable()
+    )
+</div>
+
+<script>
+    var wnd;
+
+    $(document).ready(function () {
+        wnd = $("#watchTrailer").kendoWindow({
+            title: "Movie Trailer",
+            modal: true,
+            iframe: true,
+            visible: false,
+            resizable: false,
+            width: 660
+        }).data("kendoWindow");
+
+        trailerTemplate = kendo.template($("#trailer-template").html());
+
+
+        $(".movies").on("click", ".trailer-btn", function (e) {
+            e.preventDefault();
+
+            var title = $(this).data("title");
+            var year = $(this).data("year");
+
+            var url = $(this).attr("href");
+            var youtubeUrl = url.split("=")[1];
+
+            var movie =
+            {
+                Title: title,
+                Year: year,
+                Data: youtubeUrl
+            };
+
+            wnd.content(trailerTemplate(movie));
+
+            wnd.center().open();
+        });
+    });
+
+</script>
+
+
+<script type="text/x-kendo-template" id="trailer-template">
+    <div class="movie-details">
+        <label class="label label-info mylabel">Title</label><i>#= Title #</i>
+        <label class="label label-info mylabel">Year</label><i>#= Year #</i>
+    </div>
+    <div class="movie-details">
+        <iframe width="640" height="390" src="http://www.youtube.com/embed/#= Data #?wmode=opaque&rel=0" frameborder="0"></iframe>
+    </div>
+</script>

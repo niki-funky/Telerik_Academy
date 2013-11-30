@@ -1,0 +1,10 @@
+﻿@{
+    Layout = null;
+}
+
+@(
+ Html.Kendo().DropDownListFor(m => m).Name("Director")
+     .DataValueField("Id")
+            .DataTextField("Name")
+                .DataSource(ds => ds.Read("GetAllDirectors", "MovieAdmin", new { area = "Admin" }))
+)

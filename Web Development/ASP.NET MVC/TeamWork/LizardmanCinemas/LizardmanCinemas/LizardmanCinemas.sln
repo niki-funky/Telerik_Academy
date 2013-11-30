@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.20827.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LizardmanCinemas", "LizardmanCinemas\LizardmanCinemas.csproj", "{43C511AF-9C31-4413-AC94-A7533F66A1A6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E753AE94-038C-4FB1-AA73-EDA3D2AD6EAF} = {E753AE94-038C-4FB1-AA73-EDA3D2AD6EAF}
+		{7564E2C5-421E-4D99-A6A8-005ECB0942FE} = {7564E2C5-421E-4D99-A6A8-005ECB0942FE}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LizardmanCinemas.Data", "LizardmanCinemas.Data\LizardmanCinemas.Data.csproj", "{7564E2C5-421E-4D99-A6A8-005ECB0942FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LizardmanCinemas.Models", "LizardmanCinemas.Models\LizardmanCinemas.Models.csproj", "{E753AE94-038C-4FB1-AA73-EDA3D2AD6EAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LizardmanCinemas.Tests", "LizardmanCinemas.Tests\LizardmanCinemas.Tests.csproj", "{32BC1814-39B9-454A-BDD1-8638CC85A6AD}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://niki-csharp.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LizardmanCinemas\\LizardmanCinemas.csproj
+		SccProjectName1 = LizardmanCinemas
+		SccLocalPath1 = LizardmanCinemas
+		SccProjectUniqueName2 = LizardmanCinemas.Data\\LizardmanCinemas.Data.csproj
+		SccProjectName2 = LizardmanCinemas.Data
+		SccLocalPath2 = LizardmanCinemas.Data
+		SccProjectUniqueName3 = LizardmanCinemas.Models\\LizardmanCinemas.Models.csproj
+		SccProjectName3 = LizardmanCinemas.Models
+		SccLocalPath3 = LizardmanCinemas.Models
+		SccProjectUniqueName4 = LizardmanCinemas.Tests\\LizardmanCinemas.Tests.csproj
+		SccProjectName4 = LizardmanCinemas.Tests
+		SccLocalPath4 = LizardmanCinemas.Tests
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43C511AF-9C31-4413-AC94-A7533F66A1A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43C511AF-9C31-4413-AC94-A7533F66A1A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43C511AF-9C31-4413-AC94-A7533F66A1A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43C511AF-9C31-4413-AC94-A7533F66A1A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7564E2C5-421E-4D99-A6A8-005ECB0942FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7564E2C5-421E-4D99-A6A8-005ECB0942FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7564E2C5-421E-4D99-A6A8-005ECB0942FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7564E2C5-421E-4D99-A6A8-005ECB0942FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E753AE94-038C-4FB1-AA73-EDA3D2AD6EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E753AE94-038C-4FB1-AA73-EDA3D2AD6EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E753AE94-038C-4FB1-AA73-EDA3D2AD6EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E753AE94-038C-4FB1-AA73-EDA3D2AD6EAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32BC1814-39B9-454A-BDD1-8638CC85A6AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32BC1814-39B9-454A-BDD1-8638CC85A6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32BC1814-39B9-454A-BDD1-8638CC85A6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32BC1814-39B9-454A-BDD1-8638CC85A6AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

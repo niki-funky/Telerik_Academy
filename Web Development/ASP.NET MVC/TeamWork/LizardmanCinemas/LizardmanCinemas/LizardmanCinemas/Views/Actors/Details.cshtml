@@ -1,0 +1,44 @@
+﻿@model LizardmanCinemas.Models.Actor
+
+@{
+    var actorName = string.Format("{0} {1}", Model.FirstName, Model.LastName);
+
+    var actorPicture = "/Content/Actors/" + Model.Picture;
+}
+
+<div class="movie-title">@Html.DisplayFor(model => actorName)</div>
+
+<div class="movie-details">
+    @if (String.IsNullOrEmpty(Model.Picture))
+    {
+        @: Picture: Actor's picture is not available
+    }
+    else
+    {
+        <img src=@actorPicture alt="picture" style="width: 180px; height: 270px" />
+    }
+</div>
+
+@if (Model.Age != 0)
+{
+    <div class="movie-details">Age: @Html.DisplayFor(model => model.Age)</div>
+}
+else
+{
+    <div class="movie-details">Age: No information about the actor's age</div>
+}
+
+<div class="movie-details">
+    Movies:
+    <ul class="artists-list">
+        @foreach (var movie in Model.Movies)
+        {
+            <li>
+                @Html.ActionLink((movie.Title + " (" + movie.Year + ")"), "Details", "Movies", new { Area = "", id = movie.Id }, null)
+            </li>
+        }
+    </ul>
+</div>
+<p>
+    @Html.ActionLink("Back to Actors", "Index", null, new { @class = "btn" })
+</p>

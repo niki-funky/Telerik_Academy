@@ -1,0 +1,13 @@
+﻿@model IEnumerable<LizardmanCinemas.Models.Movie>
+
+@{
+    ViewBag.Title = "Actor Movies";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@foreach (var movie in Model)
+{
+    @Html.ActionLink(movie.Title, "Details", "Movies");
+}
+

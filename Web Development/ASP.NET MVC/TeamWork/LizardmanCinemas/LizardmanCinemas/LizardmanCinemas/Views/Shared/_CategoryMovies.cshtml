@@ -1,0 +1,25 @@
+﻿@model IEnumerable<LizardmanCinemas.Models.Movie>
+
+@{
+    ViewBag.Title = "Movies";
+
+    //var categoryName = Model.FirstOrDefault().Category.Name;
+}
+
+@*<h2>@categoryName</h2>*@
+
+@if (Model.Count() != 0)
+{
+    foreach (var movie in Model)
+    {
+        string posterPath = "/Content/Posters/" + movie.Poster;
+        <img src=@posterPath alt="poster" style="width: 180px; height: 270px" />
+        @Html.ActionLink((movie.Title + " (" + movie.Year + ")"), "Details", "Movies", new { Area = "", id = movie.Id }, null)
+        <hr />
+    }
+}
+else
+{
+    <div class="movie-details">There are no movies in this category</div>
+}
+

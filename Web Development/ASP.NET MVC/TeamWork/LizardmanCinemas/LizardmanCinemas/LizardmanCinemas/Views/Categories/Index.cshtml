@@ -1,0 +1,47 @@
+﻿@model IEnumerable<LizardmanCinemas.Models.Category>
+
+@{
+    ViewBag.Title = "Movie Categories";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+<div>
+    @(Html.Kendo()
+        .DropDownList()
+        .Name("categories")
+        .BindTo(Model)
+        .OptionLabel("Select category")
+        .DataTextField("Name")
+        .DataValueField("Id")
+        .Events(ev => ev.Select("selectedValue"))
+        )
+</div>        
+
+<h2 id="category-name"></h2>
+<hr />
+
+<div id="category-movies">
+
+</div>
+
+<script>
+    function selectedValue(e) {
+        var id = this.dataItem(e.item.index()).Id;
+        var categoryName = this.dataItem(e.item.index()).Name;
+        $("#category-name").html(categoryName);
+        $.get('/Categories/GetMovies/' + id, function (data) {
+            $('#category-movies').html(data);
+        });
+    }
+
+   
+</script>
+
+@*@foreach (var item in Model)
+{
+    <h4>
+        @Html.ActionLink(item.Name, "Details", "Categories", new { id = item.Id }, null)
+    </h4>
+}*@

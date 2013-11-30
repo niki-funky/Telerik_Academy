@@ -1,0 +1,40 @@
+﻿@model  IEnumerable<LizardmanCinemas.ViewModels.MovieHomeVM>
+
+<script type="text/x-kendo-tmpl" id="templateComments">
+    <div class="movies-comments">
+        <h4>Featured Comments for "#:Title#"</h4>
+        <hr />
+        @*#console.log(Comments)#*@
+        #if(data.Comments != null){#
+            #if(data.Comments.length == 0){#
+                <p>Be the first to comment the "#:Title#" movie</p>
+                #}else{#
+                #for (var i = 0; i < data.Comments.length; i++){#
+                    <div>
+                        <em>
+                            commented by
+                            <span class="bold">#= data.Comments[i].Username #</span> on
+                            <span class="bold">#= data.Comments[i].DisplayDate #</span>
+                        </em>
+                        <p>#= data.Comments[i].CommentText #</p>
+                    </div>
+                <hr />
+                #}#
+            #}#
+        #}#
+    </div>
+</script>
+
+<script type="text/javascript">
+    var template3 = kendo.template($("#templateComments").html(), { useWithBlock: false });
+</script>
+
+@(Html.Kendo().ListView<LizardmanCinemas.ViewModels.MovieHomeVM>(Model)
+    .Name("listView3")
+    .TagName("div")
+    .ClientTemplateId("templateComments")
+    .DataSource(dataSource =>
+    {
+        dataSource.Read(read => read.Action("ReadComments", "Home"));
+    })
+)

@@ -1,0 +1,37 @@
+﻿@model LizardmanCinemas.ViewModels.MovieDetails
+
+@{
+    ViewBag.Title = "Actor Details";
+
+    var moviePoster = "/Content/Posters/" + Model.Poster;
+
+    var titleAndYear = Model.Title + " " + Model.Year;
+}
+
+<h3>
+    @Html.LabelFor(d => d.Title, "Title", new { @class = "label label-info mylabel" })
+    @Html.DisplayFor(d => titleAndYear)
+</h3>
+<br />
+<div class="movie-details">
+    @if (String.IsNullOrEmpty(Model.Poster))
+    {
+        <div class="label label-info mylabel">
+            Movie's poster is not available
+        </div>
+    }
+    else
+    {
+        <img src=@moviePoster alt="picture" style="width: 90px; height: 135px" />
+    }
+</div><br />
+
+<h3>
+    @Html.LabelFor(d => d.CategoryName, "Category", new { @class = "label label-info mylabel" })
+    @Html.DisplayFor(d => d.CategoryName)
+</h3>
+
+@Html.ActionLink("Details", "Details", "Movies", new { id = Model.Id }, new { @class = "btn" })
+
+
+

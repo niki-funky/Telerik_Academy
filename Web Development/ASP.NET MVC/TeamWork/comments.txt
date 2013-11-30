@@ -1,0 +1,11 @@
+            #foreach (var comment in data.Comments){#
+            <p>#:comment.CommentText#</p>
+            <div class="pull-left">
+                <em>
+                    commented by
+                    @*<span class="bold">@Html.ActionLink(comment.User.UserName, "Details", "Users", new { id = comment.User.Id }, null)</span>
+                    on @string.Format("{0:dd.MM.yyyy}", comment.CreatedOn)*@
+                </em>
+            </div>
+            <hr />
+            #}#

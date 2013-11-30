@@ -1,0 +1,166 @@
+﻿@model IEnumerable<LizardmanCinemas.ViewModels.DirectorLongVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Directors</h2>
+
+<script type="text/x-kendo-tmpl" id="directorTemplate">
+    #if(data != null){#
+    <img src="/Content/Directors/#: data #" class="actor-images-grid" />
+    #}else{#
+    <img src="/Content/Directors/noDirector.png" class="actor-images-grid" />
+    #}#
+</script>
+
+<script type="text/javascript">
+    var template = kendo.template($("#directorTemplate").html(), { useWithBlock: false });
+</script>
+
+@(Html.Kendo()
+.Grid<LizardmanCinemas.ViewModels.DirectorLongVM>()
+.Name("directors")
+.BindTo(Model)
+.Columns(columns =>
+    {
+        columns.Bound(b => b.FirstName);
+        columns.Bound(b => b.LastName);
+        columns.Bound(b => b.Age);
+        columns.Bound(b => b.Sex);
+        columns.Bound(b => b.Picture).Width(100).ClientTemplate("#=template(Picture)#");
+        columns.Command(commands =>
+        {
+            commands.Edit();
+            commands.Custom("Delete").Click("deleteCmd");
+        }).Title("Commands").Width(200);
+    })
+        .Pageable()
+        .Sortable()
+        .ToolBar(toolbar => toolbar.Create())
+        .Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("_DirectorCreateEdit")
+        .DisplayDeleteConfirmation(false))
+        .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(5)
+        .Events(events =>
+        {
+            events.Error("error_handler");
+        })
+        .Model(model =>
+            {
+                model.Id(b => b.Id);
+                model.Field(product => product.Id).Editable(false);
+
+            })
+        .Create(update => update.Action("Create", "DirectorAdmin", new { area = "Admin" }).Data("serialize"))
+        .Read(read => read.Action("Read", "DirectorAdmin", new { area = "Admin" }).Data("serialize"))
+        .Update(update => update.Action("Edit", "DirectorAdmin", new { area = "Admin" }).Data("serialize"))
+        .Destroy(update => update.Action("Delete", "DirectorAdmin", new { area = "Admin" }).Data("serialize"))
+)
+)
+
+<div id="modalWindow">
+</div>
+
+<script type="text/javascript">
+    function error_handler(args) {
+
+        if (args.errors) {
+            var message = "";
+            var grid = $("#movies").data("kendoGrid");
+
+            grid.one("dataBinding", function (e) {
+                e.preventDefault();   // cancel grid rebind if error occurs                  
+
+                for (var error in args.errors) {
+                    message += args.errors[error].errors;
+                }
+
+                $("#error-grid").css("display", "block")
+                   .html(message).fadeOut(9000);
+            });
+        }
+    }
+
+    var wnd;
+
+    $(document).ready(function () {
+        wnd = $("#modalWindow").kendoWindow({
+            title: "Delete confirmation",
+            modal: true,
+            visible: false,
+            resizable: false,
+            width: 300
+        }).data("kendoWindow");
+
+        detailsTemplate = kendo.template($("#template").html());
+    });
+
+    function serialize(data) {
+        for (var property in data) {
+            if ($.isArray(data[property])) {
+                serializeArray(property, data[property], data);
+            }
+        }
+
+        return { "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() }
+    }
+
+    function serializeArray(prefix, array, result) {
+        for (var i = 0; i < array.length; i++) {
+            if ($.isPlainObject(array[i])) {
+                for (var property in array[i]) {
+                    result[prefix + "[" + i + "]." + property] = array[i][property];
+                }
+            }
+            else {
+                result[prefix + "[" + i + "]"] = array[i];
+            }
+        }
+    }
+
+    function deleteCmd(e) {
+        e.preventDefault();
+
+        var grid = this;
+        var row = $(e.currentTarget).closest("tr");
+
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        wnd.content(detailsTemplate(dataItem));
+
+        wnd.center().open();
+
+        $("#yes").click(function () {
+            grid.removeRow(row);
+            wnd.close();
+        });
+
+        $("#no").click(function () {
+            wnd.close();
+        });
+    }
+
+    var getImage = function (data) {
+        var root = "<img src='/Content/Directors/";
+        var ending = "' alt='no-image' class='images-grid'/>";
+        if (data != null) {
+            return root + data + ending;
+        }
+        else {
+            return root + "noPoster.jpg" + ending;
+        }
+    }
+
+</script>
+
+<script type="text/x-kendo-template" id="template">
+    <h2>Delete?</h2>
+    <div id="details-container">
+        <div class="confirm-delete-poster">#= getImage(Picture) #</div>
+        <label class="label label-info mylabel">Name</label><i>#= FirstName # #= LastName #</i>
+        <br />
+        <button id="yes" class="k-button">Yes</button>
+        <button id="no" class="k-button">No</button>
+    </div>
+</script>

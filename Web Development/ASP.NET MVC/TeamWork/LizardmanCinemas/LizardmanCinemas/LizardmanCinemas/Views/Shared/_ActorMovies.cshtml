@@ -1,0 +1,8 @@
+﻿@model LizardmanCinemas.Models.Actor
+
+<h2>@string.Format("{0} {1}'s Movies", Model.FirstName, Model.LastName)</h2>
+
+@foreach (var movie in Model.Movies)
+{
+    @Html.ActionLink(string.Format("{0} ({1})", movie.Title, movie.Year), "Details", "Movies", new { id = movie.Id }, null);
+}

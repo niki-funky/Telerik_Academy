@@ -1,0 +1,39 @@
+﻿@model IEnumerable<LizardmanCinemas.ViewModels.MovieShortViewModel>
+
+@{
+    ViewBag.Title = "Movies";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<script type="text/x-kendo-tmpl" id="template">
+    <div class="product">
+        <a href="Movies/Details/#:Id#">
+            #if(data.Poster != null){#
+            <img src="/Content/Posters/#: Poster #" alt="#:Title#" />
+            #}else{#
+            <img src="/Content/Posters/noPoster.jpg" alt="#:Title#" />
+            #}#
+            <h3>#:Title#</h3>
+            <p>#:Year#</p>
+        </a>
+    </div>
+</script>
+
+<script type="text/javascript">
+    var template = kendo.template($("#template").html(), { useWithBlock: false });
+</script>
+
+<div class="demo-section">
+    @(Html.Kendo().ListView<LizardmanCinemas.ViewModels.MovieShortViewModel>(Model)
+    .Name("listView")
+    .TagName("div")
+    .ClientTemplateId("template")
+    .DataSource(dataSource =>
+    {
+        dataSource.Read(read => read.Action("ReadMovies", "Movies"));
+        dataSource.PageSize(10);
+    })
+    .Pageable()
+    )
+</div>

@@ -1,0 +1,11 @@
+﻿
+@{
+    Layout = null;
+}
+
+@(
+ Html.Kendo().DropDownList().Name("Sex")
+     .DataValueField("Value")
+            .DataTextField("Text")
+                .DataSource(ds => ds.Read("GetAllSexes", "ActorAdmin", new { area = "Admin" }))
+)

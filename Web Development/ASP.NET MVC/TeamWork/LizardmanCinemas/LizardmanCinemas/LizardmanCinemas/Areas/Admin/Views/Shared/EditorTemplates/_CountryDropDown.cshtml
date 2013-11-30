@@ -1,0 +1,12 @@
+﻿@model LizardmanCinemas.ViewModels.MovieVM
+
+@{
+    Layout = null;
+}
+
+@(
+ Html.Kendo().DropDownList().Name("Country")
+     .DataValueField("Id")
+            .DataTextField("Name")
+                .DataSource(ds => ds.Read("GetAllCountries", "MovieAdmin", new { area = "Admin" }))
+)

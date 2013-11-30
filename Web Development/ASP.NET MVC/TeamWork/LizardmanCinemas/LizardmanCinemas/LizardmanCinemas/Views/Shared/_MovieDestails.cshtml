@@ -1,0 +1,152 @@
+﻿@using Microsoft.AspNet.Identity
+@model LizardmanCinemas.Models.Movie
+
+@{
+    var directorName = string.Format("{0} {1}", Model.Director.FirstName, Model.Director.LastName);
+
+    var posterPath = "/Content/Posters/" + Model.Poster;
+}
+
+<div>
+    <div class="movie-title">@Html.DisplayFor(model => model.Title)</div>
+
+    <div class="movie-details"><img src=@posterPath alt="poster" style="width: 180px; height: 270px" /></div>
+    
+    @if (!string.IsNullOrEmpty(Model.Trailer))
+{
+    <div class="movie-details">
+        <iframe width="420" height="315" src="//www.youtube.com/embed/@Model.Trailer.Split('=')[1]" frameborder="0" allowfullscreen></iframe>
+    </div>
+}
+
+    <div class="movie-details">Director: @Html.ActionLink(directorName, "Details", "Directors", new { Area = "", id = Model.Director.Id }, null)</div>
+
+    <div class="movie-details">
+        Artists:
+        <ul class="artists-list">
+            @foreach (var actor in Model.Actors)
+            {
+                <li>
+                    @Html.ActionLink((actor.FirstName + " " + actor.LastName), "Details", "Actors", new { Area = "", id = actor.Id }, null)
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="movie-details">Year: @Html.DisplayFor(model => model.Year)</div>
+    <div class="movie-details">Duration: @Html.DisplayFor(model => model.Duration) minutes</div>
+    <div class="movie-details">Country: @Html.DisplayFor(model => model.Country.Name)</div>
+    <div class="movie-details">Category: @Html.ActionLink(@Model.Category.Name, "Details", "Categories", new { Area = "", id = Model.Category.Id }, null)</div>
+
+    <div class="movie-details">
+        Trailer:
+        @if (String.IsNullOrEmpty(Model.Trailer))
+        {
+            @: not available
+        }
+        else
+        {
+            @Html.DisplayFor(model => model.Trailer)
+        }
+    </div>
+
+    <div class="movie-details">
+        Parent Guide:
+        @if (Model.ParentsGuide == LizardmanCinemas.Models.ParentsGuide.Under12)
+        {
+            <img src="~/Content/ParentsGuide/PEGI_12.png" alt="Under 12" style="width: 40px; height:40px" />
+        }
+        else if (Model.ParentsGuide == LizardmanCinemas.Models.ParentsGuide.Under16)
+        {
+            <img src="~/Content/ParentsGuide/PEGI_16.png" alt="Under 16" />
+        }
+        else if (Model.ParentsGuide == LizardmanCinemas.Models.ParentsGuide.Under18)
+        {
+            <img src="~/Content/ParentsGuide/PEGI_18.png" alt="Under 18" />
+        }
+    </div>
+    <p class="movie-details">
+        Description:
+        @Html.DisplayFor(model => model.Description)
+    </p>
+    @{
+        var count = Model.Votes.Where(x => x.MovieId == Model.Id).Sum(x => x.IsLike);
+    }
+    <div class="movie-details">Votes: @count</div>
+</div>
+
+<div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (!Model.Votes.Any(x => x.UserId == User.Identity.GetUserId() && x.MovieId == Model.Id))
+        {
+            using (Html.BeginForm("VoteUp", "Movies", new {id = Model.Id}, FormMethod.Post, new {style = "display: inline-block; margin-right: 10px;"}))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <input type="submit" class="btn" value="Vote Up" />
+            }
+
+            using (Html.BeginForm("VoteDown", "Movies", new {id = Model.Id}, FormMethod.Post, new {style = "display: inline-block"}))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <input type="submit" class="btn" value="Vote Down" />
+            }
+        }
+    }
+    else
+    {
+        <p class="lead">Login to vote for this film</p>
+    }
+</div>
+
+<div class="movie-comments">
+    <h4>Comments</h4>
+    <hr />
+
+    @if (Model.Comments.Count == 0)
+    {
+        <p>Be the first to comment this film</p>
+    }
+    else
+    {
+        foreach (var comment in Model.Comments)
+        {
+            <p>@comment.CommentText</p>
+            <div class="pull-left">
+                <em>
+                    commented by <span class="bold">@Html.ActionLink(comment.User.UserName, "Details", "Users", new { id = comment.User.Id }, null)</span>
+                    on @string.Format("{0:dd.MM.yyyy}", comment.CreatedOn)
+                </em>
+            </div>
+            <hr />
+        }
+    }
+</div>
+
+
+@using (Html.BeginForm("AddComment", "Movies", new { id = Model.Id }, FormMethod.Post, null))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <legend>Add Comments</legend>
+
+    if (User.Identity.IsAuthenticated)
+    {
+        <label for="movie-comments"></label>
+        <input type="text" id="movie-comments" name="comment" /> <br />
+        <input type="submit" class="btn" value="Add" />
+    }
+    else
+    {
+        <p class="lead">Login to add comments for this film</p>
+    }
+}
+
+
+<p>
+    @Html.ActionLink("Back to Movies", "Index", null, new { @class = "btn" })
+</p>

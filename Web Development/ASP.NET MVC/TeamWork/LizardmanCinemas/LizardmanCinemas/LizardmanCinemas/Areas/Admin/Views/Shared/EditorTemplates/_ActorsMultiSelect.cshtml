@@ -1,0 +1,12 @@
+﻿@{
+    Layout = null;
+}
+
+@(Html.Kendo().MultiSelect()
+          .Name("Actors")
+          .DataValueField("Id")
+          .DataTextField("Name")
+          .Placeholder("Select actors...")
+              .DataSource(ds => ds.Read(r => r.Action("GetAllActors", "MovieAdmin", new { area = "Admin" }).Data("onActorsBinding"))
+              .ServerFiltering(true))
+)

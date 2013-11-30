@@ -1,0 +1,12 @@
+﻿@model LizardmanCinemas.ViewModels.MovieVM
+
+@{
+    Layout = null;
+}
+
+@(
+ Html.Kendo().DropDownListFor(m => m).Name("ParentsGuideId")
+     .DataValueField("Id")
+            .DataTextField("Name")
+                .DataSource(ds => ds.Read("GetAllParentsGuides", "MovieAdmin", new { area = "Admin" }))
+)

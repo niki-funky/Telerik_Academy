@@ -1,0 +1,131 @@
+﻿@model IEnumerable<LizardmanCinemas.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@(Html.Kendo().Grid(Model)
+            .Name("grdCategories")
+            .BindTo(Model)
+            .Columns(columns =>
+            {
+                columns.Bound(b => b.Name);
+                columns.Command(commands =>
+                {
+                    commands.Edit();
+                    commands.Custom("Delete").Click("deleteCmd");
+                }).Title("Action");
+            })
+            .Pageable()
+            .Sortable()
+            .ToolBar(toolbar => toolbar.Create())
+            .Editable(editable => editable
+                     .Mode(GridEditMode.PopUp)
+                     .TemplateName("grdCategoryEditTemplate")
+                     .DisplayDeleteConfirmation(false))
+            .DataSource(dataSource => dataSource
+                    .Ajax()
+                    .PageSize(5)
+                    .Events(events => events.Error("error_handler"))
+                    .Model(model => model.Id(p => p.Id))
+                    .Create(c => c.Action("Create", "CategoryAdmin", new { area = "Admin" }).Data("sendAntiForgery"))
+                    .Read(read => read.Action("Read", "CategoryAdmin", new { area = "Admin" }).Data("serialize"))
+                    .Update(update => update.Action("Edit", "CategoryAdmin").Data("serialize"))
+                    .Destroy(update => update.Action("Delete", "CategoryAdmin").Data("sendAntiForgery")))
+            )
+
+<div id="modalWindow">
+</div>
+
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+
+    function sendAntiForgery() {
+        return { "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() };
+    }
+
+    var wnd;
+
+    $(document).ready(function () {
+        wnd = $("#modalWindow").kendoWindow({
+            title: "Delete confirmation",
+            modal: true,
+            visible: false,
+            resizable: false,
+            width: 300
+        }).data("kendoWindow");
+
+        detailsTemplate = kendo.template($("#template").html());
+    });
+
+    function serialize(data) {
+        for (var property in data) {
+            if ($.isArray(data[property])) {
+                serializeArray(property, data[property], data);
+            }
+        }
+
+        return { "__RequestVerificationToken": $('input[name=__RequestVerificationToken]').val() }
+    }
+
+    function serializeArray(prefix, array, result) {
+        for (var i = 0; i < array.length; i++) {
+            if ($.isPlainObject(array[i])) {
+                for (var property in array[i]) {
+                    result[prefix + "[" + i + "]." + property] = array[i][property];
+                }
+            }
+            else {
+                result[prefix + "[" + i + "]"] = array[i];
+            }
+        }
+    }
+
+    function deleteCmd(e) {
+        e.preventDefault();
+
+        var grid = this;
+        var row = $(e.currentTarget).closest("tr");
+
+
+        var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+        wnd.content(detailsTemplate(dataItem));
+
+        wnd.center().open();
+
+        $("#yes").click(function () {
+            grid.removeRow(row);
+            wnd.close();
+        });
+
+        $("#no").click(function () {
+            wnd.close();
+        });
+    }
+
+</script>
+
+<script type="text/x-kendo-template" id="template">
+    <h2>Delete?</h2>
+    <div id="details-container">
+        <label class="label">Name</label><i>#= Name #</i>
+        <br />
+        <button id="yes" class="k-button">Yes</button>
+        <button id="no" class="k-button">No</button>
+    </div>
+</script>

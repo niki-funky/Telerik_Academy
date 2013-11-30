@@ -1,0 +1,43 @@
+@using LizardmanCinemas.Data;
+@using LizardmanCinemas.Models;
+@using Microsoft.AspNet.Identity
+
+@{
+    string userId = User.Identity.GetUserId();
+    DataContext db = new DataContext();
+
+    var user = db.Users.Find(userId);
+}
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-form pull-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav">
+            @{
+                var display = "hidden";
+                if (user != null && !string.IsNullOrEmpty(user.ProfilePicture))
+                {
+                    display = "visible";
+                    <li>
+                        <img src="~/Content/Avatars/@user.ProfilePicture" style="visibility:@display; width: 40px; height: 40px;" />
+                    </li>
+                }
+            }
+
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Manage", "Account", new { area = "" }, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav pull-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

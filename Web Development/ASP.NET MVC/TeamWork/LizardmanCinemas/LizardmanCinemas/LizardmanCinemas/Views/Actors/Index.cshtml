@@ -1,0 +1,81 @@
+﻿@model IEnumerable<LizardmanCinemas.ViewModels.ActorsShortViewModel>
+
+@{
+    ViewBag.Title = "Actors";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<script type="text/x-kendo-tmpl" id="template">
+    <div class="product">
+        <a href="Actors/Details/#:Id#" >
+            #if(data.Picture != null){#
+            <img src="/Content/Actors/#: Picture #" alt="#:Name#" />
+            #}else{#
+            <img src="/Content/Actors/noPoster.jpg" alt="#:Name#" />
+            #}#
+            <h3>#:Name#</h3>
+            <p>#:Name#</p>
+        </a>
+    </div>
+</script>
+
+<div class="demo-section">
+    @(Html.Kendo().ListView<LizardmanCinemas.ViewModels.ActorsShortViewModel>(Model)
+    .Name("listView")
+    .TagName("div")
+    .ClientTemplateId("template")
+    .DataSource(dataSource =>
+    {
+        dataSource.Read(read => read.Action("ReadActors", "Actors"));
+        dataSource.PageSize(10);
+    })
+    .Pageable()
+    )
+</div>
+
+
+@*@model IEnumerable<LizardmanCinemas.Models.Actor>
+
+@{
+    ViewBag.Title = "Actors";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@(Html.Kendo()
+.Grid(Model)
+.Name("actors-grid")
+.Columns(columns =>
+{
+    columns.Bound(actor => actor.FirstName);
+    columns.Bound(actor => actor.LastName);
+    columns.Bound(actor => actor.Age);
+    columns.Bound(actor => actor.Picture);
+    columns.Bound(actor => actor.Id)
+        .Title("Show Movies")
+        .Template(
+        @<text>
+            @Ajax.ActionLink("Movies", "ActorMovies", new { id = @item.Id },
+                    new AjaxOptions
+                    {
+                        HttpMethod = "GET",
+                        InsertionMode = InsertionMode.Replace,
+                        UpdateTargetId = "partial-content",
+                        OnSuccess = "hideCreateButton",
+                    }, new { @class = "btn", id = "create-button" })
+        </text>);
+    columns.Bound(actor => actor.Id)
+        .Title("Details")
+        .Template(
+        @<text>
+            @Html.ActionLink("Details", "Details", new { id = @item.Id }, new { @class = "btn" })
+        </text>
+        );
+            })
+                .Pageable()
+                .Sortable()
+        //.Editable(editable => editable.Mode(GridEditMode.InLine))
+)
+
+<div id="partial-content"></div>*@
