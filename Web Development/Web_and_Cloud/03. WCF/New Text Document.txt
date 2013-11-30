@@ -1,0 +1,4 @@
+<%@ ServiceHost Language="C#" Debug="true" Service="WcfServiceString.Library.ServiceString" CodeBehind="ServiceDateTime.svc.cs" %>
+
+
+<%@ ServiceHost Language="C#" Debug="true" Service="WcfServiceString.IIS.Service1" CodeBehind="Service1.svc.cs" %>

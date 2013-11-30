@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Task 3</title>
+    <script src="scripts/external/jquery-2.0.3.js"></script>
+    <script src="scripts/external/jquery.ui.datepicker.js"></script>
+    <script src="scripts/http-requester.js"></script>
+    <script src="scripts/printData.js"></script>
+    <script src="scripts/url.js"></script>
+    <script src="scripts/manageData.js"></script>
+    <link href="styles/StyleSheet1.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <label for="title">Album title: </label>
+        <input id="title" type="text" />
+        <label for="releaseDate">Release date: </label>
+        <input id="releaseDate" type="text" />
+        <label for="producer">Producer: </label>
+        <input id="producer" type="text" />
+        <button id="create">Create album</button>
+    </div>
+    <br />
+    <p>Albums list:</p>
+    <table></table>
+    <div id="buttons">
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
+    </div>
+    <script type="text/javascript">
+        // button create
+        $('#create').on("click", function () {
+            addAlbum(
+                $('#title').val(),
+                $('#releaseDate').val(),
+                $('#producer').val());
+        });
+
+        var counterPage = 0;
+
+        $('#prev').on("click", function () {
+            if (counterPage <= 0) {
+                counterPage = 0;
+                url = getUrl(counterPage);
+            }
+            else {
+                counterPage--;
+                url = getUrl(counterPage);
+            }
+        });
+
+        $('#next').on("click", function () {
+
+            if (numberOfItems == 0) {
+                counterPage--;
+                url = getUrl(counterPage);
+            }
+            else {
+                counterPage++;
+                url = getUrl(counterPage);
+            }
+        });
+
+        // update table content continuously
+        setInterval(function () {
+            readData();
+        }, 500);
+    </script>
+</body>
+</html>

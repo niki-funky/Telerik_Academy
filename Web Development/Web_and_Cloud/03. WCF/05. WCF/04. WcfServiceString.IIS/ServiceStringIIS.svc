@@ -1,0 +1,2 @@
+﻿<xmlns="http://www.w3.org/1999/xhtml"><xmlns="http://www.w3.org/1999/xhtml">
+<%@ ServiceHost Language="C#" Debug="true" Service="WcfServiceString.Lib.ServiceString" %>
